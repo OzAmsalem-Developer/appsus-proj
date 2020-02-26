@@ -3,21 +3,22 @@ export default {
     <section v-if="email"
     class="email-preview"
     :class="emailClass">
-            <div class="email-from">{{email.from}}</div>
-            <div class="email-subject">{{email.subject}}</div>
-            <div class="email-body">{{email.body}}</div>
-            <div class="email-sent">{{email.sentAt}}</div>
+            <span class="email-from">{{email.from}}</span>
+            <span class="email-subject">{{email.subject}}</span>
+            <span class="email-subject">{{email.subject}}</span>
+            <span class="email-body">{{email.body}}</span>
+            <span class="email-sent">{{email.sentAt}}</span>
     </section>
     `,
     props: ['email'],
     data() {
         return {
-        
+
         }
     },
     computed: {
         emailClass() {
-            return (this.email.isRead) ? 'email-read': 'email-unread'
+            return (this.email.isRead) ? 'email-read' : 'email-unread'
         }
     }
 }

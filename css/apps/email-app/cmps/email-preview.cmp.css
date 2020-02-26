@@ -8,7 +8,6 @@
     border-bottom: solid 1px black;
     margin-bottom: 5px;
     height: 3rem;
-
 }
 
 .email-preview>* {
@@ -23,13 +22,11 @@
 }
 
 .email-unread {
-    background-color: rgb(245, 245, 245);
+    background-color: rgb(179, 233, 255);
     font-weight: bold;
-    
 }
+
 .email-read {
-    background-color: rgb(194, 194, 194);
     font-weight: normal;
-
+    background-color: rgb(241, 241, 241);
 }
-

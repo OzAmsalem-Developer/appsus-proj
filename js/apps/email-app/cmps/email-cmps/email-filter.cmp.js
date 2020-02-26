@@ -3,7 +3,9 @@ import searchBar from '../../../../cmps/search-bar.cmp.js'
 export default {
     template: `
     <section class="email-filter">
-        <search-bar @filtered="setFilter(filterBy)" :searchData=""></search-bar>
+        <search-bar @filtered="setFilter" 
+        :searchData="searchData">
+        </search-bar>
     </section>
     `
     ,
@@ -13,7 +15,7 @@ export default {
                 placeholder: 'Search mail',
                 selectOptions: ['All', 'Read', 'Unread']
             },
-            filterBy: null
+            filterBy: {}
         }
     },
     methods: {

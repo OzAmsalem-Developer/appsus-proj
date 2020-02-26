@@ -1,20 +1,37 @@
 export default {
     template: `
     <section class="search-bar">
-        <h1>Email filter</h1>
+
+        <input type="text" class="search-txt"
+        v-model="filterBy.txt"
+        :placeholder="searchData.placeholder"
+        @input="emitFilter">
+
+        <select value="All" class="search-select" 
+        v-model="filterBy.selectedOption"
+        @change="emitFilter">
+
+            <option class="select-option"
+             v-for="option in searchData.selectOptions">
+            {{option}}
+            </option>
+
+        </select>
     </section>
     `
     ,
     data() {
         return {
             filterBy: {
-                txt: null,
-                selectedOption: null
+                txt: '',
+                selectedOption: 'All'
             }
         }
     },
     methods: {
         emitFilter() {
+            console.log( this.filterBy);
+            
             this.$emit('filtered', this.filterBy)
         }
     },

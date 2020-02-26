@@ -23,9 +23,6 @@ export default {
     },
     methods: {
         selectEmail(emailId) {
-            // this.selectedEmail = idx
-            // this.emails[idx].isRead = true
-            // console.log(this.emails[idx].isRead)
             this.$emit('updateEmail', emailId, 'isRead', true)
         },
         setFilter(filterBy) {

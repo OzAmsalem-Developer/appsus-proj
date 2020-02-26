@@ -1,12 +1,15 @@
 .email-extended-preview {
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    align-items: center;
+    justify-content: center;
+    align-items: start;
     margin-bottom: 10px;
 }
 
 .email-extended-subject-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 10px;
 }
 

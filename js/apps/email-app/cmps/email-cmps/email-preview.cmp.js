@@ -9,7 +9,7 @@ export default {
             <div class="email-sent">{{email.sentAt}}</div>
     </section>
     `,
-    props: ['email', 'idx'],
+    props: ['email'],
     data() {
         return {
         

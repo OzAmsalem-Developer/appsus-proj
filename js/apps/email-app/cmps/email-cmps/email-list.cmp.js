@@ -8,9 +8,9 @@ export default {
         <h1>Emails List:</h1>
 
         <email-preview v-for="(email, idx) in emails" 
-        :email="email" :idx="idx" 
+        :email="email" 
         :key="email.id"
-        @click.native="selectEmail(idx)">
+        @click.native="selectEmail(email.id)">
             
         </email-preview>
     </section>
@@ -21,10 +21,11 @@ export default {
         }
     },
     methods: {
-        selectEmail(idx) {
-            this.selectedEmail = idx
-            console.log(this.selectedEmail)
-            this.emails[idx].isRead = true
+        selectEmail(emailId) {
+            // this.selectedEmail = idx
+            // this.emails[idx].isRead = true
+            // console.log(this.emails[idx].isRead)
+            this.$emit('updateEmail' ,emailId, 'isRead', true)
         }
     },
     components: {
@@ -34,4 +35,4 @@ export default {
     props:['emails'],
 }
 
-{/* <long-preview v-if="selectedEmail === idx"><long-preview></long-preview> */}
+/* <long-preview v-if="selectedEmail === idx"><long-preview></long-preview> */

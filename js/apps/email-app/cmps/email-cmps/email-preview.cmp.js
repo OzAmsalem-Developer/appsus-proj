@@ -12,7 +12,7 @@ export default {
     props: ['email', 'idx'],
     data() {
         return {
-            unread: true,
+        
         }
     },
     computed: {

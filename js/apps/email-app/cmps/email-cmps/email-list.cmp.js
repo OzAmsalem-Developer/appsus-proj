@@ -24,6 +24,7 @@ export default {
         selectEmail(idx) {
             this.selectedEmail = idx
             console.log(this.selectedEmail)
+            this.emails[idx].isRead = true
         }
     },
     components: {

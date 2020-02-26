@@ -8,7 +8,8 @@ import emailSideFilter from '../cmps/email-side-filter.cmp.js'
 export default {
     template: `
     <section class="email-app">
-        <email-compose @click.native="composeEmail">
+        <email-compose @click.native="composeEmail"
+        :isCompose="isCompose">
         </email-compose>
         <email-side-filter @filtered="setSideFilter">
         </email-side-filter>

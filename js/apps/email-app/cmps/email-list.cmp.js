@@ -1,5 +1,6 @@
 import emailPreview from '../cmps/email-preview.cmp.js'
 import emailExtended from '../cmps/email-extended.cmp.js'
+import {eventBus} from '../../../services/eventBus.service.js'
 
 export default {
     template: `
@@ -31,14 +32,17 @@ export default {
         }
     },
     watch: {
-        filterBy: function () {
-            this.selectedEmailId = null
-        }
-    },
+        emails: {
+            handler() {
+                 this.selectedEmailId = null
+            },
+            deep: true
+        } 
+     },
     components: {
         emailPreview,
         emailExtended
     },
-    props: ['emails', 'filterBy'],
+    props: ['emails']
 }
 

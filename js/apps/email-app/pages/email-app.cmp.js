@@ -1,8 +1,8 @@
 import { eventBus, EMAILS_FILTERED_EV } from '../../../services/eventBus.service.js'
 import { emailService } from '../../../services/email.service.js'
 import emailList from '../cmps/email-list.cmp.js'
-import emailFilter from '../cmps/email-filter.cmp.js'
 import emailCompose from '../cmps/email-compose.cmp.js'
+import searchBar from '../../../cmps/search-bar.cmp.js'
 import emailSideFilter from '../cmps/email-side-filter.cmp.js'
 
 export default {
@@ -13,11 +13,12 @@ export default {
         </email-compose>
         <email-side-filter @filtered="setSideFilter">
         </email-side-filter>
-        <email-filter></email-filter>
+
+        <search-bar @filtered="setFilter" :searchData="searchData">
+        </search-bar>
 
         <email-list v-if ="emails" 
         :emails="emailsForDisplay"
-        :filterBy="filterBy"
         @updateEmail="updateEmail">
         </email-list>
     </section>
@@ -31,13 +32,17 @@ export default {
                 readUnread: 'All',
                 sideFilter: 'inbox'
             },
-            isCompose: false
+            isCompose: false,
+            searchData: {
+                placeholder: 'Search mail',
+                selectOptions: ['All', 'Read', 'Unread']
+            }
         }
     },
     components: {
-        emailFilter,
         emailList,
         emailCompose,
+        searchBar,
         emailSideFilter
     },
     methods: {
@@ -51,7 +56,11 @@ export default {
         },
         setSideFilter(by) {
             this.filterBy.sideFilter = by
-        }
+        },
+        setFilter(filterBy) {
+            this.filterBy.txt = filterBy.txt
+            this.filterBy.readUnread = filterBy.selectedOption
+        } 
     },
     computed: {
         emailsForDisplay() {
@@ -80,10 +89,5 @@ export default {
             .then(emails => {
                 this.emails = emails
             })
-
-        eventBus.$on(EMAILS_FILTERED_EV, (filterBy) => {
-            this.filterBy.txt = filterBy.txt
-            this.filterBy.readUnread = filterBy.readUnread
-        })
     }
 }

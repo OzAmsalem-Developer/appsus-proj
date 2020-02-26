@@ -6,7 +6,6 @@ import emailFilter from '../cmps/email-filter.cmp.js'
 export default {
     template: `
     <section class="email-app">
-        <h1>email</h1>
         <email-list v-if ="emails" 
         :emails="emailsForDisplay"
         @updateEmail="updateEmail">
@@ -25,8 +24,8 @@ export default {
         emailList
     },
     methods: {
-        updateEmail(emailId, prop, value) {
-            emailService.updateEmail(emailId, prop, value)
+        updateEmail(emailId, prop, val) {
+            emailService.updateEmail(emailId, prop, val)
         }
     },
     computed: {
@@ -53,12 +52,9 @@ export default {
         emailService.getEmails()
             .then(emails => {
                 this.emails = emails
-                console.log('Emails Data:', this.emails)
             })
 
         eventBus.$on(EMAILS_FILTERED_EV, (filterBy) => {
-            console.log('ss');
-
             this.filterBy = JSON.parse(JSON.stringify(filterBy))
         })
     }

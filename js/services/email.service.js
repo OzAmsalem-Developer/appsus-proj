@@ -38,6 +38,9 @@ function _createEmail(from = utilService.createWord(6)) {
         subject: utilService.makeLorem(50),
         body: utilService.makeLorem(utilService.getRandom(10, 150)),
         isRead: false,
-        sentAt: Date.now()
+        sentAt: Date.now(),
+        boxes: ['inbox', 'sentBox', 'notes'],
+        isDraft: false,
+        isStarred: false
     }
 }

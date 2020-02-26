@@ -5,10 +5,10 @@ import emailExtended from '../cmps/email-extended.cmp.js'
 export default {
     template: `
     <section class="email-list">
-        <email-filter @filtered="setFilter"></email-filter>
+        <email-filter></email-filter>
         <h1>Emails List:</h1>
 
-        <div v-for="(email, idx) in emails" class="email-previews">
+        <div v-for="email in emails" class="email-previews">
             <email-preview
             :email="email" 
             :key="email.id"
@@ -26,18 +26,12 @@ export default {
     data() {
         return {
             selectedEmailId: null,
-            filterBy: null
         }
     },
     methods: {
         selectEmail(emailId) {
             this.selectedEmailId = emailId
-            // console.log(this.selectedEmailId)
             this.$emit('updateEmail', emailId, 'isRead', true)
-        },
-        setFilter(filterBy) {
-            console.log(filterBy);
-            this.filterBy = filterBy
         }
     },
     components: {
@@ -47,3 +41,4 @@ export default {
     },
     props: ['emails'],
 }
+

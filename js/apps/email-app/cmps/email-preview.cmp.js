@@ -21,3 +21,5 @@ export default {
         }
     }
 }
+
+// <div class="email-preview"><span class="from"></span></div>

@@ -6,11 +6,28 @@ export default {
     template: `
     <section class="email-app">
         <h1>email</h1>
+        <email-list v-if ="emails" :emails="emails"></email-list>
     </section>
     `
     ,
+    data() {
+        return {
+            emails: null,
+        }
+    },
     components: {
         emailFilter,
         emailList
+    },
+    methods: {
+
+    },
+    created() {
+        emailService.getEmails()
+            .then(emails => {
+                this.emails = emails
+                console.log('Emails Data:', this.emails)
+            })
+            
     }
 }

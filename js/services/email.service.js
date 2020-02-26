@@ -2,7 +2,7 @@ import {utilService} from '../services/util.service.js'
 import {storageService} from '../services/storage.service.js'
 
 export const emailService = {
-
+    getEmails,
 }
 
 const EMAIL_KEY = 'emails'

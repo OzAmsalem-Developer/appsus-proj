@@ -30,8 +30,6 @@ export default {
     },
     methods: {
         emitFilter() {
-            console.log( this.filterBy);
-            
             this.$emit('filtered', this.filterBy)
         }
     },

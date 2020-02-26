@@ -24,10 +24,10 @@ export default {
     methods: {
         selectEmail(idx) {
             this.selectedEmail = idx
-            console.log(this.selectedEmail)
             this.emails[idx].isRead = true
         },
         setFilter(filterBy) {
+            console.log(filterBy);
             this.filterBy = filterBy
         }
     },

@@ -1,3 +1,2 @@
-
-// use this convence: EVENT_SHOW_MSG = 'showMsg';
+export const EMAILS_FILTERED_EV = 'emailsFiltered'
 export const eventBus = new Vue()

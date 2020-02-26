@@ -1,4 +1,5 @@
 import searchBar from '../../../../cmps/search-bar.cmp.js'
+import {eventBus, EMAILS_FILTERED_EV} from '../../../../services/eventBus.service.js'
 
 export default {
     template: `
@@ -23,7 +24,7 @@ export default {
                 txt: filterBy.txt,
                 isRead: filterBy.selectedOption
             }
-            this.$emit('filtered', filter)
+            eventBus.$emit(EMAILS_FILTERED_EV, filter)
         }
     },
     components: {

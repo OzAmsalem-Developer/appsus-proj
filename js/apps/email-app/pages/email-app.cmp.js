@@ -1,4 +1,3 @@
-import { eventBus, EMAILS_FILTERED_EV } from '../../../services/eventBus.service.js'
 import { emailService } from '../../../services/email.service.js'
 import emailList from '../cmps/email-list.cmp.js'
 import emailCompose from '../cmps/email-compose.cmp.js'
@@ -7,13 +6,16 @@ import emailSideFilter from '../cmps/email-side-filter.cmp.js'
 
 export default {
     template: `
-    <section class="email-app">
+    <section class="email-app" v-if="emails">
         <email-compose @click.native="composeEmail">
         </email-compose>
-        <email-side-filter @filtered="setSideFilter">
+
+        <email-side-filter @filtered="setSideFilter" 
+        :unreadCount="unreadCount">
         </email-side-filter>
 
-        <search-bar @filtered="setFilter" :searchData="searchData">
+        <search-bar @filtered="setFilter" 
+        :searchData="searchData">
         </search-bar>
 
         <email-list v-if ="emails" 
@@ -59,7 +61,7 @@ export default {
         setFilter(filterBy) {
             this.filterBy.txt = filterBy.txt
             this.filterBy.readUnread = filterBy.selectedOption
-        } 
+        }
     },
     computed: {
         emailsForDisplay() {
@@ -69,11 +71,11 @@ export default {
                 const subject = email.subject.toLowerCase()
                 const body = email.body.toLowerCase()
                 const fromName = email.from.toLowerCase()
-                
+
                 return (subject.includes(txt) || body.includes(txt) || fromName.includes(txt))
                     && email.boxes[this.filterBy.sideFilter]
             })
-            
+
             if (this.filterBy.readUnread === 'All') return filteredEmails
             else {
                 const isRead = this.filterBy.readUnread === 'Read'
@@ -81,6 +83,13 @@ export default {
                     return email.isRead === isRead
                 })
             }
+        },
+        unreadCount() {
+            let count = 0
+            this.emails.forEach(email => {
+                if (!email.isRead) count++
+            })
+            return (count > 0)? count : '';
         }
     },
     created() {

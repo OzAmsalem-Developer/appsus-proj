@@ -4,7 +4,7 @@ import emailFilter from '../email-cmps/email-filter.cmp.js'
 export default {
     template: `
     <section class="email-list">
-        <email-filter></email-filter>
+        <email-filter @filtered="setFilter"></email-filter>
         <h1>Emails List:</h1>
 
         <email-preview v-for="(email, idx) in emails" 

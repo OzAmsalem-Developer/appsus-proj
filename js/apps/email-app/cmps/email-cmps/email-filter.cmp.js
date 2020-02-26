@@ -14,16 +14,16 @@ export default {
             searchData: {
                 placeholder: 'Search mail',
                 selectOptions: ['All', 'Read', 'Unread']
-            },
-            filterBy: {}
+            }
         }
     },
     methods: {
         setFilter(filterBy) {
-            this.filterBy = {
+            const filter = {
                 txt: filterBy.txt,
                 isRead: filterBy.selectedOption
             }
+            this.$emit('filtered', filter)
         }
     },
     components: {

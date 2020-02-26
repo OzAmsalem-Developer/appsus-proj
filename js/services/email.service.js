@@ -4,11 +4,7 @@ import {storageService} from '../services/storage.service.js'
 export const emailService = {
     getEmails,
     updateEmail,
-<<<<<<< HEAD
     createNewEmail
-=======
-    createNewEmail,
->>>>>>> 5997025e62764ce55d37896340de264112dbeef6
 }
 
 const EMAIL_KEY = 'emails'

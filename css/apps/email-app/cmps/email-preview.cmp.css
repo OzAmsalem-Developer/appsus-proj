@@ -23,11 +23,13 @@
 }
 
 .email-unread {
-    background-color: rgb(214, 79, 255);
+    background-color: rgb(245, 245, 245);
+    font-weight: bold;
     
 }
 .email-read {
-    background-color: rgb(60, 255, 0);
-    font-weight: bold;
+    background-color: rgb(194, 194, 194);
+    font-weight: normal;
+
 }
 

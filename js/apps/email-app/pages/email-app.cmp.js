@@ -1,5 +1,5 @@
-import {eventBus, EMAILS_FILTERED_EV} from '../../../services/eventBus.service.js'
-import {emailService} from '../../../services/email.service.js'
+import { eventBus, EMAILS_FILTERED_EV } from '../../../services/eventBus.service.js'
+import { emailService } from '../../../services/email.service.js'
 import emailList from '../cmps/email-list.cmp.js'
 import emailFilter from '../cmps/email-filter.cmp.js'
 
@@ -8,12 +8,9 @@ export default {
     <section class="email-app">
         <h1>email</h1>
         <email-list v-if ="emails" 
-        :emails="emails"
+        :emails="emailsForDisplay"
         @updateEmail="updateEmail">
         </email-list>
-        <pre>
-        {{emailsForDisplay}}
-        </pre>
     </section>
     `
     ,
@@ -43,9 +40,9 @@ export default {
 
                 return subject.includes(txt) || body.includes(txt) || fromName.includes(txt)
             })
-            if(this.filterBy.readUnread === 'All') return filteredByTxt
+            if (this.filterBy.readUnread === 'All') return filteredByTxt
             else {
-                const isRead = (this.filterBy.readUnread === 'Read')? true : false
+                const isRead = (this.filterBy.readUnread === 'Read') ? true : false
                 return filteredByTxt.filter(email => {
                     return email.isRead === isRead
                 })
@@ -58,11 +55,11 @@ export default {
                 this.emails = emails
                 console.log('Emails Data:', this.emails)
             })
-            
-            eventBus.$on(EMAILS_FILTERED_EV, (filterBy) => {
-                console.log('ss');
-                
-                this.filterBy = JSON.parse(JSON.stringify(filterBy)) 
-            })
+
+        eventBus.$on(EMAILS_FILTERED_EV, (filterBy) => {
+            console.log('ss');
+
+            this.filterBy = JSON.parse(JSON.stringify(filterBy))
+        })
     }
 }

@@ -1,6 +1,6 @@
 export default {
     template: `
-    <section class="email-extended-preview">
+    <section class="email-extended-main">
 
         <div class="email-extended-subject-row">
             <div class="email-extended-subject">

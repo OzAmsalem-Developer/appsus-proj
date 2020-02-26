@@ -7,9 +7,10 @@ export default {
 
         <email-preview v-for="(email, idx) in emails" 
         :email="email" :idx="idx" 
-        :key="email.id">
+        :key="email.id"
+        @click.native="selectEmail(idx)">
         </email-preview>
-        
+
     </section>
     `
     ,
@@ -19,10 +20,13 @@ export default {
     },
     data() {
         return {
-            
+            selectedEmail: null,
         }
     },
-    created() {
-
-    }
+    methods: {
+        selectEmail(idx) {
+            this.selectedEmail = idx
+            console.log(this.selectedEmail)
+        }
+    },
 }

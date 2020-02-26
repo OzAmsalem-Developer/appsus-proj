@@ -1,0 +1,33 @@
+.email-preview {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 1.25rem;
+    background-color: snow;
+    border: solid 1px slategray;
+    border-bottom: solid 1px black;
+    margin-bottom: 5px;
+    height: 3rem;
+
+}
+
+.email-preview>* {
+    margin-right: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.email-sent {
+    justify-self: flex-end;
+}
+
+.email-unread {
+    background-color: pink;
+    
+}
+.email-unread {
+    background-color: rgb(60, 255, 0);
+    font-weight: bold;
+}
+

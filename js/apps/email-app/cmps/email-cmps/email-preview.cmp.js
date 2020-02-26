@@ -1,13 +1,21 @@
 export default {
     template: `
     <section v-if="email" class="email-preview">
-        <hr>
-        <h3>{{email.from}}</h3>
-        <h3>{{email.sentAt}}</h3>
-        <h3>{{email.subject}}</h3>
-        <h3>{{email.body}}</h3>
-        <h3>{{idx}}</h3>
+        <div class="email-from">{{email.from}}</div>
+        <div class="email-subject">{{email.subject}}</div>
+        <div class="email-body">{{email.body}}</div>
+        <div class="email-sent">{{email.sentAt}}</div>
     </section>
     `,
-    props: ['email', 'idx']
+    props: ['email', 'idx'],
+    data() {
+        return {
+            unread: true,
+        }
+    },
+    computed: {
+        emailUnreadState() {
+            
+        }
+    }
 }

@@ -11,6 +11,9 @@ export default {
         :emails="emails"
         @updateEmail="updateEmail">
         </email-list>
+        <pre>
+        {{emailsForDisplay}}
+        </pre>
     </section>
     `
     ,
@@ -31,7 +34,11 @@ export default {
     },
     computed: {
         emailsForDisplay() {
-            
+            if (!this.filterBy) return this.emails
+            return this.emails.filter(email => {
+                return email.subject.includes(this.filterBy.txt) &&
+                    email.isRead === this.filterBy.isRead
+            })
         }
     },
     created() {

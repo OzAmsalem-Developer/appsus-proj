@@ -11,16 +11,10 @@ export default {
         :email="email" :idx="idx" 
         :key="email.id"
         @click.native="selectEmail(idx)">
+            
         </email-preview>
-
     </section>
-    `
-    ,
-    props:['emails'],
-    components: {
-        emailPreview,
-        emailFilter
-    },
+    `,
     data() {
         return {
             selectedEmail: null,
@@ -30,6 +24,14 @@ export default {
         selectEmail(idx) {
             this.selectedEmail = idx
             console.log(this.selectedEmail)
+            this.emails[idx].isRead = true
         }
     },
+    components: {
+        emailPreview,
+        emailFilter
+    },
+    props:['emails'],
 }
+
+{/* <long-preview v-if="selectedEmail === idx"><long-preview></long-preview> */}

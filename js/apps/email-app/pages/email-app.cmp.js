@@ -7,6 +7,11 @@ import emailSideFilter from '../cmps/email-side-filter.cmp.js'
 export default {
     template: `
     <section class="email-app">
+        <email-side-filter @filtered="setSideFilter">
+        </email-side-filter>
+
+        <email-filter></email-filter>
+
         <email-list v-if ="emails" 
         :emails="emailsForDisplay"
         :filterBy="filterBy"
@@ -18,8 +23,11 @@ export default {
     data() {
         return {
             emails: null,
-            filterBy: null,
-            sideFilterBy: null
+            filterBy: {
+                txt: '',
+                readUnread: 'All',
+                sideFilter: 'inbox'
+            }
         }
     },
     components: {
@@ -30,23 +38,28 @@ export default {
     methods: {
         updateEmail(emailId, prop, val) {
             emailService.updateEmail(emailId, prop, val)
+        },
+        setSideFilter(by) {
+            this.filterBy.sideFilter = by
+            console.log(this.filterBy);
         }
     },
     computed: {
         emailsForDisplay() {
             if (!this.filterBy) return this.emails
-            const filteredByTxt = this.emails.filter(email => {
+            const filteredEmails = this.emails.filter(email => {
                 const txt = this.filterBy.txt.toLowerCase()
                 const subject = email.subject.toLowerCase()
                 const body = email.body.toLowerCase()
                 const fromName = email.from.toLowerCase()
-
-                return subject.includes(txt) || body.includes(txt) || fromName.includes(txt)
+                
+                return (subject.includes(txt) || body.includes(txt) || fromName.includes(txt))
+                    && email.boxes[this.filterBy.sideFilter]
             })
-            if (this.filterBy.readUnread === 'All') return filteredByTxt
+            if (this.filterBy.readUnread === 'All') return filteredEmails
             else {
-                const isRead = (this.filterBy.readUnread === 'Read') ? true : false
-                return filteredByTxt.filter(email => {
+                const isRead = this.filterBy.readUnread === 'Read'
+                return filteredEmails.filter(email => {
                     return email.isRead === isRead
                 })
             }

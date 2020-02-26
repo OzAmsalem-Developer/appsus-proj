@@ -1,13 +1,9 @@
 import emailPreview from '../cmps/email-preview.cmp.js'
-import emailFilter from '../cmps/email-filter.cmp.js'
 import emailExtended from '../cmps/email-extended.cmp.js'
 
 export default {
     template: `
     <section class="email-list">
-        <email-filter></email-filter>
-        <h1>Emails List:</h1>
-
         <div v-for="email in emails" class="email-previews">
             <email-preview
             :email="email" 
@@ -41,8 +37,7 @@ export default {
     },
     components: {
         emailPreview,
-        emailFilter,
-        emailExtended,
+        emailExtended
     },
     props: ['emails', 'filterBy'],
 }

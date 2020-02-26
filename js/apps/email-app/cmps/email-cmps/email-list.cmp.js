@@ -1,4 +1,4 @@
-import emailPreview from '../cmps/email-cmps/email-preview.cmp.js'
+import emailPreview from '../email-cmps/email-preview.cmp.js'
 
 export default {
     template: `

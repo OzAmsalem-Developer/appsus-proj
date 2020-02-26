@@ -2,6 +2,7 @@ import { eventBus, EMAILS_FILTERED_EV } from '../../../services/eventBus.service
 import { emailService } from '../../../services/email.service.js'
 import emailList from '../cmps/email-list.cmp.js'
 import emailFilter from '../cmps/email-filter.cmp.js'
+import emailSideFilter from '../cmps/email-side-filter.cmp.js'
 
 export default {
     template: `
@@ -17,12 +18,14 @@ export default {
     data() {
         return {
             emails: null,
-            filterBy: null
+            filterBy: null,
+            sideFilterBy: null
         }
     },
     components: {
         emailFilter,
-        emailList
+        emailList,
+        emailSideFilter
     },
     methods: {
         updateEmail(emailId, prop, val) {

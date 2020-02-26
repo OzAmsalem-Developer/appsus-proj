@@ -18,6 +18,7 @@ export default {
     data() {
         return {
             selectedEmail: null,
+            filterBy: null
         }
     },
     methods: {
@@ -25,14 +26,18 @@ export default {
             // this.selectedEmail = idx
             // this.emails[idx].isRead = true
             // console.log(this.emails[idx].isRead)
-            this.$emit('updateEmail' ,emailId, 'isRead', true)
+            this.$emit('updateEmail', emailId, 'isRead', true)
+        },
+
+        setFilter(filterBy) {
+            this.filterBy = filterBy
         }
     },
     components: {
         emailPreview,
         emailFilter
     },
-    props:['emails'],
+    props: ['emails'],
 }
 
 /* <long-preview v-if="selectedEmail === idx"><long-preview></long-preview> */

@@ -4,6 +4,7 @@ import {storageService} from '../services/storage.service.js'
 export const emailService = {
     getEmails,
     updateEmail,
+    createNewEmail
 }
 
 const EMAIL_KEY = 'emails'
@@ -14,19 +15,19 @@ function getEmails() {
     return Promise.resolve(emailsDB)
 }
 
-function createNewEmail({email}) {
+function createNewEmail(emailInfo) {
     const email = {
         id: utilService.makeId(),
-        from: email.from,
-        subject: email.subject,
-        body: email.body,
+        from: emailInfo.from,
+        subject: emailInfo.subject,
+        body: emailInfo.body,
         isRead: false,
         sentAt: Date.now(),
-        boxes: email.boxes
+        boxes: emailInfo.boxes
     }
-    if (email.boxes.draft) email.isRead = true
-    emailsDB.unshift(emailsDB)
-    storageService.store(EMAIL_KEY, emails)
+    if (email.draft) email.isRead = true
+    emailsDB.unshift(email)
+    storageService.store(EMAIL_KEY, emailsDB)
 }
 
 // Updated the emailsDB and saves it to localstorage. 

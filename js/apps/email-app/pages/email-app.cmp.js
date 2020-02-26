@@ -7,10 +7,7 @@ export default {
     template: `
     <section class="email-app">
         <h1>email</h1>
-        <email-list 
-        v-if ="emails"
-        :emails="emails"
-        @updateEmail="updateEmail"></email-list>
+        <email-list v-if ="emails" :emails="emails"></email-list>
     </section>
     `
     ,
@@ -25,14 +22,11 @@ export default {
         emailList
     },
     methods: {
-        updateEmail(emailId, prop, val) {
-            emailService.updateEmail(emailId, prop, val)
-            console.log(this.emails)
-        }
+
     },
     computed: {
         emailsForDisplay() {
-
+            
         }
     },
     created() {

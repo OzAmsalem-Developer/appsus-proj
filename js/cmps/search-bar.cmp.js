@@ -5,9 +5,9 @@ export default {
         <input type="text" class="search-txt"
         v-model="filterBy.txt"
         :placeholder="searchData.placeholder"
-        @input="emitFilter">
+        @input="emitFilter" />
 
-        <select value="All" class="search-select" 
+        <select class="search-select" 
         v-model="filterBy.selectedOption"
         @change="emitFilter">
 

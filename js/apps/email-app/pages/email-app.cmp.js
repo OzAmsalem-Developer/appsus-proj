@@ -35,10 +35,21 @@ export default {
     computed: {
         emailsForDisplay() {
             if (!this.filterBy) return this.emails
-            return this.emails.filter(email => {
-                return email.subject.includes(this.filterBy.txt) &&
-                    email.isRead === this.filterBy.isRead
+            const filteredByTxt = this.emails.filter(email => {
+                const txt = this.filterBy.txt.toLowerCase()
+                const subject = email.subject.toLowerCase()
+                const body = email.body.toLowerCase()
+                const fromName = email.from.toLowerCase()
+
+                return subject.includes(txt) || body.includes(txt) || fromName.includes(txt)
             })
+            if(this.filterBy.readUnread === 'All') return filteredByTxt
+            else {
+                const isRead = (this.filterBy.readUnread === 'Read')? true : false
+                return filteredByTxt.filter(email => {
+                    return email.isRead === isRead
+                })
+            }
         }
     },
     created() {
@@ -49,7 +60,9 @@ export default {
             })
             
             eventBus.$on(EMAILS_FILTERED_EV, (filterBy) => {
-                this.filterBy = filterBy
+                console.log('ss');
+                
+                this.filterBy = JSON.parse(JSON.stringify(filterBy)) 
             })
     }
 }

@@ -1,5 +1,5 @@
-import searchBar from '../../../../cmps/search-bar.cmp.js'
-import {eventBus, EMAILS_FILTERED_EV} from '../../../../services/eventBus.service.js'
+import searchBar from '../../../cmps/search-bar.cmp.js'
+import {eventBus, EMAILS_FILTERED_EV} from '../../../services/eventBus.service.js'
 
 export default {
     template: `

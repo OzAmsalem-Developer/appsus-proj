@@ -1,5 +1,5 @@
-import emailPreview from '../email-cmps/email-preview.cmp.js'
-import emailFilter from '../email-cmps/email-filter.cmp.js'
+import emailPreview from '../cmps/email-preview.cmp.js'
+import emailFilter from '../cmps/email-filter.cmp.js'
 
 export default {
     template: `
@@ -11,18 +11,20 @@ export default {
         :email="email" 
         :key="email.id"
         @click.native="selectEmail(email.id)">
-            
+        
         </email-preview>
     </section>
     `,
     data() {
         return {
-            selectedEmail: null,
+            selectedEmailId: null,
             filterBy: null
         }
     },
     methods: {
         selectEmail(emailId) {
+            this.selectedEmailId = emailId
+            console.log(this.selectedEmailId)
             this.$emit('updateEmail', emailId, 'isRead', true)
         },
         setFilter(filterBy) {
@@ -37,4 +39,5 @@ export default {
     props: ['emails'],
 }
 
+/* <extended-preview v-if="selectedEmailId === email.id"><long-preview></long-preview> */
 /* <long-preview v-if="selectedEmail === idx"><long-preview></long-preview> */

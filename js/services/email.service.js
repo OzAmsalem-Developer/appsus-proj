@@ -4,6 +4,7 @@ import {storageService} from '../services/storage.service.js'
 export const emailService = {
     getEmails,
     updateEmail,
+    createNewEmail,
 }
 
 const EMAIL_KEY = 'emails'
@@ -14,7 +15,7 @@ function getEmails() {
     return Promise.resolve(emailsDB)
 }
 
-function createNewEmail({email}) {
+function createNewEmail(email) {
     const email = {
         id: utilService.makeId(),
         from: email.from,

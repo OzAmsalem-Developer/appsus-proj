@@ -10,7 +10,11 @@ export default {
     <section class="email-app">
         <email-compose @click.native="composeEmail">
         </email-compose>
-        <email-list v-if ="emails"
+        <email-side-filter @filtered="setSideFilter">
+        </email-side-filter>
+        <email-filter></email-filter>
+
+        <email-list v-if ="emails" 
         :emails="emailsForDisplay"
         :filterBy="filterBy"
         @updateEmail="updateEmail">
@@ -21,8 +25,11 @@ export default {
     data() {
         return {
             emails: null,
-            filterBy: null,
-            sideFilterBy: null,
+            filterBy: {
+                txt: '',
+                readUnread: 'All',
+                sideFilter: 'inbox'
+            },
             isCompose: false
         }
     },
@@ -40,23 +47,28 @@ export default {
             if (this.isCompose) return
             this.isCompose = true
             console.log('isCompose?', this.isCompose)
+        },
+        setSideFilter(by) {
+            this.filterBy.sideFilter = by
         }
     },
     computed: {
         emailsForDisplay() {
             if (!this.filterBy) return this.emails
-            const filteredByTxt = this.emails.filter(email => {
+            const filteredEmails = this.emails.filter(email => {
                 const txt = this.filterBy.txt.toLowerCase()
                 const subject = email.subject.toLowerCase()
                 const body = email.body.toLowerCase()
                 const fromName = email.from.toLowerCase()
-
-                return subject.includes(txt) || body.includes(txt) || fromName.includes(txt)
+                
+                return (subject.includes(txt) || body.includes(txt) || fromName.includes(txt))
+                    && email.boxes[this.filterBy.sideFilter]
             })
-            if (this.filterBy.readUnread === 'All') return filteredByTxt
+            
+            if (this.filterBy.readUnread === 'All') return filteredEmails
             else {
-                const isRead = (this.filterBy.readUnread === 'Read') ? true : false
-                return filteredByTxt.filter(email => {
+                const isRead = this.filterBy.readUnread === 'Read'
+                return filteredEmails.filter(email => {
                     return email.isRead === isRead
                 })
             }
@@ -69,7 +81,8 @@ export default {
             })
 
         eventBus.$on(EMAILS_FILTERED_EV, (filterBy) => {
-            this.filterBy = JSON.parse(JSON.stringify(filterBy))
+            this.filterBy.txt = filterBy.txt
+            this.filterBy.readUnread = filterBy.readUnread
         })
     }
 }

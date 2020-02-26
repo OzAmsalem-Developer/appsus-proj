@@ -11,6 +11,8 @@ export default {
     `
     ,
     methods: {
-
+        emitFilter(by) {
+            this.$emit('filtered', by)
+        }
     }
 }

@@ -4,7 +4,7 @@ import {eventBus, EMAILS_FILTERED_EV} from '../../../services/eventBus.service.j
 export default {
     template: `
     <section class="email-filter">
-        <search-bar @filtered="setFilter" 
+        <search-bar @filtered="emitFilter" 
         :searchData="searchData">
         </search-bar>
     </section>
@@ -19,7 +19,8 @@ export default {
         }
     },
     methods: {
-        setFilter(filterBy) {
+        emitFilter(filterBy) {
+            // Set the correct names from the reusable search cmp
             const filter = {
                 txt: filterBy.txt,
                 readUnread: filterBy.selectedOption

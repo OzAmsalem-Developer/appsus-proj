@@ -8,6 +8,7 @@ export default {
     <section class="email-app">
         <email-list v-if ="emails" 
         :emails="emailsForDisplay"
+        :filterBy="filterBy"
         @updateEmail="updateEmail">
         </email-list>
     </section>

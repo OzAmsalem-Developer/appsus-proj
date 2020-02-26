@@ -34,11 +34,16 @@ export default {
             this.$emit('updateEmail', emailId, 'isRead', true)
         }
     },
+    watch: {
+        filterBy: function () {
+            this.selectedEmailId = null
+        }
+    },
     components: {
         emailPreview,
         emailFilter,
         emailExtended,
     },
-    props: ['emails'],
+    props: ['emails', 'filterBy'],
 }
 

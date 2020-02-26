@@ -2,12 +2,15 @@ import { eventBus, EMAILS_FILTERED_EV } from '../../../services/eventBus.service
 import { emailService } from '../../../services/email.service.js'
 import emailList from '../cmps/email-list.cmp.js'
 import emailFilter from '../cmps/email-filter.cmp.js'
+import emailCompose from '../cmps/email-compose.cmp.js'
 import emailSideFilter from '../cmps/email-side-filter.cmp.js'
 
 export default {
     template: `
     <section class="email-app">
-        <email-list v-if ="emails" 
+        <email-compose @click.native="composeEmail">
+        </email-compose>
+        <email-list v-if ="emails"
         :emails="emailsForDisplay"
         :filterBy="filterBy"
         @updateEmail="updateEmail">
@@ -19,17 +22,24 @@ export default {
         return {
             emails: null,
             filterBy: null,
-            sideFilterBy: null
+            sideFilterBy: null,
+            isCompose: false
         }
     },
     components: {
         emailFilter,
         emailList,
+        emailCompose,
         emailSideFilter
     },
     methods: {
         updateEmail(emailId, prop, val) {
             emailService.updateEmail(emailId, prop, val)
+        },
+        composeEmail() {
+            if (this.isCompose) return
+            this.isCompose = true
+            console.log('isCompose?', this.isCompose)
         }
     },
     computed: {

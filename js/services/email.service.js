@@ -7,11 +7,26 @@ export const emailService = {
 }
 
 const EMAIL_KEY = 'emails'
-const emailsDB = storageService.load(EMAIL_KEY) || _createEmails()
+const emailsDB = storageService.load(EMAIL_KEY) || _createSamplesEmails()
 
 
 function getEmails() {
     return Promise.resolve(emailsDB)
+}
+
+function createNewEmail({email}) {
+    const email = {
+        id: utilService.makeId(),
+        from: email.from,
+        subject: email.subject,
+        body: email.body,
+        isRead: false,
+        sentAt: Date.now(),
+        boxes: email.boxes
+    }
+    if (email.boxes.draft) email.isRead = true
+    emailsDB.unshift(emailsDB)
+    storageService.store(EMAIL_KEY, emails)
 }
 
 // Updated the emailsDB and saves it to localstorage. 
@@ -24,7 +39,9 @@ function updateEmail(emailId, prop, val) {
 
 //Private
 
-function _createEmails() {
+
+// Samples data! to move to new service
+function _createSamplesEmails() {
     const fromNames = ['Rami', 'Oz', 'Guy', 'Ran', 'Daniel', 'Yaron', 'Nadav', 'Omer']
     const emails = fromNames.map(_createEmail)
     storageService.store(EMAIL_KEY, emails)
@@ -39,8 +56,11 @@ function _createEmail(from = utilService.createWord(6)) {
         body: utilService.makeLorem(utilService.getRandom(10, 150)),
         isRead: false,
         sentAt: Date.now(),
-        boxes: ['inbox', 'sentBox', 'notes'],
-        isDraft: false,
-        isStarred: false
+        boxes: {
+            inbox: true,
+            sentBox: false,
+            draft: false,
+            star: false
+        }
     }
 }

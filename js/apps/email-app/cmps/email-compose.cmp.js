@@ -1,4 +1,4 @@
-// import { emailService } from '../cmps/email-preview.cmp'
+import { emailService } from '../../../services/email.service.js'
 
 
 export default {
@@ -11,7 +11,7 @@ export default {
             <input required type="text" v-model.trim="email.subject" placeholder="Vendor name" />          
             <textarea placeholder="Free text" v-model="email.body"></textarea>
             <button>Send</button>
-            <button>delete</button>
+            <button @click="closeCompose">delete</button>
         </form>
         </div>
     </section>
@@ -23,15 +23,21 @@ export default {
                 from: '',
                 subject: '',
                 body: '',
+                boxes: {
+                    inbox: true,
+                    sentBox: true,
+                    draft: false,
+                    star: false
+                }
             }
         }
     },
     methods: {
         sendEmail() {
-            console.log('EMAIL SENT!')
-            console.log('From', this.email.from)
-            console.log('subject', this.email.subject)
-            console.log('body', this.email.body)
+            emailService.createNewEmail(this.email)
+        },
+        closeCompose() {
+            console.log('Email trash', this.email)
         }
     }
 }

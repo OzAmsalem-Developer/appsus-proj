@@ -22,7 +22,7 @@ export default {
         setFilter(filterBy) {
             const filter = {
                 txt: filterBy.txt,
-                isRead: filterBy.selectedOption
+                readUnread: filterBy.selectedOption
             }
             eventBus.$emit(EMAILS_FILTERED_EV, filter)
         }

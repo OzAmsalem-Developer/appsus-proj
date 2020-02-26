@@ -18,6 +18,7 @@ export default {
     data() {
         return {
             selectedEmail: null,
+            filterBy: null
         }
     },
     methods: {
@@ -25,6 +26,9 @@ export default {
             this.selectedEmail = idx
             console.log(this.selectedEmail)
             this.emails[idx].isRead = true
+        },
+        setFilter(filterBy) {
+            this.filterBy = filterBy
         }
     },
     components: {

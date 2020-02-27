@@ -1,3 +1,11 @@
 .filter-item {
     list-style-type: none;
+    padding-inline-start: 20px;
+    user-select: none;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.filter-item>* :hover {
+    background-color: orangered;
 }

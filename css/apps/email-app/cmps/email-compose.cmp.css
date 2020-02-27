@@ -3,6 +3,7 @@
     position: fixed;
     bottom: 0vh;
     right: 20px;
+    width: 500px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
@@ -11,7 +12,6 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    /* align-items: flex-start; */
 }
 
 .compose-header {
@@ -21,20 +21,21 @@
     align-items: flex-start;
     background-color: #1b262c;
     color: honeydew;
-    width: 500px;
-    height: 30px;
+    /* height: 30px; */
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
 }
 
 .compose-header span {
+    font-size: 1rem;
+    padding: 8px 0 8px 0;
     margin-inline-start: 10px;
 }
 
 .form-txt {
     border: none;
     border-bottom: solid 1px grey;
-    width: 500px;
+    /* width: 500px; */
     padding: 0 10px 0 10px;
 }
 
@@ -52,14 +53,14 @@ textarea {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: lawngreen; */
-    width: 100%;
+    /* width: 100%; */
+    
 }
 
 .send-btn {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .delete-btn {
-
+    font-size: 1.5rem;
 }

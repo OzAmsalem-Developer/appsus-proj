@@ -21,8 +21,6 @@ export default {
         </form>
     </section>
     `,
-    // <div class="compose-main"></div>
-    // props: ['isCompose'],
     data() {
         return {
             email: {
@@ -33,7 +31,8 @@ export default {
                     inbox: true,
                     sentBox: true,
                     draft: false,
-                    star: false
+                    star: false,
+                    note: false
                 }
             }
         }

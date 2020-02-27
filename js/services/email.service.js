@@ -66,7 +66,8 @@ function _createEmail(from = utilService.createWord(6)) {
             inbox: true,
             sentBox: false,
             draft: false,
-            star: false
+            star: false,
+            note: false
         }
     }
 }

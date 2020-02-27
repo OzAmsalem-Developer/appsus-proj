@@ -3,12 +3,13 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    background-color: turquoise;
+    /* background-color: turquoise; */
+    position: relative;
 }
 
 .side-menu {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
 }

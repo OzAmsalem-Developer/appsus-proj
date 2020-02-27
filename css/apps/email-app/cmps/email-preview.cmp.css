@@ -1,31 +1,41 @@
 .email-preview {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    font-size: 1.25rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    font-size: 1rem;
     background-color: snow;
     border: solid 1px slategray;
     border-bottom: solid 1px black;
-    margin-bottom: 5px;
-    height: 3rem;
+    /* margin-bottom: 5px; */
+    /* height: 3rem; */
 }
 
-.email-preview>* {
+/* .email-preview>* {
+    margin-right: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+} */
+
+.email-subject {
     margin-right: 10px;
     text-overflow: ellipsis;
     overflow: hidden;
 }
 
-.email-sent {
-    justify-self: flex-end;
+/* Columns: */
+
+.email-body {
+    margin-right: 10px;
 }
 
+/* .email-from {} */
+/* .email-sent {}  */
+
 .email-unread {
-    background-color: rgb(179, 233, 255);
+    background-color: rgb(250, 250, 250);
     font-weight: bold;
 }
 
 .email-read {
     font-weight: normal;
-    background-color: rgb(241, 241, 241);
+    background-color: rgb(210, 210, 210);
 }

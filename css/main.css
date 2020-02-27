@@ -1,6 +1,8 @@
 @import './base.css';
 @import '/css/cmps/main-header.cmp.css';
 @import '/css/cmps/main-nav.cmp.css';
+@import '/css/cmps/search-bar.cmp.css';
 @import 'apps/email-app/pages/email-app.cmp.css';
+@import 'apps/email-app/cmps/email-side-filter.cmp.css';
 @import 'apps/email-app/cmps/email-preview.cmp.css';
 @import 'apps/email-app/cmps/email-extended.cmp.css';

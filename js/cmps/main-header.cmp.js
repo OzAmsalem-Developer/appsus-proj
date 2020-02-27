@@ -14,3 +14,6 @@ export default {
         mainNav
     }
 }
+
+// main nav - v-if
+// button to toggle 

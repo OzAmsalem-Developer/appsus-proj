@@ -17,11 +17,11 @@ export default {
             </transition>
         </div>
 
-        <h2 class="email-subject">{{email.subject}}</h2>
-        <span class="from">{{email.from}}</span>
-        <span class="time">{{timeToShow}}</span>
+        <span class="from">From: {{email.from}}</span>
+        <span class="time">At {{timeToShow}}, </span>
         <span class="date">{{dateToShow}}</span>
-        <p class="body">{{email.body}}</p>
+        <h2 class="email-subject">{{email.subject}}</h2>
+        <p class="email-body">{{email.body}}</p>
     </section>
     `
     ,
@@ -52,7 +52,8 @@ export default {
         },
         dateToShow() {
             const time = new Date(this.email.sentAt)
-            return time.toLocaleString().split(',')[0]
+            // Replace '.' with '/'
+            return time.toLocaleString().split(',')[0].replace(/\./g, '/');
         }
     },
     watch: {

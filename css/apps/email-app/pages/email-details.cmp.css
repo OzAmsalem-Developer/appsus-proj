@@ -12,3 +12,12 @@
 .contact-img {
     height: 80px;
 }
+
+ .from {
+    display: block;
+    margin-top: 10px;
+}
+
+.email-subject {
+    margin-top: 30px;
+}

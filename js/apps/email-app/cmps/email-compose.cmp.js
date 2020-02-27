@@ -4,18 +4,24 @@ import { emailService } from '../../../services/email.service.js'
 export default {
     template: `
     <section class="email-compose">
-    <h1>Compose</h1>
-        <div>
-        <form @submit.prevent="sendEmail">
-            <input required type="text" v-model.trim="email.from" placeholder="To:" />
-            <input required type="text" v-model.trim="email.subject" placeholder="Subject:" />          
-            <textarea placeholder="Free text" v-model="email.body"></textarea>
-            <button>Send</button>
-            <button @click="closeCompose">delete</button>
+        <form @submit.prevent="sendEmail" class="compose-form">
+        
+            <div class="compose-header">
+            <span>New Message</span>
+            </div>
+
+            <input class="form-txt" required type="text" v-model.trim="email.from" placeholder="To:" />
+            <input class="form-txt" required type="text" v-model.trim="email.subject" placeholder="Subject:" />          
+            <textarea class="form-txt" v-model="email.body" rows="20"></textarea>
+
+            <div class="form-btns">
+                <button class="send-btn"><i class="far fa-paper-plane"></i> Send</button>
+                <button class="delete-btn" @click="closeCompose">delete</button>
+            </div>
         </form>
-        </div>
     </section>
     `,
+    // <div class="compose-main"></div>
     // props: ['isCompose'],
     data() {
         return {

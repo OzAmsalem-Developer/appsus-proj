@@ -1,18 +1,23 @@
 import {utilService} from '../services/util.service.js'
 import {storageService} from '../services/storage.service.js'
 
-export const emailService = {
-    getEmails,
-    updateEmail,
-    createNewEmail
-}
-
 const EMAIL_KEY = 'emails'
 const emailsDB = storageService.load(EMAIL_KEY) || _createSamplesEmails()
 
+export const emailService = {
+    getEmails,
+    updateEmail,
+    createNewEmail,
+    getEmailById
+}
 
 function getEmails() {
     return Promise.resolve(emailsDB)
+}
+
+function getEmailById(emailId) {
+    const email = emailsDB.find(email => email.id === emailId)
+    return Promise.resolve(email)
 }
 
 function createNewEmail(emailInfo) {

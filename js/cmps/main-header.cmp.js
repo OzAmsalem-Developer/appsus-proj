@@ -3,8 +3,10 @@ import mainNav from './main-nav.cmp.js'
 export default {
     template: `
     <section class="main-header">
-        <img src="img/logo/logo.png" alt="logo" class="logo">
-        <main-nav></main-nav>
+        <div class="header-container container">
+            <img src="img/logo/logo.png" alt="logo" class="logo-img">
+            <main-nav></main-nav>
+        </div>
     </section>
     `
     ,

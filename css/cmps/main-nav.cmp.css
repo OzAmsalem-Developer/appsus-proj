@@ -1,0 +1,30 @@
+.main-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link {
+    display: block;
+    height: 100px;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-link:hover {
+    background-color: #2c3941;
+
+}
+
+.main-nav>* {
+    border-inline-end: solid 1px white;
+}
+
+.main-nav>*:first-child {
+    border-inline-start: solid 1px white;
+}

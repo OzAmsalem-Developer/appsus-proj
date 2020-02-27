@@ -1,23 +1,20 @@
 export default {
     template: `
     <section class="main-nav">
-        <router-link to="/" exact>
-            Home
+        <router-link to="/" exact class="nav-link">
+        Home
         </router-link>
-        |
-        <router-link to="/email" exact>
-            Email
+        <router-link to="/email" exact class="nav-link">
+        Email
         </router-link>
-        |
-        <router-link to="/note">
-            Notes
+        <router-link to="/note" class="nav-link">
+        Notes
         </router-link>
-        <router-link to="/book">
-        |     Books
+        <router-link to="/book" class="nav-link">
+        Books
          </router-link>
-        |
-        <router-link to="/about">
-        |   About
+        <router-link to="/about" class="nav-link">
+        About
         </router-link>
     </section>
     `

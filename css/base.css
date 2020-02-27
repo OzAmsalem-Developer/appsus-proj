@@ -12,10 +12,17 @@ body {
     background-color: rgb(245, 245, 245);
 }
 
-
+/* .apps-main {
+    display: flex;
+    justify-content: center;
+    background-color: yellowgreen;
+} */
 
 /* helpers */
 
 .container {
-    width: 1200px
+    width: 90vw;
+    /* background-color: yellow; */
+    border-inline-start: solid 1px violet;
+    border-inline-end: solid 1px violet;
 }

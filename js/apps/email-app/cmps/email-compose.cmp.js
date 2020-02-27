@@ -5,7 +5,7 @@ export default {
     template: `
     <section class="email-compose">
     <h1>Compose</h1>
-        <div v-if="isCompose">
+        <div>
         <form @submit.prevent="sendEmail">
             <input required type="text" v-model.trim="email.from" placeholder="To:" />
             <input required type="text" v-model.trim="email.subject" placeholder="Subject:" />          
@@ -16,7 +16,7 @@ export default {
         </div>
     </section>
     `,
-    props: ['isCompose'],
+    // props: ['isCompose'],
     data() {
         return {
             email: {

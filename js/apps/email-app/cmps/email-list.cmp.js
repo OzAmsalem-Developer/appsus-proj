@@ -4,7 +4,7 @@ import {eventBus} from '../../../services/eventBus.service.js'
 
 export default {
     template: `
-    <section class="email-list">
+    <section class="email-list container">
         <div v-for="email in emails" class="email-previews">
             <email-preview
             :email="email" 

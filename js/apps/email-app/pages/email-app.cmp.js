@@ -6,14 +6,17 @@ import emailSideFilter from '../cmps/email-side-filter.cmp.js'
 
 export default {
     template: `
-    <section class="email-app" v-if="emails">
-        <email-compose @click.native="composeEmail"
-        :isCompose="isCompose">
-        </email-compose>
+    <section class="email-app container" v-if="emails">
+        
+        <aside class="side-menu">
+            <button @click="composeEmail"
+                class="compose-btn">Compose
+            </button>
 
-        <email-side-filter @filtered="setSideFilter" 
-        :unreadCount="unreadCount">
-        </email-side-filter>
+            <email-side-filter @filtered="setSideFilter" 
+            :unreadCount="unreadCount">
+            </email-side-filter>
+        </aside>
 
         <search-bar @filtered="setFilter" 
         :searchData="searchData">
@@ -23,6 +26,9 @@ export default {
         :emails="emailsForDisplay"
         @updateEmail="updateEmail">
         </email-list>
+
+        <email-compose v-if="isCompose">
+        </email-compose>
     </section>
     `
     ,

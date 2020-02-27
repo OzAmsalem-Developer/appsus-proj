@@ -33,8 +33,9 @@ export default {
     },
     watch: {
         emails: {
-            handler() {
-                 this.selectedEmailId = null
+            handler(newVal, oldVal) {
+                if (!oldVal === null) this.selectedEmailId = null
+                
             },
             deep: true
         } 

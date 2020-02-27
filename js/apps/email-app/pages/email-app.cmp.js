@@ -10,7 +10,9 @@ export default {
         
         <aside class="side-menu side-container">
             <button @click="composeEmail"
-                class="compose-btn">Compose
+                class="compose-btn">
+                <i class="fas fa-plus"></i>
+                Compose
             </button>
 
             <email-side-filter @filtered="setSideFilter" 

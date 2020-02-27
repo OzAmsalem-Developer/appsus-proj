@@ -3,13 +3,29 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    /* background-color: turquoise; */
     position: relative;
+}
+
+.compose-btn {
+    background-color: orange;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.625rem;
+    padding: 5px 10px;
+    margin: 15px 5px;
+    cursor: pointer;
+    transition: color .3s;
+}
+
+.compose-btn .fa-plus {
+    font-size: 1.3rem;
+}
+
+.compose-btn:hover {
+    background-color: rgb(255, 180, 0);
 }
 
 .side-menu {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
 }

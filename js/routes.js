@@ -9,7 +9,7 @@ const routes = [
     { path: '/', component: homePage },
     { path: '/about', component: aboutPage },
     { path: '/book', component: bookApp },
-    { path: '/email', component: emailApp },
+    { path: '/email:filter?', component: emailApp },
     { path: '/email/:emailId', component: emailDetails },
     { path: '/note', component: noteApp },
 ];

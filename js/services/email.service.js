@@ -1,5 +1,5 @@
-import {utilService} from '../services/util.service.js'
-import {storageService} from '../services/storage.service.js'
+import { utilService } from '../services/util.service.js'
+import { storageService } from '../services/storage.service.js'
 
 const EMAIL_KEY = 'emails'
 const emailsDB = storageService.load(EMAIL_KEY) || _createSamplesEmails()
@@ -20,6 +20,29 @@ function getEmailById(emailId) {
     return Promise.resolve(email)
 }
 
+function removeEmail(emailId) {
+    const idx = emailsDB.findIndex(email => email.id === emailId)
+    emailsDB.splice(idx, 1)
+    storageService.store(EMAIL_KEY, emailsDB)
+}
+
+// Reuse func - for all updates. When need to return - promise
+function updateEmail(emailId, prop, val) {
+    let emailIdx
+    const email = emailsDB.find((email, idx) => {
+        if (email.id === emailId) {
+            emailIdx = idx
+            return true
+        }
+    })
+
+    // Make a deep copy and splice for vue reactivation
+    const emailCopy = JSON.parse(JSON.stringify(email))
+    emailCopy[prop] = val
+    emailsDB.splice(emailIdx, 1, emailCopy)
+    storageService.store(EMAIL_KEY, emailsDB)
+}
+
 function createNewEmail(emailInfo) {
     const email = {
         id: utilService.makeId(),
@@ -35,16 +58,7 @@ function createNewEmail(emailInfo) {
     storageService.store(EMAIL_KEY, emailsDB)
 }
 
-// Updated the emailsDB and saves it to localstorage. 
-// We currently don't return anything so we need to keep this in mind
-function updateEmail(emailId, prop, val) {
-    const email = emailsDB.find(email => email.id === emailId)
-    email[prop] = val
-    storageService.store(EMAIL_KEY, emailsDB)
-}
-
-//Private
-
+//Private functions
 
 // Samples data! to move to new service
 function _createSamplesEmails() {

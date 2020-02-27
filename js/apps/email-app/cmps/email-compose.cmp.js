@@ -16,7 +16,7 @@ export default {
 
             <div class="form-btns">
                 <button class="send-btn"><i class="far fa-paper-plane"></i> Send</button>
-                <button class="delete-btn" @click="closeCompose">delete</button>
+                <button class="delete-btn" @click.prevent="closeCompose">delete</button>
             </div>
         </form>
     </section>
@@ -41,7 +41,6 @@ export default {
         sendEmail() {
             if (!this.email.from || !this.email.subject) return
             if (this.email.from.toLowerCase() === 'me' || this.email.from.toLowerCase() === 'myself') {
-                console.log('email sent to myself')
                 this.email.boxes.sentBox = true
             }
             console.log('Email sent to:', this.email.from)

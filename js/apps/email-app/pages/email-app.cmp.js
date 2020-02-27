@@ -20,13 +20,12 @@ export default {
             </email-side-filter>
         </aside>
 
-        <search-bar @filtered="setFilter" 
-        :searchData="searchData">
+        <search-bar @filtered="setFilter" :searchData="searchData">
         </search-bar>
 
         <email-list v-if ="emails" 
         :emails="emailsForDisplay"
-        @updateEmail="updateEmail">
+        @emailChanged="updateEmail">
         </email-list>
 
         <email-compose v-if="isCompose"></email-compose>

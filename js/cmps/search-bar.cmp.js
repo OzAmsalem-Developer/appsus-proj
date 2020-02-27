@@ -33,5 +33,14 @@ export default {
             this.$emit('filtered', this.filterBy)
         }
     },
+    watch: {
+        'filterBy.selectedOption': {
+            handler(newVal, oldVal) {
+                this.$router.push('/email+' + newVal.toLowerCase())
+                console.log(this.$route.params.filter);
+                
+            }
+        } 
+    },
     props: ['searchData']
 }

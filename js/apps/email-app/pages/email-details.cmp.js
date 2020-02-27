@@ -12,8 +12,8 @@ export default {
             </button>
 
             <transition name="fade">
-            <email-menu v-if="isMenuOpen">
-            </email-menu>
+                <email-menu v-if="isMenuOpen">
+                </email-menu>
             </transition>
         </div>
 

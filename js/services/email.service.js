@@ -25,7 +25,7 @@ function createNewEmail(emailInfo) {
         sentAt: Date.now(),
         boxes: emailInfo.boxes
     }
-    if (email.draft) email.isRead = true
+    if (email.boxes.draft) email.isRead = true
     emailsDB.unshift(email)
     storageService.store(EMAIL_KEY, emailsDB)
 }

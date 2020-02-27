@@ -7,8 +7,8 @@ export default {
     <h1>Compose</h1>
         <div v-if="isCompose">
         <form @submit.prevent="sendEmail">
-            <input required type="text" v-model.trim="email.from" placeholder="Vendor name" />
-            <input required type="text" v-model.trim="email.subject" placeholder="Vendor name" />          
+            <input required type="text" v-model.trim="email.from" placeholder="To:" />
+            <input required type="text" v-model.trim="email.subject" placeholder="Subject:" />          
             <textarea placeholder="Free text" v-model="email.body"></textarea>
             <button>Send</button>
             <button @click="closeCompose">delete</button>
@@ -34,6 +34,12 @@ export default {
     },
     methods: {
         sendEmail() {
+            if (!this.email.from || !this.email.subject) return
+            if (this.email.from.toLowerCase() === 'me' || this.email.from.toLowerCase() === 'myself') {
+                console.log('email sent to myself')
+                this.email.boxes.sentBox = true
+            }
+            console.log('Email sent to:', this.email.from)
             emailService.createNewEmail(this.email)
         },
         closeCompose() {

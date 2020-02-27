@@ -17,7 +17,6 @@ export default {
             :email="email">
             </email-extended>
         </div>
-
     </section>
     `,
     data() {

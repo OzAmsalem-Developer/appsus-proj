@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
@@ -8,4 +10,12 @@ html {
 
 body {
     background-color: rgb(245, 245, 245);
+}
+
+
+
+/* helpers */
+
+.container {
+    width: 1200px
 }

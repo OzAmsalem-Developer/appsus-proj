@@ -9,17 +9,10 @@ export default {
             <span class="email-sent">{{email.sentAt}}</span>
     </section>
     `,
-    props: ['email'],
-    data() {
-        return {
-
-        }
-    },
     computed: {
         emailClass() {
             return (this.email.isRead) ? 'email-read' : 'email-unread'
         }
-    }
+    },
+    props: ['email']
 }
-
-// <div class="email-preview"><span class="from"></span></div>

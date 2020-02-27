@@ -1,3 +1,14 @@
+.email-details {
+    padding: 15px;
+}
+
+.email-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
 .contact-img {
     height: 80px;
 }

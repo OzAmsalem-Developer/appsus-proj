@@ -27,8 +27,7 @@ export default {
         @updateEmail="updateEmail">
         </email-list>
 
-        <email-compose v-if="isCompose">
-        </email-compose>
+        <email-compose v-if="isCompose"></email-compose>
     </section>
     `
     ,

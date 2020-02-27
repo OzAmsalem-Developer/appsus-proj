@@ -1,20 +1,22 @@
 import { emailService } from "../../../services/email.service.js"
+import emailMenu from '../../email-app/cmps/email-menu.cmp.js'
 
 export default {
     template: `
     <section v-if="email" class="email-details">
-        <button @click="isMenuOpen = !isMenuOpen" class="dots-menu">
-        <i class="fas fa-ellipsis-v"></i>
-        </button>
+        <div class="email-header">
+           <img src="img/icons/contact-icon.png" class="contact-img" alt="contact-icon">
+        
+            <button @click="isMenuOpen = !isMenuOpen" class="dots-menu">
+            <i class="fas fa-ellipsis-v"></i>
+            </button>
 
-        <section v-if="isMenuOpen" class="menu-container">
-        <button class="reply">Reply<i class="fas fa-reply"></i></button>
-        <button class="unread">Switch to unread<i class="fas fa-envelope-open-text"></i></button>
-        <button class="to-notes">Send to notes<i class="far fa-lightbulb"></i></button>
-        <button class="remove">Remove <i class="fas fa-trash"></i></button>
-        </section>
+            <transition name="fade">
+            <email-menu v-if="isMenuOpen">
+            </email-menu>
+            </transition>
+        </div>
 
-        <img src="img/icons/contact-icon.png" class="contact-img" alt="contact-icon">
         <h2 class="email-subject">{{email.subject}}</h2>
         <span class="from">{{email.from}}</span>
         <span class="time">{{timeToShow}}</span>
@@ -57,6 +59,9 @@ export default {
         '$route.params.emailId'() {
             this.getEmail()
         }
+    },
+    components: {
+        emailMenu
     },
     created() {
         this.getEmail()

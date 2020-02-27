@@ -1,4 +1,5 @@
 @import './base.css';
+@import './vue-animations.css';
 @import '/css/cmps/main-header.cmp.css';
 @import '/css/cmps/main-nav.cmp.css';
 @import '/css/cmps/search-bar.cmp.css';
@@ -6,4 +7,5 @@
 @import 'apps/email-app/pages/email-details.cmp.css';
 @import 'apps/email-app/cmps/email-side-filter.cmp.css';
 @import 'apps/email-app/cmps/email-preview.cmp.css';
+@import 'apps/email-app/cmps/email-menu.cmp.css';
 @import 'apps/email-app/cmps/email-extended.cmp.css';

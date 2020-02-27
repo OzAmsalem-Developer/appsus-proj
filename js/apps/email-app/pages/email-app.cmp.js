@@ -90,7 +90,7 @@ export default {
             this.emails.forEach(email => {
                 if (!email.isRead) count++
             })
-            return (count > 0)? count : '';
+            return (count > 0)? count : ''
         }
     },
     created() {

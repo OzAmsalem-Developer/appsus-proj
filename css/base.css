@@ -26,3 +26,9 @@ body {
     border-inline-start: solid 1px violet;
     border-inline-end: solid 1px violet;
 }
+
+.side-container {
+    width: 15vw;
+    max-width: 300px;
+    min-width: 200px;
+}

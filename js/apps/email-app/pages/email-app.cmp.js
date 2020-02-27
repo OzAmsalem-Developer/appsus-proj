@@ -8,7 +8,7 @@ export default {
     template: `
     <section class="email-app container" v-if="emails">
         
-        <aside class="side-menu">
+        <aside class="side-menu side-container">
             <button @click="composeEmail"
                 class="compose-btn">Compose
             </button>

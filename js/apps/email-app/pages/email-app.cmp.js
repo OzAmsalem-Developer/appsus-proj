@@ -47,12 +47,6 @@ export default {
             }
         }
     },
-    components: {
-        emailList,
-        emailCompose,
-        searchBar,
-        emailSideFilter
-    },
     methods: {
         updateEmail(emailId, prop, val) {
             emailService.updateEmail(emailId, prop, val)
@@ -98,6 +92,12 @@ export default {
             })
             return (count > 0)? count : ''
         }
+    },
+    components: {
+        emailList,
+        emailCompose,
+        searchBar,
+        emailSideFilter
     },
     created() {
         emailService.getEmails()

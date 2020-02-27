@@ -14,8 +14,8 @@ export default {
         <button class="remove">Remove <i class="fas fa-trash"></i></button>
         </section>
 
-        <h2 class="email-subject">{{email.subject}}</h2>
         <img src="img/icons/contact-icon.png" class="contact-img" alt="contact-icon">
+        <h2 class="email-subject">{{email.subject}}</h2>
         <span class="from">{{email.from}}</span>
         <span class="time">{{timeToShow}}</span>
         <span class="date">{{dateToShow}}</span>

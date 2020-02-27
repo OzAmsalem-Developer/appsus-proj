@@ -1,5 +1,10 @@
 
+export default {
+    template: `
+    <section class="note-preview">
 
-function notePreview() {
-    console.log('TEMP: note-preview.cmp')
+    <h3>Notes Preview</h3>
+
+    </section>
+    `
 }

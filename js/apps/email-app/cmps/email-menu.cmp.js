@@ -24,7 +24,7 @@ export default {
             this.$emit('clicked')
         },
         emitUpdateEmail(eventName, prop, val) {
-            eventBus.$emit(eventName, prop, val)
+            eventBus.$emit(eventName, prop, val, this.emailId)
             this.$emit('clicked')
         }
     },

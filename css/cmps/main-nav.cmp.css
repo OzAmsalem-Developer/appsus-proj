@@ -1,12 +1,16 @@
 .main-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    position: absolute;
+    right: 0;
+    top: 85px;
+    background-color: #87959c;
+    z-index: 1;
 }
 
 .nav-link {
     display: block;
-    height: 100px;
+    height: 120px;
     width: 120px;
     display: flex;
     flex-direction: column;
@@ -14,17 +18,10 @@
     align-items: center;
     text-decoration: none;
     color: white;
+    border-radius: 100%;
 }
 
 .nav-link:hover {
     background-color: #2c3941;
 
-}
-
-.main-nav>* {
-    border-inline-end: solid 1px white;
-}
-
-.main-nav>*:first-child {
-    border-inline-start: solid 1px white;
 }

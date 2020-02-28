@@ -9,8 +9,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .logo-img {
     height: 100px;
+}
+
+img.menu-icon {
+    height: 50px;
 }

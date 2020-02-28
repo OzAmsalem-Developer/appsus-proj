@@ -66,7 +66,7 @@ export default {
         },
         removeEmail(emailId) {
             emailService.removeEmail(emailId)
-            this.$router.push('/email')
+            if (this.$route.path !== '/email') this.$router.push('/email')
         },
         updateEmail(prop, val, emailId) {
             emailService.updateEmail(prop, val, emailId)

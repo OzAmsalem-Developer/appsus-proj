@@ -15,7 +15,7 @@ export default {
             <transition name="fade">
                 <email-menu v-if="isMenuOpen"
                 :emailId="email.id"
-                @clicked="isMenuOpen = false"
+                @clicked="isMenuOpen = false">
                 </email-menu>
             </transition>
         </div>

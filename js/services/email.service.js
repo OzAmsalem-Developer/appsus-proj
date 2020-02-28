@@ -43,7 +43,11 @@ function updateEmail(prop, val, emailId) {
 
 function sendToNotes(emailId) {
     const foundEmail = emailsDB.find(email => email.id === emailId)
-    foundEmail.boxes.note = true
+    const boxes = foundEmail.boxes
+    for (const prop in boxes) {
+        boxes[prop] = false
+    }
+    boxes.note = true
     storageService.store(EMAIL_KEY, emailsDB)
 }
 

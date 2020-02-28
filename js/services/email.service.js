@@ -8,7 +8,9 @@ export const emailService = {
     getEmails,
     updateEmail,
     createNewEmail,
-    getEmailById
+    getEmailById,
+    sendToNotes,
+    removeEmail
 }
 
 function getEmails() {
@@ -28,18 +30,20 @@ function removeEmail(emailId) {
 
 // Reuse func - for all updates. When need to return - promise
 function updateEmail(emailId, prop, val) {
-    let emailIdx
-    const email = emailsDB.find((email, idx) => {
-        if (email.id === emailId) {
-            emailIdx = idx
-            return true
-        }
-    })
+    const foundEmail = emailsDB.find(email => email.id === emailId)
+    const emailIdx = emailsDB.findIndex(email => email.id === emailId)
 
     // Make a deep copy and splice for vue reactivation
-    const emailCopy = JSON.parse(JSON.stringify(email))
+    const emailCopy = JSON.parse(JSON.stringify(foundEmail))
     emailCopy[prop] = val
     emailsDB.splice(emailIdx, 1, emailCopy)
+    storageService.store(EMAIL_KEY, emailsDB)
+    return Promise.resolve(emailsDB)
+}
+
+function sendToNotes(emailId) {
+    const foundEmail = emailsDB.find(email => email.id === emailId)
+    foundEmail.boxes.note = true
     storageService.store(EMAIL_KEY, emailsDB)
 }
 
@@ -53,9 +57,9 @@ function createNewEmail(emailInfo) {
         sentAt: Date.now(),
         boxes: emailInfo.boxes
     }
-    if (email.boxes.draft) email.isRead = true
     emailsDB.unshift(email)
     storageService.store(EMAIL_KEY, emailsDB)
+    return Promise.resolve(email)
 }
 
 //Private functions

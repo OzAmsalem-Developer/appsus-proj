@@ -11,6 +11,7 @@ const routes = [
     { path: '/book', component: bookApp },
     { path: '/email:filter?', component: emailApp },
     { path: '/email/:emailId', component: emailDetails },
+    { path: '/email/reply/:emailId', component: emailApp },
     { path: '/note', component: noteApp },
 ];
 

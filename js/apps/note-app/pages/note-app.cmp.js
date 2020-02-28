@@ -1,4 +1,5 @@
 import { noteService } from '../../../services/note.service.js'
+import { eventBus } from '../../../services/eventBus.service.js'
 import noteCreate from '../cmps/note-create.cmp.js'
 import noteList from '../cmps/note-list.cmp.js'
 
@@ -12,7 +13,6 @@ export default {
     data() {
         return {
             notes: null,
-            no: null,
 
         }
     },
@@ -21,18 +21,26 @@ export default {
         noteCreate,
     },
     methods: {
-        createNote() {
-        },
         changeNoteType(type) {
             this
-        }
+        },
+        removeNote(emailId) {
+            noteService.removeNote(emailId)
+            console.log('NOTE APP - I want to remove note:', emailId)
+        },
+        
+
     },
     created() {
         noteService.getNotes()
             .then(notes => {
                 this.notes = notes
             })
-    }
+
+
+        eventBus.$on('removeNote', this.removeNote)
+    },
+    
 }
 
 // container

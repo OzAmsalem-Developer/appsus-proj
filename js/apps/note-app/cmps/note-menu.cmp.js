@@ -1,13 +1,15 @@
+import {eventBus} from '../../../services/eventBus.service.js'
+
 export default {
     template: `
     <section>
-    
-    <button @click="removeNote(noteId)">DEL</button>
+    <button @click="removeNote">DEL</button>
     </section>
     `,
     methods: {
-        removeNote(noteId) {
-            console.log('Deleting note with ID:', noteId)
+        removeNote() {
+            console.log('Sending eventBus note to delete:', this.noteId)
+            eventBus.$emit('removeNote', this.noteId)
         }
     },
     props: ['noteId'],

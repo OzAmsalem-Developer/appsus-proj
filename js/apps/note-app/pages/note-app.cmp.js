@@ -21,14 +21,14 @@ export default {
         noteCreate,
     },
     methods: {
-        changeNoteType(type) {
-            this
+        removeNote(noteId) {
+            noteService.removeNote(noteId)
+            console.log('NOTE APP - I want to remove note:', noteId)
         },
-        removeNote(emailId) {
-            noteService.removeNote(emailId)
-            console.log('NOTE APP - I want to remove note:', emailId)
-        },
-        
+        togglePinnedNote(noteId) {
+            noteService.togglePinnedNote(noteId)
+            console.log('Changing pinned state:', noteId)
+        }
 
     },
     created() {
@@ -39,8 +39,11 @@ export default {
 
 
         eventBus.$on('removeNote', this.removeNote)
+        eventBus.$on('togglePinnedNote', this.togglePinnedNote)
     },
-    
+    destroyed() {
+        eventBus.$off('togglePinnedNote', this.togglePinnedNote)
+    }
 }
 
 // container

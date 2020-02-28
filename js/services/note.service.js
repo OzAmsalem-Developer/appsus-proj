@@ -8,6 +8,7 @@ export const noteService = {
     getNotes,
     createNote,
     removeNote,
+    togglePinnedNote,
 }
 
 function getNotes() {
@@ -30,6 +31,7 @@ function createNote(noteInfo) {
     notesDB.unshift(note)
     storageService.store(NOTE_KEY, notesDB)
     console.log(notesDB)
+    return Promise.resolve()
 }
 
 function removeNote(noteId) {
@@ -38,6 +40,12 @@ function removeNote(noteId) {
     storageService.store(NOTE_KEY, notesDB)
 }
 
+function togglePinnedNote(noteId) {
+    const note = _getNoteById(noteId)
+    note.isPinned = !note.isPinned
+    storageService.store(NOTE_KEY, notesDB)
+    console.log('PinnedSatus:', note.isPinned)
+}
 
 // function updateEmail(emailId, prop, val) {
 //     const email = emailsDB.find(email => email.id === emailId)

@@ -21,6 +21,7 @@ function createNote(noteInfo) {
         type: noteInfo.type,
         isPinned: noteInfo.isPinned,
         info: {
+            title: noteInfo.info.title,
             txt: noteInfo.info.txt,
             img: noteInfo.info.img,
             video: noteInfo.info.video,
@@ -87,7 +88,7 @@ function _createSamplesNotes() {
             type: 'noteTodos',
             isPinned: false,
             info: {
-                txt: 'Things to do:',
+                title: 'Things to do:',
                 todos: [
                     { txt: 'Do that', doneAt: null },
                     { txt: 'Do this', doneAt: 187111111 }

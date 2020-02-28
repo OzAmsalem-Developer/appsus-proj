@@ -20,14 +20,40 @@ export const noteImg = {
 export const noteTodos = {
     template: `
         <section class="note-todos">
-            <h2 class="info-txt">{{info.txt}}</h2>
+            <h2>{{info.title}}</h2>
             <ul v-if="info.todos">
-                <li v-for="(todo, idx) in info.todos" class="todo-txt">
+                <li v-for="(todo, idx) in info.todos">
                 {{todo.txt}}
                  </li>
             </ul>
+            <input @keyup.enter="addTodo" v-model="nextTodo"></input>
         </section>
     `,
+    data() {
+        return {
+            nextTodo: ''
+        }
+    },
+    methods: {
+        addTodo() {
+            const todo = {
+                txt: this.nextTodo,
+            }
+            // console.log('adding')
+            if (!this.info.todos) this.info.todos = []
+            this.info.todos.push(todo)
+            const newNote = JSON.parse(JSON.stringify(this.info))
+            console.log(newNote)
+
+
+            // Add todo to the todos array
+            // Deep Copy and update to the new note
+            //emit change to note-app
+            // not app
+            // nexttodo = null
+
+        }
+    },
     props: ['info'],
 }
 

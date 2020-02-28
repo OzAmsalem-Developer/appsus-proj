@@ -42,10 +42,11 @@ export default {
                 txt: '',
                 img: '',
                 video: '',
-                todos: ''
+                title: '',
+                todos: null
             }
-
-            info[this.infoType] = this.connectedVal
+            if (this.infoType === 'todos') info.title = this.connectedVal
+            else info[this.infoType] = this.connectedVal
             newNote.info = info
             noteService.createNote(newNote)
                 .then(() => {

@@ -5,7 +5,6 @@ export default {
     template: `
     <section class="email-list">
         <div v-for="email in emails" class="email-previews">
-
             <email-preview
             :email="email" 
             :key="email.id"
@@ -13,7 +12,6 @@ export default {
             </email-preview>
 
             <email-extended
-            @removed="emitRemove"
             v-if="selectedEmailId === email.id"
             :email="email">
             </email-extended>
@@ -39,16 +37,13 @@ export default {
                 return
             }
             // Make the email read
-            if (!isRead) this.$emit('emailChanged', emailId, 'isRead', true)
+            if (!isRead) this.$emit('updated', 'isRead', true, emailId)
         },
         emitWaitingEmails() {
             this.emailsToBeRead.forEach(emailId => {
-                this.$emit('emailChanged', emailId, 'isRead', true)
+                this.$emit('updated', 'isRead', true, emailId)
             })
             this.emailsToBeRead = []
-        },
-        emitRemove(emailId) {
-            this.$emit('removed', emailId)
         }
     },
     watch: {

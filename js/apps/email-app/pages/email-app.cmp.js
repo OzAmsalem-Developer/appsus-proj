@@ -1,4 +1,5 @@
 import { emailService } from '../../../services/email.service.js'
+import { eventBus } from '../../../services/eventBus.service.js'
 import emailList from '../cmps/email-list.cmp.js'
 import emailCompose from '../cmps/email-compose.cmp.js'
 import searchBar from '../../../cmps/search-bar.cmp.js'
@@ -24,9 +25,8 @@ export default {
         </search-bar>
 
         <email-list v-if ="emails"
-        @removed="removeEmail"
         :emails="emailsForDisplay"
-        @emailChanged="updateEmail">
+        @updated="updateEmail">
         </email-list>
 
         <email-compose :isReply="isReply"
@@ -53,9 +53,6 @@ export default {
         }
     },
     methods: {
-        updateEmail(emailId, prop, val) {
-            emailService.updateEmail(emailId, prop, val)
-        },
         composeEmail() {
             if (this.isCompose) return
             this.isCompose = true
@@ -69,6 +66,22 @@ export default {
         },
         removeEmail(emailId) {
             emailService.removeEmail(emailId)
+            this.$router.push('/email')
+        },
+        updateEmail(prop, val, emailId) {
+            emailService.updateEmail(prop, val, emailId)
+        },
+        sendToNotes(emailId) {
+            emailService.sendToNotes(emailId)
+        },
+        replyToEmail(emailId) {
+            this.$router.push('/email/reply/' + emailId)
+        },
+        replyCompose(isReply) {
+            if (isReply) {
+                this.isCompose = true
+                this.isReply = true
+            } else this.isReply = false
         },
         countUnread() { // This is not computed because of vue reactive   
             this.unreadCount = this.emails.reduce((acc,email) => {
@@ -109,7 +122,11 @@ export default {
                 this.countUnread()
             },
             deep: true
-        } 
+        },
+        '$route.path'(newVal,oldVal){
+            if (newVal.includes('reply')) this.replyCompose(true)
+            else this.replyCompose(false)
+        }
     },
     components: {
         emailList,
@@ -118,15 +135,19 @@ export default {
         searchBar
     },
     created() {
-        if (this.$route.path.includes('reply')) {
-            this.isCompose = true
-            this.isReply = true
-        } else this.isReply = false
+        if (this.$route.path.includes('reply')) this.replyCompose(true)
+        else this.replyCompose(false)
         
         emailService.getEmails()
             .then(emails => {
                 this.emails = emails
                 this.countUnread()
             })
+
+        //Listen to the eventBus
+        eventBus.$on('removed', this.removeEmail)
+        eventBus.$on('updated', this.updateEmail)
+        eventBus.$on('sentToNotes', this.sendToNotes)
+        eventBus.$on('reply', this.replyToEmail)
     }
 }

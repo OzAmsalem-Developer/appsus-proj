@@ -29,10 +29,10 @@ function removeEmail(emailId) {
 }
 
 // Reuse func - for all updates. When need to return - promise
-function updateEmail(emailId, prop, val) {
+function updateEmail(prop, val, emailId) {
     const foundEmail = emailsDB.find(email => email.id === emailId)
     const emailIdx = emailsDB.findIndex(email => email.id === emailId)
-
+    
     // Make a deep copy and splice for vue reactivation
     const emailCopy = JSON.parse(JSON.stringify(foundEmail))
     emailCopy[prop] = val

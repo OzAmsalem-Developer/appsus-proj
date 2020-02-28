@@ -13,11 +13,9 @@ export default {
             </button>
 
             <transition name="fade">
-                <email-menu v-if="isMenuOpen"  
-                @emailUpdated="updateEmail"
-                @sentToNotes="sendToNotes" 
-                @removed="removeEmail"
-                @reply="replyToEmail">
+                <email-menu v-if="isMenuOpen"
+                :emailId="email.id"
+                @clicked="isMenuOpen = false"
                 </email-menu>
             </transition>
         </div>
@@ -42,27 +40,11 @@ export default {
             emailService.getEmailById(emailId)
             .then((email) => {
                 this.email = email
-                this.updateEmail('isRead', true)
             })
             .catch(() => {
                 console.log('Id didnt exist');
                 this.$router.push('/email')
             })
-        },
-        updateEmail(prop, val) {
-            emailService.updateEmail(this.email.id, prop, val)
-            this.isMenuOpen = false
-        },
-        sendToNotes() {
-            emailService.sendToNotes(this.email.id)
-            this.isMenuOpen = false
-        },
-        removeEmail() {
-            emailService.removeEmail(this.email.id)
-            this.$router.push('/email')
-        },
-        replyToEmail() {
-            this.$router.push('/email/reply/' + this.email.id)
         }
     },
     computed: {

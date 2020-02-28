@@ -1,1 +1,6 @@
-/* note-app.cmp.css */
+.note-app{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

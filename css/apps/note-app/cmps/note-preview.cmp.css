@@ -1,33 +1,37 @@
-/* note-preview.cmp.css */
-
 .note-preview {
-    background-color: rgb(240, 249, 255);
     display: flex;
-    justify-content: center;
-    /* align-items: center; */
-    /* min-width: 200px;
-    min-height: 100px; */
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 20px;
 }
 
 .note-text {
-    background-color: lightgreen;
+    background-color: rgb(97, 255, 97);
     font-size: 30px
 }
 
 .note-todos {
-    background-color: rgb(128, 219, 255);
+    background-color: rgb(94, 209, 255);
     font-size: 30px
 }
 
 .note-img {
-    /* background-color: rgb(255, 247, 130); */
     font-size: 30px;
-    /* max-height: 300px;
-    max-width: 300px; */
 }
 
 .note-img img {
     width: 100%;
     object-fit: cover;
     background-color: magenta;
+}
+
+.info-txt {
+    font-size: 18px;
+}
+
+.todo-txt {
+    font-size: 16px;
 }

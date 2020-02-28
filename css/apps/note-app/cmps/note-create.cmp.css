@@ -18,4 +18,9 @@
     height: 50px;
     width: 60px;
     cursor: pointer;
+    background-color: white;
+}
+
+.note-type-btns>*button {
+    background-color: red;
 }

@@ -2,7 +2,7 @@
 export const noteText = {
     template: `
         <section class="note-text">
-            <h1>{{info.txt}}</h1>
+            <h2 class="info-txt">{{info.txt}}</h2>
         </section>
     `,
     props: ['info'],
@@ -20,11 +20,11 @@ export const noteImg = {
 export const noteTodos = {
     template: `
         <section class="note-todos">
-            <h1>{{info.txt}}</h1>
-            <ul>
-            <li v-for="(todo, idx ) in info.todos">
-            {{todo.txt}}
-            </li>
+            <h2 class="info-txt">{{info.txt}}</h2>
+            <ul v-if="info.todos">
+                <li v-for="(todo, idx) in info.todos" class="todo-txt">
+                {{todo.txt}}
+                 </li>
             </ul>
         </section>
     `,
@@ -34,7 +34,7 @@ export const noteTodos = {
 export const noteVideo = {
     template: `
         <section class="note-video">
-        <iframe width="560" height="315" 
+        <iframe width="280" height="158" 
         :src="info.video" 
         frameborder="0" allow="accelerometer; autoplay; 
         encrypted-media; gyroscope; picture-in-picture"

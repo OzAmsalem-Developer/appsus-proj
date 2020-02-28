@@ -1,16 +1,14 @@
-import {utilService} from '../services/util.service.js'
-import {storageService} from '../services/storage.service.js'
+import { utilService } from '../services/util.service.js'
+import { storageService } from '../services/storage.service.js'
 
 const NOTE_KEY = 'notes'
-// const notesDB = storageService.load(NOTE_KEY) || _createSamplesEmails() // CreateSampleNote!!!!!
+const notesDB = storageService.load(NOTE_KEY) || _createSamplesNotes()
 
 export const noteService = {
     getNotes,
     getNoteById,
+    createNote,
 }
-
-// To Do: createNewNote, updateNote
-// To Do: _createSamplesNotess, _createNote
 
 function getNotes() {
     return Promise.resolve(notesDB)
@@ -21,20 +19,23 @@ function getNoteById(noteId) {
     return Promise.resolve(note)
 }
 
-// function createNewEmail(emailInfo) {
-//     const email = {
-//         id: utilService.makeId(),
-//         from: emailInfo.from,
-//         subject: emailInfo.subject,
-//         body: emailInfo.body,
-//         isRead: false,
-//         sentAt: Date.now(),
-//         boxes: emailInfo.boxes
-//     }
-//     if (email.boxes.draft) email.isRead = true
-//     emailsDB.unshift(email)
-//     storageService.store(EMAIL_KEY, emailsDB)
-// }
+function createNote(noteInfo) {
+    const note = {
+        id: utilService.makeId(),
+        type: noteInfo.type,
+        isPinned: noteInfo.isPinned,
+        info: {
+            txt: noteInfo.info.txt,
+            img: noteInfo.info.img,
+            video: noteInfo.info.video,
+            todos: noteInfo.info.todos,
+        }
+    }
+    // if (email.boxes.draft) email.isRead = true
+    notesDB.unshift(note)
+    storageService.store(NOTE_KEY, notesDB)
+    console.log(notesDB)
+}
 
 
 // function updateEmail(emailId, prop, val) {
@@ -47,8 +48,47 @@ function getNoteById(noteId) {
 
 //Private
 
-
 // Samples data! to move to new service
+
+function _createSamplesNotes() {
+    const notes = [
+        {
+            id: utilService.makeId(),
+            type: 'noteText',
+            isPinned: false,
+            info: {
+                txt: 'Fullstack Me Baby!'
+            }
+        },
+        // {
+        //     id: utilService.makeId(),
+        //     type: 'NoteImg',
+        //     isPinned: false,
+        //     info: {
+        //         url: 'http://some-img/me',
+        //         title: 'Me playing Mi'
+        //     },
+        //     style: {
+        //         backgroundColor: '#00d'
+        //     }
+        // },
+        // {
+        //     id: utilService.makeId(),
+        //     type: 'NoteTodos',
+        //     isPinned: false,
+        //     info: {
+        //         label: 'How was it:',
+        //         todos: [
+        //             { txt: 'Do that', doneAt: null },
+        //             { txt: 'Do this', doneAt: 187111111 }
+        //         ]
+        //     }
+        // }
+    ]
+
+    storageService.store(NOTE_KEY, notes)
+    return notes
+}
 
 // function _createSamplesEmails() {
 //     const fromNames = ['Rami', 'Oz', 'Guy', 'Ran', 'Daniel', 'Yaron', 'Nadav', 'Omer']

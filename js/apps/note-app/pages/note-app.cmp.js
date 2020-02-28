@@ -1,4 +1,5 @@
 import { noteService } from '../../../services/note.service.js'
+import { eventBus } from '../../../services/eventBus.service.js'
 import noteCreate from '../cmps/note-create.cmp.js'
 import noteList from '../cmps/note-list.cmp.js'
 
@@ -12,7 +13,6 @@ export default {
     data() {
         return {
             notes: null,
-            no: null,
 
         }
     },
@@ -21,17 +21,28 @@ export default {
         noteCreate,
     },
     methods: {
-        createNote() {
+        removeNote(noteId) {
+            noteService.removeNote(noteId)
+            console.log('NOTE APP - I want to remove note:', noteId)
         },
-        changeNoteType(type) {
-            this
+        togglePinnedNote(noteId) {
+            noteService.togglePinnedNote(noteId)
+            console.log('Changing pinned state:', noteId)
         }
+
     },
     created() {
         noteService.getNotes()
             .then(notes => {
                 this.notes = notes
             })
+
+
+        eventBus.$on('removeNote', this.removeNote)
+        eventBus.$on('togglePinnedNote', this.togglePinnedNote)
+    },
+    destroyed() {
+        eventBus.$off('togglePinnedNote', this.togglePinnedNote)
     }
 }
 

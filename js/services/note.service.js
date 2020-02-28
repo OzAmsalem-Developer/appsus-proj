@@ -6,17 +6,13 @@ const notesDB = storageService.load(NOTE_KEY) || _createSamplesNotes()
 
 export const noteService = {
     getNotes,
-    getNoteById,
     createNote,
+    removeNote,
+    togglePinnedNote,
 }
 
 function getNotes() {
     return Promise.resolve(notesDB)
-}
-
-function getNoteById(noteId) {
-    const note = notesDB.find(note => note.id === noteId)
-    return Promise.resolve(note)
 }
 
 function createNote(noteInfo) {
@@ -35,8 +31,21 @@ function createNote(noteInfo) {
     notesDB.unshift(note)
     storageService.store(NOTE_KEY, notesDB)
     console.log(notesDB)
+    return Promise.resolve()
 }
 
+function removeNote(noteId) {
+    const noteIdx = _getNoteByIndex(noteId)
+    notesDB.splice(noteIdx, 1)
+    storageService.store(NOTE_KEY, notesDB)
+}
+
+function togglePinnedNote(noteId) {
+    const note = _getNoteById(noteId)
+    note.isPinned = !note.isPinned
+    storageService.store(NOTE_KEY, notesDB)
+    console.log('PinnedSatus:', note.isPinned)
+}
 
 // function updateEmail(emailId, prop, val) {
 //     const email = emailsDB.find(email => email.id === emailId)
@@ -48,7 +57,20 @@ function createNote(noteInfo) {
 
 //Private
 
-// Samples data! to move to new service
+function _getNoteByIndex(noteId) {
+    const noteIdx = notesDB.findIndex(note => note.id === noteId)
+    return noteIdx
+}
+
+function _getNoteById(noteId) {
+    const note = notesDB.find(note => note.id === noteId)
+    return note
+}
+
+// function _getNoteById(noteId) {
+//     const note = notesDB.find(note => note.id === noteId)
+//     return Promise.resolve(note)
+// }
 
 function _createSamplesNotes() {
     const notes = [
@@ -98,28 +120,3 @@ function _createSamplesNotes() {
     storageService.store(NOTE_KEY, notes)
     return notes
 }
-
-// function _createSamplesEmails() {
-//     const fromNames = ['Rami', 'Oz', 'Guy', 'Ran', 'Daniel', 'Yaron', 'Nadav', 'Omer']
-//     const emails = fromNames.map(_createEmail)
-//     storageService.store(EMAIL_KEY, emails)
-//     return emails
-// }
-
-// function _createEmail(from = utilService.createWord(6)) {
-//     return {
-//         id: utilService.makeId(),
-//         from: from,
-//         subject: utilService.makeLorem(50),
-//         body: utilService.makeLorem(utilService.getRandom(10, 150)),
-//         isRead: false,
-//         sentAt: Date.now(),
-//         boxes: {
-//             inbox: true,
-//             sentBox: false,
-//             draft: false,
-//             star: false,
-//             note: false
-//         }
-//     }
-// }

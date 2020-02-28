@@ -51,7 +51,7 @@ export default {
                     return 'txt'
                 case 'noteImg':
                     return 'img'
-                case 'noteVdeo':
+                case 'noteVideo':
                     return 'video'
                 case 'noteTodos':
                     return 'todos'

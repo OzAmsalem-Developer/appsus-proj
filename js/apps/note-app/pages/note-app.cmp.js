@@ -5,9 +5,8 @@ import noteList from '../cmps/note-list.cmp.js'
 export default {
     template: `
     <section class="note-app">
-        <h1>Notes App</h1>
-        <note-create></note-create>
-        <note-list :notes="notes"></note-list>
+        <note-create class="container"></note-create>
+        <note-list class="container" :notes="notes"></note-list>
     </section>
     `,
     data() {
@@ -35,3 +34,5 @@ export default {
             })
     }
 }
+
+// container

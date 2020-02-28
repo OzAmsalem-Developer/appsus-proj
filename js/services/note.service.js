@@ -60,30 +60,39 @@ function _createSamplesNotes() {
                 txt: 'Fullstack Me Baby!'
             }
         },
+        {
+            id: utilService.makeId(),
+            type: 'noteTodos',
+            isPinned: false,
+            info: {
+                txt: 'Things to do:',
+                todos: [
+                    { txt: 'Do that', doneAt: null },
+                    { txt: 'Do this', doneAt: 187111111 }
+                ]
+            }
+        },
+        {
+            id: utilService.makeId(),
+            type: 'noteImg',
+            isPinned: false,
+            info: {
+                img: 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Avatar_flower.png',
+                // title: 'Me playing Mi'
+            },
+            // style: {
+            //     backgroundColor: '#00d'
+            // }
+        },
         // {
         //     id: utilService.makeId(),
-        //     type: 'NoteImg',
+        //     type: 'noteVideo',
         //     isPinned: false,
         //     info: {
-        //         url: 'http://some-img/me',
-        //         title: 'Me playing Mi'
+        //         video: 'https://www.youtube.com/embed/c2ScKSMGvtc',
         //     },
-        //     style: {
-        //         backgroundColor: '#00d'
-        //     }
+
         // },
-        // {
-        //     id: utilService.makeId(),
-        //     type: 'NoteTodos',
-        //     isPinned: false,
-        //     info: {
-        //         label: 'How was it:',
-        //         todos: [
-        //             { txt: 'Do that', doneAt: null },
-        //             { txt: 'Do this', doneAt: 187111111 }
-        //         ]
-        //     }
-        // }
     ]
 
     storageService.store(NOTE_KEY, notes)

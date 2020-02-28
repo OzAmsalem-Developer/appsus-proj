@@ -9,7 +9,7 @@ export default {
     <section class="email-app container" v-if="emails">
         
         <aside class="side-menu side-container">
-            <button @click="composeEmail"
+            <button @click.prevent="composeEmail"
                 class="compose-btn">
                 <i class="fas fa-plus"></i>
                 Compose
@@ -23,12 +23,15 @@ export default {
         <search-bar @filtered="setFilter" :searchData="searchData">
         </search-bar>
 
-        <email-list v-if ="emails" 
+        <email-list v-if ="emails"
+        @removed="removeEmail"
         :emails="emailsForDisplay"
         @emailChanged="updateEmail">
         </email-list>
 
-        <email-compose v-if="isCompose"></email-compose>
+        <email-compose :isReply="isReply"
+         @emailCreated="isCompose = false"
+          v-if="isCompose"></email-compose>
     </section>
     `
     ,
@@ -41,6 +44,8 @@ export default {
                 sideFilter: 'inbox'
             },
             isCompose: false,
+            isReply: false,
+            unreadCount: null,
             searchData: {
                 placeholder: 'Search mail',
                 selectOptions: ['All', 'Read', 'Unread']
@@ -54,7 +59,6 @@ export default {
         composeEmail() {
             if (this.isCompose) return
             this.isCompose = true
-            console.log('isCompose?', this.isCompose)
         },
         setSideFilter(by) {
             this.filterBy.sideFilter = by
@@ -62,6 +66,19 @@ export default {
         setFilter(filterBy) {
             this.filterBy.txt = filterBy.txt
             this.filterBy.readUnread = filterBy.selectedOption
+        },
+        removeEmail(emailId) {
+            emailService.removeEmail(emailId)
+        },
+        countUnread() { // This is not computed because of vue reactive   
+            this.unreadCount = this.emails.reduce((acc,email) => {
+                const boxes = email.boxes
+                for (const prop in boxes) {
+                    if (acc[prop] === undefined) acc[prop] = 0
+                    if (boxes[prop] && !email.isRead) acc[prop]++
+                }
+                return acc
+            },{})
         }
     },
     computed: {
@@ -84,25 +101,32 @@ export default {
                     return email.isRead === isRead
                 })
             }
-        },
-        unreadCount() {
-            let count = 0
-            this.emails.forEach(email => {
-                if (!email.isRead) count++
-            })
-            return (count > 0)? count : ''
         }
+    },
+    watch: {
+        emails: {
+            handler() {
+                this.countUnread()
+            },
+            deep: true
+        } 
     },
     components: {
         emailList,
         emailCompose,
-        searchBar,
-        emailSideFilter
+        emailSideFilter,
+        searchBar
     },
     created() {
+        if (this.$route.path.includes('reply')) {
+            this.isCompose = true
+            this.isReply = true
+        } else this.isReply = false
+        
         emailService.getEmails()
             .then(emails => {
                 this.emails = emails
+                this.countUnread()
             })
     }
 }

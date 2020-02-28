@@ -1,4 +1,5 @@
 import { emailService } from '../../../services/email.service.js'
+import { utilService } from '../../../services/util.service.js'
 
 
 export default {
@@ -8,15 +9,16 @@ export default {
         
             <div class="compose-header">
             <span>New Message</span>
+            <button @click="$emit('emailCreated')" class="close-btn"><i class="fas fa-times"></i></button>
             </div>
 
-            <input class="form-txt" required type="text" v-model.trim="email.from" placeholder="To:" />
+            <input class="form-txt" required type="text" v-model.trim="email.to" placeholder="To:" />
             <input class="form-txt" required type="text" v-model.trim="email.subject" placeholder="Subject:" />          
             <textarea class="form-txt" v-model="email.body" rows="20"></textarea>
 
             <div class="form-btns">
-                <button class="send-btn"><i class="far fa-paper-plane"></i> Send</button>
-                <button class="delete-btn" @click.prevent="closeCompose">delete</button>
+                <button class="send-btn"><i class="far fa-paper-plane"></i>Send</button>
+                <button class="delete-btn" @click.prevent="removeDraft"><i class="fas fa-trash"></i></button>
             </div>
         </form>
     </section>
@@ -24,30 +26,64 @@ export default {
     data() {
         return {
             email: {
-                from: '',
-                subject: '',
+                from: 'me',
+                to: null,
+                subject: null,
                 body: '',
                 boxes: {
-                    inbox: true,
-                    sentBox: true,
+                    inbox: false,
+                    sentBox: false,
                     draft: false,
                     star: false,
                     note: false
                 }
-            }
+            },
+            removed: false
         }
     },
     methods: {
         sendEmail() {
-            if (!this.email.from || !this.email.subject) return
-            if (this.email.from.toLowerCase() === 'me' || this.email.from.toLowerCase() === 'myself') {
-                this.email.boxes.sentBox = true
-            }
-            console.log('Email sent to:', this.email.from)
+            if (!this.email.to || !this.email.subject) return
+            const to = this.email.to.toLowerCase()
+
+            if (to === 'me' || to === 'myself') this.email.boxes.inbox = true
+            else if (to === 'notes' || to === 'note') this.email.boxes.note = true
+            
+
+            this.email.boxes.sentBox = true //Anyway
+
             emailService.createNewEmail(this.email)
+            .then(() => {this.$emit('emailCreated')})
         },
-        closeCompose() {
-            console.log('Email trash', this.email)
+        removeDraft() {
+            this.removed = true
+            this.$emit('emailCreated')
         }
-    }
+    },
+    destroyed() {
+        const boxes = this.email.boxes
+        if (!boxes.inbox && !boxes.sentBox && !this.removed) {
+            this.email.boxes.draft = true
+            if (!this.email.to) this.email.to = 'Drafts'
+            if (!this.email.subject) this.email.subject = 'Draft email'
+            emailService.createNewEmail(this.email)
+        }  if (this.isReply) {this.$router.push('/email')}
+    },
+    created() {
+        const emailId = this.$route.params.emailId
+        if (this.isReply) {
+            emailService.getEmailById(emailId)
+                .then((emailToReply) => {
+                    this.email.boxes.inbox = true
+                    this.email.to = emailToReply.from
+                    this.email.subject = 'Re: ' + emailToReply.subject
+                    this.email.body = '<---------------------Reply To---------------------->' +
+                    '  From: ' + emailToReply.from + ',  Sent At: ' 
+                    + utilService.getFormattedDate(emailToReply.sentAt) + ',  '
+                     + emailToReply.subject + '     ' + emailToReply.body + 
+                     '<--------------------------------------------------->' 
+                })
+        }
+    },
+    props: ['isReply']
 }

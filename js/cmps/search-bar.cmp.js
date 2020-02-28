@@ -34,11 +34,10 @@ export default {
         }
     },
     watch: {
+        // Notify the URL with the filter red/unread (Click on email disappear when filter 'unread' BUG FIX)
         'filterBy.selectedOption': {
             handler(newVal, oldVal) {
                 this.$router.push('/email+' + newVal.toLowerCase())
-                console.log(this.$route.params.filter);
-                
             }
         } 
     },

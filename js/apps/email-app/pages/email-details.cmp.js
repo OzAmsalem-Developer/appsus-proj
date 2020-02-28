@@ -1,5 +1,6 @@
 import { emailService } from "../../../services/email.service.js"
 import emailMenu from '../../email-app/cmps/email-menu.cmp.js'
+import {utilService} from '../../../services/util.service.js'
 
 export default {
     template: `
@@ -12,7 +13,11 @@ export default {
             </button>
 
             <transition name="fade">
-                <email-menu v-if="isMenuOpen">
+                <email-menu v-if="isMenuOpen"  
+                @emailUpdated="updateEmail"
+                @sentToNotes="sendToNotes" 
+                @removed="removeEmail"
+                @reply="replyToEmail">
                 </email-menu>
             </transition>
         </div>
@@ -35,25 +40,37 @@ export default {
         getEmail() {
             const emailId = this.$route.params.emailId
             emailService.getEmailById(emailId)
-            .then((email) => {this.email = email})
+            .then((email) => {
+                this.email = email
+                this.updateEmail('isRead', true)
+            })
+            .catch(() => {
+                console.log('Id didnt exist');
+                this.$router.push('/email')
+            })
+        },
+        updateEmail(prop, val) {
+            emailService.updateEmail(this.email.id, prop, val)
+            this.isMenuOpen = false
+        },
+        sendToNotes() {
+            emailService.sendToNotes(this.email.id)
+            this.isMenuOpen = false
+        },
+        removeEmail() {
+            emailService.removeEmail(this.email.id)
+            this.$router.push('/email')
+        },
+        replyToEmail() {
+            this.$router.push('/email/reply/' + this.email.id)
         }
     },
     computed: {
         timeToShow() {
-            const time = new Date(this.email.sentAt)
-            let hours = time.getHours();
-            let minutes = time.getMinutes();
-            const ampm = (hours >= 12) ? 'PM' : 'AM';
-            hours = hours % 12;
-            hours = hours ? hours : 12; // the hour '0' should be '12'
-            minutes = minutes < 10 ? '0' + minutes : minutes;
-            const timeStr = hours + ':' + minutes + ' ' + ampm;
-            return timeStr;
+            return utilService.getFormattedHour(this.email.sentAt)
         },
         dateToShow() {
-            const time = new Date(this.email.sentAt)
-            // Replace '.' with '/'
-            return time.toLocaleString().split(',')[0].replace(/\./g, '/');
+            return utilService.getFormattedDate(this.email.sentAt)
         }
     },
     watch: {

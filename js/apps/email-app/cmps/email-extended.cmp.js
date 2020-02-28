@@ -6,8 +6,8 @@ export default {
                 {{email.subject}}
             </div>
             <div>
-                <button class="remove-email-btn">X</button>
-                <button class="expand-email-btn">O</button>
+                <button @click="$emit('removed', email.id)" class="remove-email-btn">X</button>
+                <router-link :to="'email/'+email.id">O</router-link>
             </div>
         </div>
         <div class="preview-from">

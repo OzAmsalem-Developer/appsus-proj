@@ -3,7 +3,7 @@ export default {
     <section>
     
     <button @click="removeNote(noteId)">DEL</button>
-    <section>
+    </section>
     `,
     methods: {
         removeNote(noteId) {

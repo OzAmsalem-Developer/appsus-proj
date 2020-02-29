@@ -12,13 +12,20 @@
 
 .compose-btn {
     background-color: #FFA500;
+    color: #1b262c;
     border: none;
-    border-radius: 20px;
+    border-radius: 50px;
     font-size: 1.625rem;
-    padding: 5px 10px;
+    padding: 10px;
     margin: 15px 5px;
     cursor: pointer;
     transition: color .3s;
+    align-self: center;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+}
+
+.plus-icon {
+    margin: 0 5px;
 }
 
 .compose-btn .fa-plus {

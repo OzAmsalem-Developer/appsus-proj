@@ -1,9 +1,38 @@
-.filter-item {
+.email-side-filter {
+    padding: 5px;
+}
+
+.side-filter {
     list-style-type: none;
-    padding-inline-start: 20px;
+    font-size: 16px;
+}
+
+.filter-icon {
+    font-size: 18px;
+    margin: 0 10px;
+    color:rgb(68, 68, 68);
+}
+
+.filter-item {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
     user-select: none;
+    position: relative;
+}
+
+.filter-item:hover {
     cursor: pointer;
-    margin-bottom: 5px;
+    background-color: rgba(60, 64, 67, 0.08);
+    border-radius: 50px;
+}
+
+.email-side-filter .unread {
+    position: absolute;
+    right: 15px;
+    font-size: 14px;
+    font-family: Roboto-bold, Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .filter-item>* :hover {

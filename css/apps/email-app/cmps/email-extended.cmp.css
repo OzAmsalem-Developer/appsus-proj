@@ -1,5 +1,5 @@
 .email-extended {
-    padding: 0px 30px 40px 20px;
+    padding: 0px 10px 20px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,7 +23,7 @@
 }
 
 .email-address {
-    font-size: 18px;
+    font-size: 15px;
     margin-left: 30px;
     font-family: Roboto-light, Verdana, Geneva, Tahoma, sans-serif;
     color: grey;
@@ -55,10 +55,6 @@
     color: #ffb223e1;
 }
 
-.extended-menu {
-
-}
-
 /* Body */
 
 .extended-body {
@@ -71,7 +67,7 @@
 
 .extended-from-name {
     font-family: Roboto-bold, Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .preview-from {

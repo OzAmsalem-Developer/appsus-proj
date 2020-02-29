@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1b262c;
+    background-color: rgb(27, 38, 44);
 }
 
 .header-container{

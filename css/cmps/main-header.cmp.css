@@ -14,8 +14,26 @@
 
 .logo-img {
     height: 100px;
+
+}
+
+.menu-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    transition: all .2s;
+    z-index: 1;
 }
 
 img.menu-icon {
-    height: 50px;
+    height: 40px;
+    cursor: pointer;
+
+}
+
+.menu-icon-container:hover{
+    background-color: rgba(82, 82, 82, 0.516);
 }

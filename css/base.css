@@ -12,11 +12,9 @@ body {
     background-color: rgb(245, 245, 245);
 }
 
-/* .apps-main {
-    display: flex;
-    justify-content: center;
-    background-color: yellowgreen;
-} */
+input, select, button {
+    outline: none;
+}
 
 /* helpers */
 

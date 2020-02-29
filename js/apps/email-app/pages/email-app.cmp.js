@@ -8,26 +8,30 @@ import emailSideFilter from '../cmps/email-side-filter.cmp.js'
 export default {
     template: `
     <section class="email-app container" v-if="emails">
+
+        <div class="search-bar-container">
+            <search-bar @filtered="setFilter" :searchData="searchData">
+            </search-bar>
+        </div>
         
-        <aside class="side-menu side-container">
-            <button @click.prevent="composeEmail"
+        <section class="main-content">
+            <aside class="side-menu side-container">
+                <button @click.prevent="composeEmail"
                 class="compose-btn">
-                <i class="fas fa-plus"></i>
-                Compose
-            </button>
+                <i class="fas fa-plus"></i>Compose
+                </button>
 
-            <email-side-filter @filtered="setSideFilter" 
-            :unreadCount="unreadCount">
-            </email-side-filter>
-        </aside>
+                <email-side-filter @filtered="setSideFilter" 
+                :unreadCount="unreadCount">
+                </email-side-filter>
+            </aside>
 
-        <search-bar @filtered="setFilter" :searchData="searchData">
-        </search-bar>
-
-        <email-list v-if ="emails"
-        :emails="emailsForDisplay"
-        @updated="updateEmail">
-        </email-list>
+            <email-list v-if ="emails"
+            :emails="emailsForDisplay"
+            @updated="updateEmail">
+            </email-list>
+        </section>
+        
 
         <email-compose :isReply="isReply"
          @emailCreated="isCompose = false"

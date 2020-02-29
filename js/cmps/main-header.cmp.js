@@ -5,9 +5,17 @@ export default {
     <section class="main-header">
         <div class="header-container container">
             <img src="img/logo/logo.png" alt="logo" class="logo-img" />
-            <img class="menu-icon" @click="isMenuOpen = !isMenuOpen"
-            src="img/icons/menu.png" alt="menu" />
-            <main-nav v-if="isMenuOpen"></main-nav>
+        
+            <div class="menu-icon-container">
+                <img class="menu-icon" @click="isMenuOpen = !isMenuOpen"
+                src="img/icons/menu.png" alt="menu" />
+            </div>
+        
+
+            <transition name="fade">
+                <main-nav v-if="isMenuOpen" @clicked="isMenuOpen=false">
+                </main-nav>
+            </transition>
         </div>
     </section>
     `

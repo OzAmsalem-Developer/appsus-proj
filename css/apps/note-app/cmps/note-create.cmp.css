@@ -12,16 +12,20 @@
     align-items: center;
     box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.15);
     background-color: white;
+    border-radius: 3px;
+}
+
+.note-type-btns {
+    display: flex;
+    justify-content: center;
 }
 
 .txt-input {
     font-size: 1.25em;
     height: 3.125em;
-    /* width: 300px; */
-    width: 18.75em;
+    width: 28em;
     border: none;
-    /* padding-left: 10px; */
-    padding-left: 0.625em;
+    padding-left: 1em;
     border-radius: 3px;
 }
 
@@ -29,7 +33,7 @@
     border: none;
     font-size: 1.875em;
     height: 2.5em;
-    width: 60px;
+    width: 3em;
     cursor: pointer;
     background-color: white;
     transition: background-color .3s;
@@ -45,6 +49,13 @@
     border-bottom-right-radius: 3px;
 }
 
+@media (max-width: 1000px) {
+    .txt-input {
+        width: 50vw;
+        text-align: center;
+    }
+
+}
 
 @media (max-width: 850px) {
     .note-create-container {
@@ -57,8 +68,7 @@
     }
 
     .txt-input {
-        width: 30em;
-        /* font-size: 1.875em; */
+        width: 90vw;
         text-align: center;
     }
 
@@ -69,7 +79,6 @@
 
 @media (max-width: 640px) {
     .txt-input {
-        width: 90vw;
         min-width: 350px;
         text-align: center;
     }

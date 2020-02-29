@@ -1,8 +1,14 @@
 .note-list {
     margin: 0 auto 2em;
-	column-gap: 1em;
+    column-gap: .25em;
     column-count: 4;
     vertical-align: baseline;
+    width: 95vw;
+    padding-left: 1em;
+}
+
+.note-create-container {
+    margin: 0 auto;
 }
 
 .note-preview {
@@ -11,13 +17,11 @@
     vertical-align: baseline;
 }
 
-
 @media (max-width: 1080px) {
     .note-list {
         column-count: 3;
     }
 }
-
 
 @media (max-width: 850px) {
     .note-list {

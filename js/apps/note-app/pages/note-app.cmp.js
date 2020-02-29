@@ -23,14 +23,15 @@ export default {
     methods: {
         removeNote(noteId) {
             noteService.removeNote(noteId)
-            console.log('NOTE APP - I want to remove note:', noteId)
         },
         togglePinnedNote(noteId) {
             noteService.togglePinnedNote(noteId)
-            console.log('Changing pinned state:', noteId)
         },
         updateNote(note) {
             noteService.updateNote(note)
+        },
+        toggleTodoComplete(note, todoIdx) {
+            noteService.toggleTodoComplete(note, todoIdx)
         }
 
     },
@@ -43,10 +44,13 @@ export default {
         eventBus.$on('removeNote', this.removeNote)
         eventBus.$on('togglePinnedNote', this.togglePinnedNote)
         eventBus.$on('addTodo', this.updateNote)
+        eventBus.$on('isTodoComplete', this.toggleTodoComplete)
+        // eventBus.$on('isTodoComplete', this.note.id, todoIdx)
     },
     destroyed() {
         eventBus.$off('togglePinnedNote', this.togglePinnedNote)
     }
 }
 
-// container
+// Object.toggleTodoComplete (note.service.js:64)
+// at VueComponent.toggleTodoComplete (note-app.cmp.js:36)

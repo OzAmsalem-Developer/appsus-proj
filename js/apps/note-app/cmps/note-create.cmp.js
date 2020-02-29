@@ -37,7 +37,6 @@ export default {
     methods: {
         createNote() {
             const newNote = JSON.parse(JSON.stringify(this.note))
-            console.log(this.note);
             const info = {
                 txt: '',
                 img: '',

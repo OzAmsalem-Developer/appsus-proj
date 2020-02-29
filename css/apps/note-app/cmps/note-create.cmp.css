@@ -2,25 +2,42 @@
     display: flex;
     justify-content: center;
     justify-items: center;
-    margin: 30px 0
+    margin: 30px 0;
+    /* border-radius: 10px; */
+}
+
+.cote-create-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.15);
 }
 
 .txt-input {
-    font-size: 30px;
+    font-size: 20px;
     height: 50px;
-    border: none
+    width: 300px;
+    border: none;
+    padding-left: 10px;
+    border-radius: 3px;
 
 }
 
-.note-text-btn, .note-img-btn, .note-video-btn, .note-todo-btn {
+.note-create-btn {
     border: none;
     font-size: 30px;
     height: 50px;
     width: 60px;
     cursor: pointer;
     background-color: white;
+    transition: background-color .3s;
 }
 
-.note-type-btns>*button {
-    background-color: red;
+.note-create-btn:hover {
+    background-color: orange;
+}
+
+.note-todo-btn {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
 }

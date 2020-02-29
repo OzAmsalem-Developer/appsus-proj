@@ -1,4 +1,4 @@
-import {eventBus} from '../../services/eventBus.service.js'
+import { eventBus } from '../../services/eventBus.service.js'
 
 export const noteText = {
     template: `
@@ -24,7 +24,7 @@ export const noteTodos = {
         <section class="note-todos">
             <h2>{{note.info.title}}</h2>
             <ul v-if="note.info.todos">
-                <li v-for="(todo, idx) in note.info.todos">
+                <li v-for="(todo, idx) in note.info.todos" @click="toggleTodoComplete(idx)" :class=" {'todo-complete' : todo.isComplete, 'todo-uncomplete' : !todo.isComplete}">
                 {{todo.txt}}
                  </li>
             </ul>
@@ -33,26 +33,29 @@ export const noteTodos = {
     `,
     data() {
         return {
-            nextTodo: ''
+            nextTodo: '',
         }
     },
     methods: {
         addTodo() {
             const todo = {
                 txt: this.nextTodo,
+                isComplete: false,
             }
             if (!this.note.info.todos) this.note.info.todos = []
             this.note.info.todos.push(todo)
-            const newNote = JSON.parse(JSON.stringify(this.note))
+            const newNote = this.createNoteCopy()
             eventBus.$emit('addTodo', newNote)
             this.nextTodo = ''
+        },
+        toggleTodoComplete(TodoIdx) {
+            this.note.info.todos[TodoIdx].isComplete = !this.note.info.todos[TodoIdx].isComplete
+            const newNote = this.createNoteCopy()
+            eventBus.$emit('isTodoComplete', newNote, TodoIdx)
 
-            // Add todo to the todos array
-            // Deep Copy and update to the new note
-            //emit change to note-app
-            // not app
-            // nexttodo = null
-
+        },
+        createNoteCopy() {
+            return JSON.parse(JSON.stringify(this.note))
         }
     },
     props: ['note'],

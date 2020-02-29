@@ -10,6 +10,7 @@ export const noteService = {
     removeNote,
     togglePinnedNote,
     updateNote,
+    toggleTodoComplete,
 }
 
 function getNotes() {
@@ -32,7 +33,6 @@ function createNote(noteInfo) {
     // if (email.boxes.draft) email.isRead = true
     notesDB.unshift(note)
     storageService.store(NOTE_KEY, notesDB)
-    console.log(notesDB)
     return Promise.resolve()
 }
 
@@ -46,23 +46,22 @@ function togglePinnedNote(noteId) {
     const note = _getNoteById(noteId)
     note.isPinned = !note.isPinned
     storageService.store(NOTE_KEY, notesDB)
-    console.log('PinnedSatus:', note.isPinned)
 }
 
+// Updated the note with a deep copy 
 function updateNote(note) {
     const idx = _getNoteByIndex(note.id)
     notesDB.splice(idx, 1, note)
     storageService.store(NOTE_KEY, notesDB)
-    console.log('UPDATED!!!!!')
     return Promise.resolve()
 }
 
-// function updateEmail(emailId, prop, val) {
-//     const email = emailsDB.find(email => email.id === emailId)
-//     email[prop] = val
-//     storageService.store(EMAIL_KEY, emailsDB)
-// }
-
+function toggleTodoComplete(newNote, todIdx) {
+    const idx = _getNoteByIndex(newNote.id)
+    notesDB.splice(idx, 1, newNote)
+    storageService.store(NOTE_KEY, notesDB)
+    return Promise.resolve()
+}
 
 
 //Private
@@ -76,11 +75,6 @@ function _getNoteById(noteId) {
     const note = notesDB.find(note => note.id === noteId)
     return note
 }
-
-// function _getNoteById(noteId) {
-//     const note = notesDB.find(note => note.id === noteId)
-//     return Promise.resolve(note)
-// }
 
 function _createSamplesNotes() {
     const notes = [

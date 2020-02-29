@@ -3,7 +3,7 @@ import { noteService } from '../../../services/note.service.js'
 export default {
     template: `
     <section class="note-create">
-        <div class="cote-create-container">
+        <div class="note-create-container">
         <input class="txt-input"
         v-model="connectedVal"
         :placeholder="placeholderTxt"

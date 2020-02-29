@@ -16,23 +16,17 @@
     .note-list {
         column-count: 3;
     }
-
-
 }
 
 
-@media (max-width: 780px) {
+@media (max-width: 800px) {
     .note-list {
         column-count: 2;
     }
-
-
 }
 
 @media (max-width: 500px) {
     .note-list {
         column-count: 1;
     }
-    
-
 }

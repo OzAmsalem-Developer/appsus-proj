@@ -10,3 +10,29 @@
     margin: 0 1rem 1rem 0;
     vertical-align: baseline;
 }
+
+
+@media (max-width: 1080px) {
+    .note-list {
+        column-count: 3;
+    }
+
+
+}
+
+
+@media (max-width: 780px) {
+    .note-list {
+        column-count: 2;
+    }
+
+
+}
+
+@media (max-width: 500px) {
+    .note-list {
+        column-count: 1;
+    }
+    
+
+}

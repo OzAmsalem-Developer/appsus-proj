@@ -4,25 +4,25 @@ export default {
     template: `
     <section class="note-create">
         <div class="note-create-container">
-        <input class="txt-input"
-        v-model="connectedVal"
-        :placeholder="placeholderTxt"
-        @keyup.enter="createNote">
+            <input class="txt-input"
+            v-model="connectedVal"
+            :placeholder="placeholderTxt"
+            @keyup.enter="createNote">
         
-        <div class="note-type-btns"
-            <button class="note-create-btn note-text-btn" @click="changeType('noteText')">
-                <i class="far fa-comment"></i>
-            </button>
-            <button class="note-create-btn note-img-btn" @click="changeType('noteImg')">
-                <i class="far fa-image"></i>
-            </button>
-            <button class="note-create-btn note-video-btn" @click="changeType('noteVideo')">
-                <i class="fab fa-youtube"></i>
-            </button>
-            <button class="note-create-btn note-todo-btn" @click="changeType('noteTodos')">
-                <i class="fas fa-list-ul"></i>
-            </button>
-        </div>
+            <div class="note-type-btns">
+                <button class="note-create-btn note-text-btn" @click="changeType('noteText')">
+                    <i class="far fa-comment"></i>
+                </button>
+                <button class="note-create-btn note-img-btn" @click="changeType('noteImg')">
+                    <i class="far fa-image"></i>
+                </button>
+                <button class="note-create-btn note-video-btn" @click="changeType('noteVideo')">
+                    <i class="fab fa-youtube"></i>
+                </button>
+                <button class="note-create-btn note-todo-btn" @click="changeType('noteTodos')">
+                    <i class="fas fa-list-ul"></i>
+                </button>
+            </div>
         </div>
     </section>
     `,

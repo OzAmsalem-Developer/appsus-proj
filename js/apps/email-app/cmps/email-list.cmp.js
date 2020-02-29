@@ -12,6 +12,7 @@ export default {
             </email-preview>
 
             <email-extended
+            @emailUnread="selectedEmailId = null"
             v-if="selectedEmailId === email.id"
             :email="email">
             </email-extended>

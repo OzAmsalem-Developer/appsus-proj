@@ -14,7 +14,8 @@ export default {
             <transition name="fade">
             <email-menu class="extended-menu"
             :emailId="email.id" v-if="isMenuOpen"
-            @clicked="isMenuOpen = false">
+            @clicked="isMenuOpen = false"
+            @emailUnread="() => {this.$emit('emailUnread')}">
             </email-menu>
             </transition>
 

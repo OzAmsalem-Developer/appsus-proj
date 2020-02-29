@@ -19,6 +19,12 @@
     color: grey;
 }
 
+.email-sent-at {
+    font-size: 13px;
+    align-self: start;
+    margin-top: 5px;
+}
+
 .email-preview-from {
     text-transform: capitalize;
 }
@@ -31,4 +37,10 @@
 .email-read {
     font-weight: normal;
     background-color: rgb(210, 210, 210);
+}
+
+@media (max-width: 950px) {
+    .email-preview {
+        min-height: 80px;
+    }
 }

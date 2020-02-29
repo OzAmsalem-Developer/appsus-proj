@@ -5,6 +5,9 @@
 @import './cmps/search-bar.cmp.css';
 @import './cmps/user-msg.cmp.css';
 
+@import './pages/about-page.cmp.css';
+@import './pages/about-team.cmp.css';
+
 @import 'apps/email-app/pages/email-app.cmp.css';
 @import 'apps/email-app/pages/email-details.cmp.css';
 @import 'apps/email-app/cmps/email-side-filter.cmp.css';

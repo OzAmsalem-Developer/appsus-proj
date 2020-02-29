@@ -11,11 +11,12 @@
     justify-content: center;
     align-items: center;
     box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.15);
+    background-color: white;
 }
 
 .txt-input {
-    font-size: 1.25rem;
-    height: 50px;
+    font-size: 1.25em;
+    height: 3.125em;
     /* width: 300px; */
     width: 18.75em;
     border: none;
@@ -27,7 +28,7 @@
 .note-create-btn {
     border: none;
     font-size: 1.875em;
-    height: 50px;
+    height: 2.5em;
     width: 60px;
     cursor: pointer;
     background-color: white;
@@ -42,4 +43,34 @@
 .note-todo-btn {
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
+}
+
+
+@media (max-width: 850px) {
+    .note-create-container {
+        flex-direction: column;
+    }
+
+    .note-type-btns {
+        display: flex;
+        justify-content: center;
+    }
+
+    .txt-input {
+        width: 30em;
+        /* font-size: 1.875em; */
+        text-align: center;
+    }
+
+    .note-create-btn {
+        width: 80px;
+    }
+}
+
+@media (max-width: 640px) {
+    .txt-input {
+        width: 90vw;
+        min-width: 350px;
+        text-align: center;
+    }
 }

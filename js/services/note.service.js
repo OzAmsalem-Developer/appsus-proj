@@ -10,7 +10,6 @@ export const noteService = {
     removeNote,
     togglePinnedNote,
     updateNote,
-    toggleTodoComplete,
 }
 
 function getNotes() {
@@ -55,13 +54,13 @@ function updateNote(note) {
     storageService.store(NOTE_KEY, notesDB)
     return Promise.resolve()
 }
-
-function toggleTodoComplete(newNote, todIdx) {
-    const idx = _getNoteByIndex(newNote.id)
-    notesDB.splice(idx, 1, newNote)
-    storageService.store(NOTE_KEY, notesDB)
-    return Promise.resolve()
-}
+// Currently not used: updateNote does the same thing
+// function toggleTodoComplete(newNote) {
+//     const idx = _getNoteByIndex(newNote.id)
+//     notesDB.splice(idx, 1, newNote)
+//     storageService.store(NOTE_KEY, notesDB)
+//     return Promise.resolve()
+// }
 
 
 //Private
@@ -113,9 +112,9 @@ function _createSamplesNotes() {
             info: {
                 title: 'groceries:',
                 todos: [
-                    { txt: 'milk', doneAt: null },
-                    { txt: 'toothpaste', doneAt: 187111111 },
-                    { txt: 'bamba', doneAt: 187111 }
+                    { txt: 'milk', isComplete: true, doneAt: null },
+                    { txt: 'toothpaste', isComplete: false, doneAt: 187111111 },
+                    { txt: 'bamba', isComplete: false, doneAt: 187111 }
                 ]
             }
         },

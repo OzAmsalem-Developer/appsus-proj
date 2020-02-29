@@ -30,9 +30,12 @@ export default {
         updateNote(note) {
             noteService.updateNote(note)
         },
-        toggleTodoComplete(note, todoIdx) {
-            noteService.toggleTodoComplete(note, todoIdx)
-        }
+
+        // Currently not used | updateNote used instead
+        // toggleTodoComplete(note) {
+        //     // noteService.toggleTodoComplete(note)
+        //     noteService.updateNote(note)
+        // }
 
     },
     created() {
@@ -44,7 +47,7 @@ export default {
         eventBus.$on('removeNote', this.removeNote)
         eventBus.$on('togglePinnedNote', this.togglePinnedNote)
         eventBus.$on('addTodo', this.updateNote)
-        eventBus.$on('isTodoComplete', this.toggleTodoComplete)
+        eventBus.$on('isTodoComplete', this.updateNote)
         // eventBus.$on('isTodoComplete', this.note.id, todoIdx)
     },
     destroyed() {

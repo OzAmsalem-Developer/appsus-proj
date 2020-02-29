@@ -61,7 +61,7 @@ export const noteTodos = {
 export const noteVideo = {
     template: `
         <section class="note-video">
-        <iframe width="280" height="158" 
+        <iframe width="100%"
         :src="note.info.video" 
         frameborder="0" allow="accelerometer; autoplay; 
         encrypted-media; gyroscope; picture-in-picture"

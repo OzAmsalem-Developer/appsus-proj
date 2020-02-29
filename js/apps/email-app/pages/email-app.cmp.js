@@ -70,13 +70,20 @@ export default {
         },
         removeEmail(emailId) {
             emailService.removeEmail(emailId)
-            if (this.$route.path !== '/email') this.$router.push('/email')
+            .then((fromName) => {
+                if (this.$route.path !== '/email') this.$router.push('/email')
+                const msg = {
+                    txt: 'Email from ' + fromName + ' has been removed'
+                }
+                this.$emit('message', msg)
+            })
         },
         updateEmail(prop, val, emailId) {
             emailService.updateEmail(prop, val, emailId)
         },
         sendToNotes(emailId) {
             emailService.sendToNotes(emailId)
+            .then(() => {this.$emit('message', {txt: 'Email sent to notes'})})
         },
         replyToEmail(emailId) {
             this.$router.push('/email/reply/' + emailId)

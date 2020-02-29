@@ -1,0 +1,32 @@
+.user-msg {
+    padding: 15px 20px;
+    min-height: 60px;
+    border-radius: 3px;
+    background-color: #1b262c;
+    position: fixed;
+    box-shadow: 0 1px 3px 0 rgba(60,64,67,0.302), 0 4px 8px 3px rgba(60,64,67,0.149);
+    bottom: 15px;
+    right: 15px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-msg {
+    position: absolute;
+    background-color: transparent;
+    border: 0;
+    top: 4px;
+    right: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.msg-link {
+    color: white;
+    text-decoration: unset;
+    color: orange;
+    margin-top: 5px;
+}

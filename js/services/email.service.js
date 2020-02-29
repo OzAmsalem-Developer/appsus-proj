@@ -24,8 +24,10 @@ function getEmailById(emailId) {
 
 function removeEmail(emailId) {
     const idx = emailsDB.findIndex(email => email.id === emailId)
+    const fromName = emailsDB[idx].from
     emailsDB.splice(idx, 1)
     storageService.store(EMAIL_KEY, emailsDB)
+    return Promise.resolve(fromName)
 }
 
 // Reuse func - for all updates. When need to return - promise
@@ -49,6 +51,7 @@ function sendToNotes(emailId) {
     }
     boxes.note = true
     storageService.store(EMAIL_KEY, emailsDB)
+    return Promise.resolve()
 }
 
 function createNewEmail(emailInfo) {

@@ -12,6 +12,7 @@ export const noteText = {
 export const noteImg = {
     template: `
         <section class="note-img">
+            <h2 v-if="note.info.title">{{note.info.title}}</h2>
             <img :src="note.info.img" />
         </section>
     `,
@@ -61,11 +62,10 @@ export const noteVideo = {
     template: `
         <section class="note-video">
         <iframe width="280" height="158" 
-        :src="info.video" 
+        :src="note.info.video" 
         frameborder="0" allow="accelerometer; autoplay; 
         encrypted-media; gyroscope; picture-in-picture"
          allowfullscreen></iframe>
-            <img :src="info.img" />
         </section>
     `,
     props: ['note'],

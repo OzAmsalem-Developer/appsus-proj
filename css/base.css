@@ -50,24 +50,8 @@ input, select, button {
 
 .container {
     width: 97vw;
-    border-inline-start: solid 1px violet;
-    border-inline-end: solid 1px violet;
 }
 
 .side-container {
     min-width: 210px;
-}
-
-.no-such-class-exists {
-    /* Main: Orange */
-    background-color: orange;
-    background-color: #ffa500;
-    background-color: rgb(255, 165, 0);
-    /* Secondary: black */
-    background-color: #1b262c;
-    background-color: rgb(27, 38, 44);
-    /* Background: White Smoaked */
-    background-color: whitesmoke;
-    background-color: #f5f5f5;
-    background-color: rgb(245, 245, 245);
 }

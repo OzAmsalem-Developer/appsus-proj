@@ -1,0 +1,56 @@
+.about-team-page {
+    padding-top: 80px;
+}
+
+.team-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 30px;
+}
+
+.team-member-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.team-memeber-img {
+    height: 300px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.team-member-name {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.team-member-par {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.team-member-links {
+    font-size: 30px;
+    margin-top: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.member-fb-link {
+    text-decoration: none;
+    color: black;
+}
+
+.member-ld-link {
+    text-decoration: none;
+    color: black;
+}
+
+.member-gh-link {
+    text-decoration: none;
+    color: black;
+}

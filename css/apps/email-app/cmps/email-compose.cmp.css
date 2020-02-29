@@ -19,9 +19,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    background-color: #1b262c;
-    color: honeydew;
-    /* height: 30px; */
+    background-color: #ffa500;
+    color: #202020;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
 }
@@ -64,3 +63,5 @@ textarea {
 .delete-btn {
     font-size: 1.5rem;
 }
+
+

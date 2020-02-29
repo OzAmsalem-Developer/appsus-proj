@@ -15,6 +15,7 @@ export default {
         </div>
         
         <section class="main-content">
+            <button @click="openFilter" class="hamburger"><i class="fas fa-bars"></i></button>
             <aside class="side-menu side-container">
                 <button @click.prevent="composeEmail"
                 class="compose-btn">
@@ -103,6 +104,9 @@ export default {
                 }
                 return acc
             },{})
+        },
+        openFilter() {
+            
         }
     },
     computed: {

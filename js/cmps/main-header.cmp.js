@@ -3,7 +3,7 @@ import mainNav from './main-nav.cmp.js'
 export default {
     template: `
     <section class="main-header">
-        <div class="header-container container">
+     
             <img src="img/logo/logo.png" alt="logo" class="logo-img" />
         
             <div class="menu-icon-container">
@@ -16,7 +16,7 @@ export default {
                 <main-nav v-if="isMenuOpen" @clicked="isMenuOpen=false">
                 </main-nav>
             </transition>
-        </div>
+     
     </section>
     `
     ,

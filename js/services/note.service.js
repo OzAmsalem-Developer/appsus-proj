@@ -21,6 +21,7 @@ function createNote(noteInfo) {
     const note = {
         id: utilService.makeId(),
         type: noteInfo.type,
+        noteType: noteInfo.noteType,
         isPinned: noteInfo.isPinned,
         info: {
             title: noteInfo.info.title,
@@ -61,18 +62,10 @@ function removeTodo(note, todoIdx) {
 
     const idx = _getNoteByIndex(note.id)
     notesDB.splice(idx, 1, note)
-    
+
     storageService.store(NOTE_KEY, notesDB)
     return Promise.resolve()
 }
-// Currently not used: updateNote does the same thing
-// function toggleTodoComplete(newNote) {
-//     const idx = _getNoteByIndex(newNote.id)
-//     notesDB.splice(idx, 1, newNote)
-//     storageService.store(NOTE_KEY, notesDB)
-//     return Promise.resolve()
-// }
-
 
 //Private
 
@@ -91,6 +84,7 @@ function _createSamplesNotes() {
         {
             id: utilService.makeId(),
             type: 'noteText',
+            noteType: 'txt',
             isPinned: false,
             info: {
                 txt: 'testing..'
@@ -99,6 +93,7 @@ function _createSamplesNotes() {
         {
             id: utilService.makeId(),
             type: 'noteImg',
+            noteType: 'img',
             isPinned: false,
             info: {
                 img: 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Avatar_flower.png',
@@ -111,6 +106,7 @@ function _createSamplesNotes() {
         {
             id: utilService.makeId(),
             type: 'noteTodos',
+            noteType: 'todos',
             isPinned: false,
             info: {
                 title: 'groceries:',
@@ -124,6 +120,7 @@ function _createSamplesNotes() {
         {
             id: utilService.makeId(),
             type: 'noteVideo',
+            noteType: 'video',
             isPinned: false,
             info: {
                 video: 'https://www.youtube.com/embed/c2ScKSMGvtc',
@@ -133,14 +130,26 @@ function _createSamplesNotes() {
         {
             id: utilService.makeId(),
             type: 'noteText',
+            noteType: 'txt',
             isPinned: false,
             info: {
                 txt: 'password: aligator_3'
             }
         },
+
         {
             id: utilService.makeId(),
             type: 'noteImg',
+            noteType: 'img',
+            isPinned: false,
+            info: {
+                img: 'https://media.giphy.com/media/kz6cm1kKle2MYkHtJF/giphy.gif',
+            },
+        },
+        {
+            id: utilService.makeId(),
+            type: 'noteImg',
+            noteType: 'img',
             isPinned: false,
             info: {
                 img: 'https://main-designyoutrust.netdna-ssl.com/wp-content/uploads/2018/09/Bugaboos.jpg',
@@ -150,6 +159,7 @@ function _createSamplesNotes() {
         {
             id: utilService.makeId(),
             type: 'noteTodos',
+            noteType: 'todos',
             isPinned: false,
             info: {
                 title: 'Sprint:',
@@ -163,6 +173,7 @@ function _createSamplesNotes() {
         {
             id: utilService.makeId(),
             type: 'noteImg',
+            noteType: 'img',
             isPinned: false,
             info: {
                 img: 'https://yesno.wtf/assets/yes/2-5df1b403f2654fa77559af1bf2332d7a.gif',
@@ -171,6 +182,7 @@ function _createSamplesNotes() {
         {
             id: utilService.makeId(),
             type: 'noteText',
+            noteType: 'txt',
             isPinned: true,
             info: {
                 txt: 'Noa wedding 08.03'
@@ -179,6 +191,7 @@ function _createSamplesNotes() {
         {
             id: utilService.makeId(),
             type: 'noteVideo',
+            noteType: 'video',
             isPinned: false,
             info: {
                 video: 'https://www.youtube.com/embed/pbMwTqkKSps',

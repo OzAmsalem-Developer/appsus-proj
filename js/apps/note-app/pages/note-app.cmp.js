@@ -44,6 +44,7 @@ export default {
         eventBus.$on('togglePinnedNote', this.togglePinnedNote)
         eventBus.$on('addTodo', this.updateNote)
         eventBus.$on('isTodoComplete', this.updateNote)
+        eventBus.$on('updateNote', this.updateNote)
         eventBus.$on('removeTodo', this.removeTodo)
     },
     destroyed() {

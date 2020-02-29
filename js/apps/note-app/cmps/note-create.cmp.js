@@ -29,7 +29,8 @@ export default {
     data() {
         return {
             note: {
-                type: '',
+                type: 'noteText',
+                noteType: 'txt',
                 isPinned: false,
                 info: null
             },
@@ -46,8 +47,8 @@ export default {
                 title: '',
                 todos: null
             }
-            if (this.infoType === 'todos') info.title = this.connectedVal
-            else info[this.infoType] = this.connectedVal
+            if (this.note.noteType === 'todos') info.title = this.connectedVal
+            else info[this.note.noteType] = this.connectedVal
             newNote.info = info
             noteService.createNote(newNote)
                 .then(() => {
@@ -56,6 +57,7 @@ export default {
         },
         changeType(newType) {
             this.note.type = newType
+            this.note.noteType = this.infoType
         }
     },
     computed: {
@@ -84,10 +86,6 @@ export default {
                 return 'Enter list title...'
             }
         }
-    },
-
-    created() {
-        this.note.type = 'noteText'
     }
 }
 

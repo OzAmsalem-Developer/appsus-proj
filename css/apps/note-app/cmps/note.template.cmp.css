@@ -1,3 +1,10 @@
+.info-txt {
+    font-size: 20px;
+}
+
+
+
+
 .todo-complete {
     text-decoration: line-through;
 }
@@ -5,3 +12,4 @@
 .todo-uncomplete{
     text-decoration: none
 }
+

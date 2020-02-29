@@ -21,7 +21,7 @@ export const noteImg = {
 
 export const noteTodos = {
     template: `
-        <section class="note-todos">
+        <section class="note-todos" v-if="note">
             <h2>{{note.info.title}}</h2>
             <ul v-if="note.info.todos">
                 <li v-for="(todo, idx) in note.info.todos" @click="toggleTodoComplete(idx)" :class=" {'todo-complete' : todo.isComplete, 'todo-uncomplete' : !todo.isComplete}">
@@ -51,7 +51,7 @@ export const noteTodos = {
         toggleTodoComplete(TodoIdx) {
             this.note.info.todos[TodoIdx].isComplete = !this.note.info.todos[TodoIdx].isComplete
             const newNote = this.createNoteCopy()
-            eventBus.$emit('isTodoComplete', newNote, TodoIdx)
+            eventBus.$emit('isTodoComplete', newNote)
 
         },
         createNoteCopy() {

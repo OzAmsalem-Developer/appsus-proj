@@ -1,7 +1,6 @@
 export default {
     template: `
     <section class="search-bar">
-
         <input type="text" class="search-txt"
         v-model="filterBy.txt"
         :placeholder="searchData.placeholder"

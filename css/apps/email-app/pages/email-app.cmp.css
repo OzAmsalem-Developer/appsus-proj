@@ -1,5 +1,9 @@
 .email-app {
     margin: 0 auto;
+    position: relative;
+}
+
+.main-content {
     display: flex;
     justify-content: center;
     align-items: flex-start;

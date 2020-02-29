@@ -4,11 +4,11 @@ export default {
 
     <div class="team-container container">
         <div class="team-member-card">
-            <img src="../../img/team/oz.jpg" class="team-memeber-img" />
+            <img src="img/team/oz.jpg" class="team-memeber-img" />
             <h3 class="team-member-name">Oz Amsalem</h3>
             <h4 team-member-par>
                 25 years old from Kiryat Shmona, Israel. 
-                Learning webstack developer at Coding Academy in Ramat Gan.
+                Learning fullstack developer at Coding Academy in Ramat Gan.
             </h4>
             <div class="team-member-links">
                 <a class="member-fb-link" href=""><i class="fab fa-facebook-square"></i></a>
@@ -18,11 +18,11 @@ export default {
         </div>
 
         <div class="team-member-card">
-            <img src="../../img/team/rami.jpg" class="team-memeber-img" />
+            <img src="img/team/rami.jpg" class="team-memeber-img" />
             <h3 class="team-member-name">Rami Davidov</h3>
             <h4 team-member-par>
             29 years old from Tel-aviv, Israel. 
-            Learning webstack developer at Coding Academy in Ramat Gan.
+            Learning fullstack developer at Coding Academy in Ramat Gan.
             </h4>
             <div class="team-member-links">
                     <a class="member-fb-link" href=""><i class="fab fa-facebook-square"></i></a>

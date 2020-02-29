@@ -7,15 +7,14 @@ export default {
     template: `
     <section class="note-preview">
         <div class="note-type-container">
-        <component :is="note.type"
-                    :class="note.type"
-                    :note="note">
-        </component>
-        <note-menu :noteId="note.id" @openEdit="toggleEdit">
-        </note-menu>
-        <note-edit :note="note" v-if="isEdit" @closeEdit="closeEdit">
-        </note-edit>
-        
+            <component :is="note.type"
+            :class="note.type"
+            :note="note">
+            </component>
+            <note-menu :noteId="note.id" @openEdit="toggleEdit">
+            </note-menu>
+            <note-edit :note="note" v-if="isEdit" @closeEdit="closeEdit">
+            </note-edit>
         </div>
     </section>
     `,

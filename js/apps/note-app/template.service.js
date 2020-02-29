@@ -1,32 +1,33 @@
+import {eventBus} from '../../services/eventBus.service.js'
 
 export const noteText = {
     template: `
         <section class="note-text">
-            <h2 class="info-txt">{{info.txt}}</h2>
+            <h2 class="info-txt">{{note.info.txt}}</h2>
         </section>
     `,
-    props: ['info'],
+    props: ['note'],
 }
 
 export const noteImg = {
     template: `
         <section class="note-img">
-            <img :src="info.img" />
+            <img :src="note.info.img" />
         </section>
     `,
-    props: ['info'],
+    props: ['note'],
 }
 
 export const noteTodos = {
     template: `
         <section class="note-todos">
-            <h2>{{info.title}}</h2>
-            <ul v-if="info.todos">
-                <li v-for="(todo, idx) in info.todos">
+            <h2>{{note.info.title}}</h2>
+            <ul v-if="note.info.todos">
+                <li v-for="(todo, idx) in note.info.todos">
                 {{todo.txt}}
                  </li>
             </ul>
-            <input @keyup.enter="addTodo" v-model="nextTodo"></input>
+            <input @keyup.enter="addTodo" v-model="nextTodo" placeholder:></input>
         </section>
     `,
     data() {
@@ -39,12 +40,11 @@ export const noteTodos = {
             const todo = {
                 txt: this.nextTodo,
             }
-            // console.log('adding')
-            if (!this.info.todos) this.info.todos = []
-            this.info.todos.push(todo)
-            const newNote = JSON.parse(JSON.stringify(this.info))
-            console.log(newNote)
-
+            if (!this.note.info.todos) this.note.info.todos = []
+            this.note.info.todos.push(todo)
+            const newNote = JSON.parse(JSON.stringify(this.note))
+            eventBus.$emit('addTodo', newNote)
+            this.nextTodo = ''
 
             // Add todo to the todos array
             // Deep Copy and update to the new note
@@ -54,7 +54,7 @@ export const noteTodos = {
 
         }
     },
-    props: ['info'],
+    props: ['note'],
 }
 
 export const noteVideo = {
@@ -68,5 +68,5 @@ export const noteVideo = {
             <img :src="info.img" />
         </section>
     `,
-    props: ['info'],
+    props: ['note'],
 }

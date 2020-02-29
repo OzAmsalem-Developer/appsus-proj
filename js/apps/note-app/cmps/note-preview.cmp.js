@@ -7,7 +7,7 @@ export default {
     <section class="note-preview">
         <component :is="note.type"
                     :class="note.type"
-                    :info="note.info">
+                    :note="note">
         </component>
         <note-menu :noteId="note.id">
         </note-menu>

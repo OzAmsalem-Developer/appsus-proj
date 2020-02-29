@@ -9,6 +9,7 @@ export const noteService = {
     createNote,
     removeNote,
     togglePinnedNote,
+    updateNote,
 }
 
 function getNotes() {
@@ -36,8 +37,8 @@ function createNote(noteInfo) {
 }
 
 function removeNote(noteId) {
-    const noteIdx = _getNoteByIndex(noteId)
-    notesDB.splice(noteIdx, 1)
+    const idx = _getNoteByIndex(noteId)
+    notesDB.splice(idx, 1)
     storageService.store(NOTE_KEY, notesDB)
 }
 
@@ -46,6 +47,14 @@ function togglePinnedNote(noteId) {
     note.isPinned = !note.isPinned
     storageService.store(NOTE_KEY, notesDB)
     console.log('PinnedSatus:', note.isPinned)
+}
+
+function updateNote(note) {
+    const idx = _getNoteByIndex(note.id)
+    notesDB.splice(idx, 1, note)
+    storageService.store(NOTE_KEY, notesDB)
+    console.log('UPDATED!!!!!')
+    return Promise.resolve()
 }
 
 // function updateEmail(emailId, prop, val) {
@@ -59,8 +68,8 @@ function togglePinnedNote(noteId) {
 //Private
 
 function _getNoteByIndex(noteId) {
-    const noteIdx = notesDB.findIndex(note => note.id === noteId)
-    return noteIdx
+    const idx = notesDB.findIndex(note => note.id === noteId)
+    return idx
 }
 
 function _getNoteById(noteId) {

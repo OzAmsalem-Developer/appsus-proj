@@ -28,6 +28,9 @@ export default {
         togglePinnedNote(noteId) {
             noteService.togglePinnedNote(noteId)
             console.log('Changing pinned state:', noteId)
+        },
+        updateNote(note) {
+            noteService.updateNote(note)
         }
 
     },
@@ -37,9 +40,9 @@ export default {
                 this.notes = notes
             })
 
-
         eventBus.$on('removeNote', this.removeNote)
         eventBus.$on('togglePinnedNote', this.togglePinnedNote)
+        eventBus.$on('addTodo', this.updateNote)
     },
     destroyed() {
         eventBus.$off('togglePinnedNote', this.togglePinnedNote)

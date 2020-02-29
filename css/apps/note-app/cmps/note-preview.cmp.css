@@ -1,11 +1,11 @@
 .note-preview {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; */
     background-color: white;
     border: 1px solid black;
     border-radius: 3px;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 .note-text {
@@ -23,7 +23,7 @@
 }
 
 .note-img img {
-    width: 100%;
+    /* width: 100%; */
     object-fit: cover;
     background-color: magenta;
 }

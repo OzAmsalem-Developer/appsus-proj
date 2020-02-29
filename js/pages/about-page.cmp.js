@@ -1,7 +1,9 @@
 export default {
     template: `
     <section class="about-page">
-        <h1>About US</h1>
+        <div class="about-page-main">
+            <h1>About US</h1>
+        </div>
     </section>
     `
 }

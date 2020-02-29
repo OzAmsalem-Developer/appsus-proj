@@ -50,7 +50,6 @@ input, select, button {
 
 .container {
     width: 97vw;
-    /* background-color: yellow; */
     border-inline-start: solid 1px violet;
     border-inline-end: solid 1px violet;
 }

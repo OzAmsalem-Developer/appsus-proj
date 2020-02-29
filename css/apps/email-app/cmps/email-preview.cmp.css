@@ -1,6 +1,6 @@
 .email-preview {
     display: grid;
-    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-columns: 2fr 8fr 1fr;
     grid-template-rows: 1fr;
     height: 50px;
     align-items: center;
@@ -23,6 +23,7 @@
     font-size: 13px;
     align-self: start;
     margin-top: 5px;
+    justify-self: center;
 }
 
 .email-preview-from {
@@ -41,6 +42,12 @@
 
 @media (max-width: 950px) {
     .email-preview {
-        min-height: 80px;
+        min-height: 85px;
+    }
+}
+
+@media (max-width: 900px) {
+    .email-preview {
+        grid-template-columns: 2fr 8fr 2fr;
     }
 }

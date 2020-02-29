@@ -34,3 +34,21 @@
     padding-left: 5px;
     cursor: pointer;
 }
+
+@media (max-width: 850px) {
+    .search-bar {
+        position: static;
+        transform: none;
+        align-items: center;
+        min-height: 70px;
+        background-color: #1b262c;
+        margin-top: -4px;
+    }
+    .search-bar input {
+        max-width: 350px;
+        margin-left: 30px;
+    }
+    .search-select {
+        margin-right: 30px;
+    }
+}

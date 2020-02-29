@@ -3,6 +3,8 @@
     justify-content: center;
     align-items: center;
     background-color: #1b262c;
+    height: 100px;
+    padding: 0 22px;
 }
 
 .header-container{
@@ -13,8 +15,8 @@
 }
 
 .logo-img {
-    height: 100px;
-
+    height: 59px;
+    width: 70px;
 }
 
 .menu-icon-container {
@@ -36,4 +38,11 @@ img.menu-icon {
 
 .menu-icon-container:hover{
     background-color: rgba(82, 82, 82, 0.516);
+}
+
+@media (max-width: 850px) {
+    .main-header {
+        height: unset;
+        padding: 10px;
+    }
 }

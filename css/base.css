@@ -55,3 +55,12 @@ input, select, button {
 .side-container {
     min-width: 235px;
 }
+
+@media (max-width: 850px) {
+    .container {
+        width: 100vw;
+    }
+    .side-container {
+        min-width: 200px;
+    }
+}

@@ -1,17 +1,10 @@
 .main-header {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1b262c;
-    height: 100px;
-    padding: 0 22px;
-}
-
-.header-container{
-    display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    background-color: #202020;
+    height: 100px;
+    padding: 0 22px;
 }
 
 .logo-img {

@@ -11,8 +11,8 @@
 }
 
 .compose-btn {
-    background-color: #FFA500;
-    color: #1b262c;
+    background-color: #ffa500;
+    color: #202020;
     border: none;
     border-radius: 50px;
     font-size: 1.625rem;
@@ -39,4 +39,34 @@
 .side-menu {
     display: flex;
     flex-direction: column;
+}
+
+.hamburger {
+    background-color: transparent;
+    border: 0;
+    font-size: 30px;
+    color: #202020;
+    margin: 20px 0 20px 10px;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 750px) {
+    .compose-btn {
+        display: none;
+    }
+    .side-container {
+        position: absolute;
+        background-color: white;
+        box-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
+        width: 60vw;
+        height: 74vh;
+        left: -100%;
+    }
+    .hamburger {
+        display: block;
+    }
+    .main-content {
+        flex-direction: column;
+    }
 }

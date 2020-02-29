@@ -3,8 +3,8 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     position: absolute;
-    right: 0;
-    top: 85px;
+    right: 26px;
+    top: 66px;
     background-color: whitesmoke;
     z-index: 1;
     padding: 15px;

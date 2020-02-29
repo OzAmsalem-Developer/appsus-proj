@@ -58,7 +58,7 @@ input, select, button {
 
 @media (max-width: 850px) {
     .container {
-        width: 100vw;
+        width: unset;
     }
     .side-container {
         min-width: 200px;

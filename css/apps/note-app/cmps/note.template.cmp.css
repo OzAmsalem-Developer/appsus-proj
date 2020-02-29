@@ -1,15 +1,39 @@
 .info-txt {
-    font-size: 20px;
+    font-size: 24px;
 }
-
-
-
 
 .todo-complete {
     text-decoration: line-through;
 }
 
 .todo-uncomplete{
-    text-decoration: none
+    text-decoration: none;
+}
+.todos-ul {
+    list-style-type: none;
 }
 
+.todo-li {
+display: flex;
+justify-content: space-between;
+align-items: center;
+user-select: none;
+font-size: 18px;
+padding: 0 5px;
+/* background-color: none; */
+cursor: pointer;
+}
+
+.next-todo-input {
+    width: 100%;
+    background-color: none;
+    border: none;
+    font-size: 18;
+}
+
+.todo-remove-btn{
+    font-size: 18;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}

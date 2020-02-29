@@ -7,23 +7,32 @@
     border-radius: 3px;
 }
 
+.note-type-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+
 .note-preview img {
     max-width: 100%;
 }
 
 .note-text {
     background-color: rgb(97, 255, 97);
-    font-size: 30px
+    /* font-size: 30px */
 }
 
 .note-todos {
     background-color: rgb(94, 209, 255);
-    font-size: 30px
+    width: 100%;
+    /* font-size: 30px */
 }
 
-.note-img {
+/* .note-img {
     font-size: 30px;
-}
+} */
 
 .note-img img {
     /* width: 100%; */
@@ -31,10 +40,10 @@
     background-color: magenta;
 }
 
-.info-txt {
+/* .info-txt {
     font-size: 18px;
 }
 
 .todo-txt {
     font-size: 16px;
-}
+} */

@@ -30,13 +30,9 @@ export default {
         updateNote(note) {
             noteService.updateNote(note)
         },
-
-        // Currently not used | updateNote used instead
-        // toggleTodoComplete(note) {
-        //     // noteService.toggleTodoComplete(note)
-        //     noteService.updateNote(note)
-        // }
-
+        removeTodo(note, idx) {
+            noteService.removeTodo(note, idx)
+        }
     },
     created() {
         noteService.getNotes()
@@ -48,12 +44,9 @@ export default {
         eventBus.$on('togglePinnedNote', this.togglePinnedNote)
         eventBus.$on('addTodo', this.updateNote)
         eventBus.$on('isTodoComplete', this.updateNote)
-        // eventBus.$on('isTodoComplete', this.note.id, todoIdx)
+        eventBus.$on('removeTodo', this.removeTodo)
     },
     destroyed() {
         eventBus.$off('togglePinnedNote', this.togglePinnedNote)
     }
 }
-
-// Object.toggleTodoComplete (note.service.js:64)
-// at VueComponent.toggleTodoComplete (note-app.cmp.js:36)

@@ -10,6 +10,7 @@ export const noteService = {
     removeNote,
     togglePinnedNote,
     updateNote,
+    removeTodo,
 }
 
 function getNotes() {
@@ -51,6 +52,16 @@ function togglePinnedNote(noteId) {
 function updateNote(note) {
     const idx = _getNoteByIndex(note.id)
     notesDB.splice(idx, 1, note)
+    storageService.store(NOTE_KEY, notesDB)
+    return Promise.resolve()
+}
+
+function removeTodo(note, todoIdx) {
+    note.info.todos.splice(todoIdx, 1)
+
+    const idx = _getNoteByIndex(note.id)
+    notesDB.splice(idx, 1, note)
+    
     storageService.store(NOTE_KEY, notesDB)
     return Promise.resolve()
 }

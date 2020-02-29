@@ -80,7 +80,7 @@ function _createEmail(from = utilService.createWord(6)) {
     return {
         id: utilService.makeId(),
         from: from,
-        subject: utilService.makeLorem(50),
+        subject: utilService.makeLorem(25),
         body: utilService.makeLorem(utilService.getRandom(10, 150)),
         isRead: false,
         sentAt: Date.now(),

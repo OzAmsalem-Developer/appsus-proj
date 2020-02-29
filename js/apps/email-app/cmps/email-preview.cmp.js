@@ -5,15 +5,23 @@ export default {
     template: `
     <section v-if="email" class="email-preview"
     :class="emailClass">
-        <span class="email-from">{{email.from}}</span>
-        <long-text class="email-subject"
-        :txt="email.subject" length="25"></long-text>
-
-        <long-text class="email-body" 
+        <span class="email-preview-from">{{email.from}}</span>
+        
+      
+        <div class="email-preview-content">
+        <span class="email-preview-subject">
+        {{email.subject}}
+        </span> 
+         -  
+        <long-text class="email-preview-body" 
         :txt="email.body" length="50">
         </long-text>
+    </div>
+        
+    <span class="email-sent-at">{{hourToShow}}</span>
 
-        <span class="email-sent">{{hourToShow}}</span>
+
+       
     </section>
     `,
     computed: {

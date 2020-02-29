@@ -11,6 +11,7 @@
 @import 'apps/email-app/cmps/email-extended.cmp.css';
 @import 'apps/email-app/cmps/email-compose.cmp.css';
 @import 'apps/email-app/cmps/email-menu.cmp.css';
+@import 'apps/email-app/cmps/email-list.cmp.css';
 
 @import 'apps/note-app/pages/note-app.cmp.css';
 @import 'apps/note-app/cmps/note-create.cmp.css';

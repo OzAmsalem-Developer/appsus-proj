@@ -4,12 +4,37 @@
     padding: 0;
 }
 
+/* Topography */
+
+@font-face {
+    font-family: 'Roboto-regular';
+    src: url("../fonts/roboto/Roboto-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto-bold';
+    src: url("../fonts/roboto/Roboto-Bold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto-light';
+    src: url("../fonts/roboto/Roboto-Light.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 html {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
     background-color: rgb(245, 245, 245);
+    font-size: 16px;
+    font-family: Roboto-regular, Verdana, Geneva, Tahoma, sans-serif;
 }
 
 input, select, button {
@@ -19,7 +44,7 @@ input, select, button {
 /* helpers */
 
 .container {
-    width: 90vw;
+    width: 97vw;
     /* background-color: yellow; */
     border-inline-start: solid 1px violet;
     border-inline-end: solid 1px violet;

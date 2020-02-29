@@ -1,34 +1,23 @@
 .email-preview {
     display: grid;
-    grid-template-columns: 1fr 2fr 2fr 1fr;
-    font-size: 1rem;
-    background-color: snow;
-    border: solid 1px slategray;
-    border-bottom: solid 1px black;
-    /* margin-bottom: 5px; */
-    /* height: 3rem; */
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-rows: 1fr;
+    height: 50px;
+    align-items: center;
+    padding: 0 15px; 
+    border-bottom: 2px solid #e3e8ea;
+    cursor: pointer;
 }
 
-/* .email-preview>* {
-    margin-right: 10px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-} */
-
-.email-subject {
-    margin-right: 10px;
-    text-overflow: ellipsis;
-    overflow: hidden;
+.email-preview-body {
+    display: inline;
+    font-family: Roboto-light;
+    color: grey;
 }
 
-/* Columns: */
-
-.email-body {
-    margin-right: 10px;
+.email-preview-from {
+    text-transform: capitalize;
 }
-
-/* .email-from {} */
-/* .email-sent {}  */
 
 .email-unread {
     background-color: rgb(250, 250, 250);

@@ -18,10 +18,12 @@ export default {
             <button @click="isMenuOpen = !isMenuOpen" class="dots-vertical">
             <i class="fas fa-ellipsis-h"></i>
             </button>
+
+            <router-link :to="'email/'+email.id"><i class="fas fa-expand"></i></router-link>
+            </div>
         </div>
         
-        <router-link :to="'email/'+email.id"><i class="fas fa-expand"></i></router-link>
-        </div>
+     
     </div>
         <div class="preview-from">
             <h5>{{email.from}}</h5>

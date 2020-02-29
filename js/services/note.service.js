@@ -98,14 +98,6 @@ function _createSamplesNotes() {
         },
         {
             id: utilService.makeId(),
-            type: 'noteText',
-            isPinned: true,
-            info: {
-                txt: 'Noa wedding 08.03'
-            }
-        },
-        {
-            id: utilService.makeId(),
             type: 'noteImg',
             isPinned: false,
             info: {
@@ -154,7 +146,45 @@ function _createSamplesNotes() {
                 img: 'https://main-designyoutrust.netdna-ssl.com/wp-content/uploads/2018/09/Bugaboos.jpg',
                 title: 'spain'
             },
-        }
+        },
+        {
+            id: utilService.makeId(),
+            type: 'noteTodos',
+            isPinned: false,
+            info: {
+                title: 'Sprint:',
+                todos: [
+                    { txt: 'edit notes', isComplete: false, doneAt: null },
+                    { txt: 'Todos edit', isComplete: true, doneAt: 187111111 },
+                    { txt: 'change note bg color', isComplete: false, doneAt: 187111 }
+                ]
+            }
+        },
+        {
+            id: utilService.makeId(),
+            type: 'noteImg',
+            isPinned: false,
+            info: {
+                img: 'https://yesno.wtf/assets/yes/2-5df1b403f2654fa77559af1bf2332d7a.gif',
+            },
+        },
+        {
+            id: utilService.makeId(),
+            type: 'noteText',
+            isPinned: true,
+            info: {
+                txt: 'Noa wedding 08.03'
+            }
+        },
+        {
+            id: utilService.makeId(),
+            type: 'noteVideo',
+            isPinned: false,
+            info: {
+                video: 'https://www.youtube.com/embed/pbMwTqkKSps',
+            },
+
+        },
     ]
 
     storageService.store(NOTE_KEY, notes)

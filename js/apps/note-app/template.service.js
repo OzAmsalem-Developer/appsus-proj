@@ -78,6 +78,7 @@ export const noteTodos = {
 export const noteVideo = {
     template: `
         <section class="note-video">
+        <h2 v-if="note.info.title" class="info-txt">{{note.info.title}}</h2>
         <iframe width="100%"
         :src="note.info.video" 
         frameborder="0" allow="accelerometer; autoplay; 

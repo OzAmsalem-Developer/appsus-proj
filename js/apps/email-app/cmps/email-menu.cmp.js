@@ -4,18 +4,17 @@ export default {
     template: `
     <section class="email-menu">
         <button class="reply" @click="emitEditEmail('reply')">
-        Reply<i class="fas fa-reply"></i></button>
+        <i class="fas fa-reply"></i>Reply</button>
 
         <button class="unread" 
         @click="emitUpdateEmail('updated', 'isRead', false)">
-        Switch to unread
-        <i class="fas fa-envelope-open-text"></i></button>
+        <i class="fas fa-envelope-open-text"></i>Switch to unread</button>
 
         <button class="to-notes" @click="emitEditEmail('sentToNotes')">
-        Send to notes<i class="far fa-lightbulb"></i></button>
+        <i class="far fa-lightbulb"></i>Send to notes</button>
 
         <button class="remove" @click="emitEditEmail('removed')">
-        Remove <i class="fas fa-trash"></i></button>
+         <i class="fas fa-trash"></i>Remove</button>
     </section>
     `,
     methods: {

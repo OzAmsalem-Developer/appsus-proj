@@ -9,6 +9,10 @@
     cursor: pointer;
 }
 
+.email-previews:first-child {
+    border-top: 3px solid #e3e8ea;
+}
+
 .email-preview-body {
     display: inline;
     font-family: Roboto-light;

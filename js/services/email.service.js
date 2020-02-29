@@ -70,7 +70,9 @@ function createNewEmail(emailInfo) {
 
 // Samples data! to move to new service
 function _createSamplesEmails() {
-    const fromNames = ['Rami', 'Oz', 'Guy', 'Ran', 'Daniel', 'Yaron', 'Nadav', 'Omer']
+    const fromNames = ['Rami', 'Oz', 'Guy', 'Ran', 'Daniel', 'Yaron', 'Nadav',
+     'Omer','Rami', 'Oz', 'Guy', 'Ran', 'Daniel', 'Yaron', 'Nadav', 'Omer','Rami',
+      'Oz', 'Guy', 'Ran', 'Daniel', 'Yaron', 'Nadav', 'Omer']
     const emails = fromNames.map(_createEmail)
     storageService.store(EMAIL_KEY, emails)
     return emails

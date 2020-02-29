@@ -1,21 +1,77 @@
 .email-extended {
-    background-color: rgb(210, 210, 210);
+    padding: 0px 30px 40px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
+    background-color: white;
+    border-bottom: 2px solid #e3e8ea;
 }
 
-.preview-row {
+.extended-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
     width: 100%;
+    margin-bottom: 20px;
 }
 
+.extended-subject {
+    line-height: 1.5em;
+    font-size: 24px;
+}
+
+.email-address {
+    font-size: 18px;
+    margin-left: 30px;
+    font-family: Roboto-light, Verdana, Geneva, Tahoma, sans-serif;
+    color: grey;
+}
+
+.extended-menu {
+    right: 60px;
+    top: 30px;
+}
+
+/* Btns */
+
 .menu-container {
-    width: 74px;
+    display: flex;
+    position: relative;
+ }
+
+.dots-vertical, .full-page-btn {
+    background-color: transparent;
+    border: 0;
+    font-size: 25px;
+    color:rgb(68, 68, 68);
+    cursor: pointer;
+    margin: 8px;
+    transition: color .4s ease;
+}
+
+.dots-vertical:hover, .full-page-btn:hover {
+    color: #ffb223e1;
+}
+
+.extended-menu {
+
+}
+
+/* Body */
+
+.extended-body {
+    padding: 0px 20px;
+    white-space: pre-line;
+    text-indent: 0;
+    font-family: Roboto-light, Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: .4px;
+}
+
+.extended-from-name {
+    font-family: Roboto-bold, Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
 }
 
 .preview-from {

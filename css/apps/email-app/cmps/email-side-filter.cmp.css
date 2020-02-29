@@ -10,7 +10,7 @@
 .filter-icon {
     font-size: 18px;
     margin: 0 10px;
-    color:rgb(68, 68, 68);
+    color: rgb(68, 68, 68);
 }
 
 .filter-item {
@@ -37,4 +37,23 @@
 
 .filter-item>* :hover {
     background-color: orangered;
+}
+
+@media (max-width: 750px) {
+    .side-filter {
+        background-color: white;
+        height: 100vh;
+        position: absolute;
+        background-color: white;
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .2);
+        width: 60vw;
+        left: -100%;
+        top: 0;
+        transition: .4s ease-in-out;
+        z-index: 1;
+    }
+    .side-menu-open {
+        left: 0;
+        top: 0;
+    }
 }

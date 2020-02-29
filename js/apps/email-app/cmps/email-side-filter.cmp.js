@@ -1,7 +1,7 @@
 export default {
     template: `
     <section class="email-side-filter">
-        <ul class="side-filter">
+        <ul class="side-filter" :class="menuClass">
             <li @click="emitFilter('inbox')" class="filter-item">
             <i class="filter-icon fas fa-inbox"></i>
             Inbox <span class="unread">
@@ -49,5 +49,5 @@ export default {
             return countMap
         }
     },
-    props: ['unreadCount']
+    props: ['unreadCount', 'menuClass']
 }

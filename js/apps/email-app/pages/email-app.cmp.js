@@ -15,14 +15,16 @@ export default {
         </div>
         
         <section class="main-content">
-            <button @click="openFilter" class="hamburger"><i class="fas fa-bars"></i></button>
-            <aside class="side-menu side-container">
+            <button @click="isMenuOpen = !isMenuOpen" class="hamburger"><i class="fas fa-bars"></i></button>
+
+            <aside class="side-menu side-container" :class="menuPosition">
                 <button @click.prevent="composeEmail"
                 class="compose-btn">
                 <i class="plus-icon fas fa-plus"></i>Compose
                 </button>
 
                 <email-side-filter @filtered="setSideFilter" 
+                :menuClass="menuClass"
                 :unreadCount="unreadCount">
                 </email-side-filter>
             </aside>
@@ -54,7 +56,8 @@ export default {
             searchData: {
                 placeholder: 'Search mail',
                 selectOptions: ['All', 'Read', 'Unread']
-            }
+            },
+            isMenuOpen: false
         }
     },
     methods: {
@@ -104,9 +107,6 @@ export default {
                 }
                 return acc
             },{})
-        },
-        openFilter() {
-            
         }
     },
     computed: {
@@ -129,6 +129,9 @@ export default {
                     return email.isRead === isRead
                 })
             }
+        },
+        menuClass() {
+            return (this.isMenuOpen)? 'side-menu-open' : ''
         }
     },
     watch: {

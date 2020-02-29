@@ -8,21 +8,21 @@
 
 @font-face {
     font-family: 'Roboto-regular';
-    src: url("../fonts/roboto/Roboto-Regular.ttf") format("truetype");
+    src: url("../fonts/roboto/roboto-regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Roboto-bold';
-    src: url("../fonts/roboto/Roboto-Bold.ttf") format("truetype");
+    src: url("../fonts/roboto/roboto-bold.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Roboto-light';
-    src: url("../fonts/roboto/Roboto-Light.ttf") format("truetype");
+    src: url("../fonts/roboto/roboto-light.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }

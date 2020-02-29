@@ -25,6 +25,7 @@ export default {
             eventBus.$emit(eventName, prop, val, this.emailId)
             eventBus.$emit('message', {txt: 'Email marked as unread'})
             this.$emit('clicked')
+            this.$emit('emailUnread')
         }
     },
     props: ['emailId']

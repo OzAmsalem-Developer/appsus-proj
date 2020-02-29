@@ -1,6 +1,7 @@
 // import { templateService } from '../template.service.js'
 import { noteText, noteImg, noteTodos, noteVideo } from '../template.service.js'
 import noteMenu from '../cmps/note-menu.cmp.js'
+import noteEdit from '../cmps/note-edit.cmp.js'
 
 export default {
     template: `
@@ -10,19 +11,35 @@ export default {
                     :class="note.type"
                     :note="note">
         </component>
-        <note-menu :noteId="note.id">
+        <note-menu :noteId="note.id" @openEdit="toggleEdit">
         </note-menu>
+        <note-edit :note="note" v-if="isEdit" @closeEdit="closeEdit">
+        </note-edit>
+        
         </div>
     </section>
     `,
     data() {
         return {
-
-
+            isEdit: false,
+        }
+    },
+    methods: {
+        openEdit() {
+            console.log('Open EDIT')
+            this.isEdit = true
+        },
+        closeEdit() {
+            console.log('Close EDIT')
+            this.isEdit = false
+        },
+        toggleEdit() {
+            this.isEdit = !this.isEdit
         }
     },
     components: {
         noteMenu,
+        noteEdit,
         noteText,
         noteImg,
         noteTodos,

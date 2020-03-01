@@ -1,6 +1,28 @@
+.note-template {
+    /* background-color: lawngreen; */
+    min-height: 8em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: .1em;
+}
+
+iframe {
+    border-radius: .1em;
+}
+
+.note-img {
+    margin: 0 auto;
+}
+
 .info-txt {
-    font-size: 24px;
+    font-size: 1.5em;
     text-align: center;
+    word-wrap: break-word;
+}
+
+p.info-txt{
+    padding: .5em;
 }
 
 .todo-complete {
@@ -19,7 +41,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 user-select: none;
-font-size: 18px;
+font-size: 1.2em;
 padding: 0 5px;
 cursor: pointer;
 }
@@ -28,17 +50,16 @@ cursor: pointer;
     width: 100%;
     background-color: transparent;
     border: none;
-    font-size: 16px;
+    font-size: 1.2em;
     height: 1.5em;
-    
     padding-left: 5px;
-    margin-top: 5px;
-    margin-bottom: 10px;
+    margin-top: .2em;
 }
 
 .todo-remove-btn{
-    font-size: 18;
+    font-size: .8em;
     border: none;
     background-color: transparent;
     cursor: pointer;
+    user-select: none;
 }

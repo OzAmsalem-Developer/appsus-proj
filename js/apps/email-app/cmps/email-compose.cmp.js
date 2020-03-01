@@ -9,7 +9,7 @@ export default {
         
             <div class="compose-header">
             <span>New Message</span>
-            <button @click="$emit('emailCreated')" class="close-btn"><i class="fas fa-times"></i></button>
+            <button @click.prevent="$emit('emailCreated')" class="close-btn"><i class="fas fa-times"></i></button>
             </div>
 
             <input class="form-txt" required type="text" v-model.trim="email.to" placeholder="To:" />

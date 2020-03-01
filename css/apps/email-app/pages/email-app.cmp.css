@@ -24,6 +24,25 @@
     box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
 }
 
+.mobile-compose {
+    background-color: transparent;
+    border: 0;
+    font-size: 30px;
+    color: #202020;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ffa500;
+    height: 58px;
+    width: 58px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    display: none;
+}
+
 .plus-icon {
     margin: 0 5px;
 }
@@ -60,5 +79,8 @@
     }
     .main-content {
         flex-direction: column;
+    }
+    .mobile-compose {
+        display: flex;
     }
 }

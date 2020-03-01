@@ -31,6 +31,10 @@ export default {
             Notes <span class="unread">
             {{countForDisplay.note}}
             </span></li>
+            <button @click="() => {this.$emit('menuClosed')}" 
+            v-if="menuClass === 'side-menu-open'" class="close-filter-menu">
+            <i class="fas fa-chevron-left"></i>
+            </button>
         </ul>
     </section>
     `
@@ -38,6 +42,7 @@ export default {
     methods: {
         emitFilter(by) {
             this.$emit('filtered', by)
+            this.$emit('menuClosed')
         }
     },
     computed: {

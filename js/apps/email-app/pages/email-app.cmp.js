@@ -17,7 +17,7 @@ export default {
         <section class="main-content">
             <button @click="isMenuOpen = !isMenuOpen" class="hamburger"><i class="fas fa-bars"></i></button>
 
-            <aside class="side-menu side-container" :class="menuPosition">
+            <aside class="side-menu side-container">
                 <button @click.prevent="composeEmail"
                 class="compose-btn">
                 <i class="plus-icon fas fa-plus"></i>Compose
@@ -25,6 +25,7 @@ export default {
 
                 <email-side-filter @filtered="setSideFilter" 
                 :menuClass="menuClass"
+                @menuClosed="isMenuOpen = false"
                 :unreadCount="unreadCount">
                 </email-side-filter>
             </aside>
@@ -33,6 +34,9 @@ export default {
             :emails="emailsForDisplay"
             @updated="updateEmail">
             </email-list>
+
+            <button @click="composeEmail" class="mobile-compose">
+            <i class="fas fa-paper-plane"></i></button>
         </section>
         
 

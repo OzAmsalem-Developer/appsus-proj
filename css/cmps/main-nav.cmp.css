@@ -3,8 +3,8 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     position: absolute;
-    right: 26px;
-    top: 66px;
+    right: 55px;
+    top: 74px;
     background-color: whitesmoke;
     z-index: 1;
     padding: 15px;
@@ -35,4 +35,11 @@
 
 .nav-link:hover {
     background-color: rgba(60, 64, 67, 0.08);
+}
+
+@media (max-width: 750px) {
+    .main-nav {
+        right: 0;
+        top: 74px;
+    }
 }

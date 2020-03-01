@@ -60,7 +60,4 @@ input, select, button {
     .container {
         width: unset;
     }
-    .side-container {
-        min-width: 200px;
-    }
 }

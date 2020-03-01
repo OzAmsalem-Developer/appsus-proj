@@ -49,8 +49,9 @@
 
 @media (max-width: 750px) {
     .side-filter {
+        font-size: 18px;
         background-color: white;
-        height: 74vh;
+        height: 74.8vh;
         position: absolute;
         background-color: white;
         box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .2);
@@ -59,9 +60,17 @@
         top: 0;
         transition: .4s ease-in-out;
         z-index: 1;
+        padding: 5px;
+    }
+    .filter-item {
+        height: 55px;
     }
     .side-menu-open {
         left: 0;
         top: 0;
+    }
+    .filter-icon {
+        font-size: 20px;
+        margin: 0 30px 0 15px;
     }
 }

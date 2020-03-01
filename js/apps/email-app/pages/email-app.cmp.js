@@ -85,7 +85,7 @@ export default {
                 const msg = {
                     txt: 'Email from ' + fromName + ' has been removed'
                 }
-                this.$emit('message', msg)
+                eventBus.$emit('message', msg)
             })
         },
         updateEmail(prop, val, emailId) {

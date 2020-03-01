@@ -15,6 +15,7 @@ export default {
             <transition name="fade">
                 <email-menu v-if="isMenuOpen"
                 :emailId="email.id"
+                class="menu-on-details"
                 @clicked="isMenuOpen = false">
                 </email-menu>
             </transition>
@@ -25,6 +26,8 @@ export default {
         <span class="date">{{dateToShow}}</span>
         <h2 class="email-subject">{{email.subject}}</h2>
         <p class="email-body">{{email.body}}</p>
+
+        <router-link to="/email" class="back-btn"><i class="fas fa-arrow-left"></i></router-link>
     </section>
     `
     ,

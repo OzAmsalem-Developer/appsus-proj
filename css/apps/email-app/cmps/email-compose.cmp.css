@@ -74,6 +74,7 @@
     height: 55px;
     width: 55px;
     margin: 10px;
+    color: rgb(68, 68, 68);
 }
 
 .send-btn:hover, .delete-btn:hover {
@@ -104,10 +105,8 @@
         border-radius: 0;
     }
     .email-compose .close-btn {
-
         font-size: 24px;
         height: 60px;
         width: 60px;
-   
     }
 }

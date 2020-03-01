@@ -19,6 +19,7 @@ export default {
     methods: {
         emitEditEmail(eventName) {
             eventBus.$emit(eventName, this.emailId)
+            if (eventName === 'sentToNotes') eventBus.$emit('message', {txt: 'Email sent to notes'})
             this.$emit('clicked')
         },
         emitUpdateEmail(eventName, prop, val) {

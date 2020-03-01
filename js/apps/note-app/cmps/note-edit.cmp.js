@@ -22,27 +22,16 @@ export default {
         }
     },
     methods: {
+        cloeEdit() {
+            this.$emit('closeEdit')
+        },
         updateNote() {
-            console.log('I will update the note!')
             this.note.info[this.note.noteType] = this.editVal
             const newNote = JSON.parse(JSON.stringify(this.note))
-            console.log(newNote)
             eventBus.$emit('updateNote', newNote)
-        },
-        cloeEdit() {
-            console.log('Update canceled')
-            this.$emit('closeEdit')
+            this.cloeEdit()
         }
     },
     // DESTROYED: editVal
     props: ['note']
 }
-
-
-// noteInfo {
-//     type: txt,
-//     val: val,
-//     id: noteId
-// }
-
-// {{note.info[noteType]}}

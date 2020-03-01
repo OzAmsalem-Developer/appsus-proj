@@ -2,8 +2,8 @@ import { eventBus } from '../../services/eventBus.service.js'
 
 export const noteText = {
     template: `
-        <section class="note-text">
-            <h2 class="info-txt">{{note.info.txt}}</h2>
+        <section class="note-template note-text">
+            <p class="info-txt blabla">{{note.info.txt}}</p>
         </section>
     `,
     props: ['note'],
@@ -11,7 +11,7 @@ export const noteText = {
 
 export const noteImg = {
     template: `
-        <section class="note-img">
+        <section class="note-template note-img">
             <h2 v-if="note.info.title" class="info-txt">{{note.info.title}}</h2>
             <img :src="note.info.img" />
         </section>
@@ -21,7 +21,7 @@ export const noteImg = {
 
 export const noteTodos = {
     template: `
-        <section class="note-todos" v-if="note">
+        <section class="note-template note-todos" v-if="note">
             <h2 class="info-txt">{{note.info.title}}</h2>
             <ul v-if="note.info.todos" class="todos-ul">
                 <li v-for="(todo, idx) in note.info.todos" 
@@ -77,13 +77,14 @@ export const noteTodos = {
 
 export const noteVideo = {
     template: `
-        <section class="note-video">
-        <h2 v-if="note.info.title" class="info-txt">{{note.info.title}}</h2>
-        <iframe width="100%"
-        :src="note.info.video" 
-        frameborder="0" allow="accelerometer; autoplay; 
-        encrypted-media; gyroscope; picture-in-picture"
-         allowfullscreen></iframe>
+        <section class="note-template note-video">
+            <h2 v-if="note.info.title" class="info-txt">{{note.info.title}}</h2>
+
+            <iframe width="100%"
+            :src="note.info.video" 
+            frameborder="0" allow="accelerometer; autoplay; 
+            encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
         </section>
     `,
     props: ['note'],

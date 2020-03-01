@@ -16,12 +16,12 @@
 
 .note-preview img {
     max-width: 100%;
-}
-
-.note-img {
-    margin: 0 auto;
-}
-
-.note-img img {
     object-fit: cover;
+    border-radius: 3px;
+}
+
+.note-preview iframe {
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 3px;
 }

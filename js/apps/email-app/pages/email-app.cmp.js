@@ -39,10 +39,12 @@ export default {
             <i class="fas fa-paper-plane"></i></button>
         </section>
         
-
+        <transition name="fade">
         <email-compose :isReply="isReply"
          @emailCreated="isCompose = false"
           v-if="isCompose"></email-compose>
+        </transition>
+
     </section>
     `
     ,

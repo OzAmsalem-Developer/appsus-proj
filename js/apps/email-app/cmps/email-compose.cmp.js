@@ -13,11 +13,13 @@ export default {
             </div>
 
             <input class="form-txt" required type="text" v-model.trim="email.to" placeholder="To:" />
+            <input class="form-txt" type="text" placeholder="Cc:" />
+            <input class="form-txt" type="text" placeholder="Bcc:" />
             <input class="form-txt" required type="text" v-model.trim="email.subject" placeholder="Subject:" />          
-            <textarea class="form-txt" v-model="email.body" rows="20"></textarea>
+            <textarea ref="emailBody" class="form-txt" v-model="email.body" rows="10"></textarea>
 
             <div class="form-btns">
-                <button class="send-btn"><i class="far fa-paper-plane"></i>Send</button>
+                <button class="send-btn"><i class="far fa-paper-plane"></i></button>
                 <button class="delete-btn" @click.prevent="removeDraft"><i class="fas fa-trash"></i></button>
             </div>
         </form>
@@ -89,6 +91,9 @@ export default {
                      '<--------------------------------------------------->' 
                 })
         }
+    },
+    mounted() {
+        this.$refs.emailBody.focus()
     },
     props: ['isReply']
 }

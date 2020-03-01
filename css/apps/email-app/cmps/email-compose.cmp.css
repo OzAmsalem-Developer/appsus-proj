@@ -6,7 +6,8 @@
     width: 60vw;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    box-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .2);
+    z-index: 1;
 }
 
 .compose-form {
@@ -20,10 +21,11 @@
     justify-content: space-between;
     align-items: center;
     background-color: #ffa500;
-    height: 60px;
+    height: 40px;
     color: #202020;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
+    font-weight: 700;
 }
 
 .compose-header span {
@@ -34,9 +36,8 @@
 
 .form-txt {
     border: none;
-    border-bottom: solid 1px grey;
-    /* width: 500px; */
     padding: 0 10px 0 10px;
+    border-bottom: solid 1px grey;
 }
 
 .form-txt[type="text"] {
@@ -44,31 +45,69 @@
     height: 2rem;
 }
 
-textarea {
+.email-compose textarea {
     font-size: 1.25rem;
     resize: none;
+    padding-top: 20px;
+    outline: none;
+    border-bottom: 0;
+    font-family: Roboto-regular;
 }
 
 .email-compose .close-btn {
-    align-self: flex-start;
-    margin: 10px;
-    background-color: transparent;
+    margin-right: 8px;
+    font-size: 18px;
+    color: #202020;
+    cursor: pointer;
 }
 
 .form-btns {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* width: 100%; */
-    
 }
 
-.send-btn {
-    font-size: 1.5rem;
+.send-btn, .delete-btn {
+    border-radius: 50%;
+    font-size: 1.6rem;
+    cursor: pointer;
+    height: 55px;
+    width: 55px;
+    margin: 10px;
 }
 
-.delete-btn {
-    font-size: 1.5rem;
+.send-btn:hover, .delete-btn:hover {
+    background-color: rgba(60, 64, 67, 0.08);
+    color: #ffa500;
 }
 
+@media (max-width: 850px) {
+    .email-compose {
+        width: 80vw;
+    }
+}
 
+@media (max-width: 750px) {
+    .email-compose {
+        width: 100%;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+    }
+    .form-btns {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+    .compose-header {
+        height: 80px;
+        border-radius: 0;
+    }
+    .email-compose .close-btn {
+
+        font-size: 24px;
+        height: 60px;
+        width: 60px;
+   
+    }
+}

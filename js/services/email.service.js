@@ -50,6 +50,8 @@ function sendToNotes(emailId) {
     for (const prop in boxes) {
         boxes[prop] = false
     }
+    console.log(foundEmail);
+    
     let noteTxt = 'Email from: ' + foundEmail.from + '  -  '
     noteTxt += (foundEmail.body.length > 0)? foundEmail.body  : foundEmail.subject
     

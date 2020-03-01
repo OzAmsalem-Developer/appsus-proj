@@ -1,10 +1,6 @@
 export default {
     template: `
     <section class="main-nav">
-        <router-link to="/" @click.native="$emit('clicked')" exact class="nav-link">
-        <img src="img/icons/home.png">
-        Home
-        </router-link>
         <router-link to="/email" @click.native="$emit('clicked')" exact class="nav-link">
         <img src="img/icons/mail-app.png">
         Email
@@ -16,6 +12,10 @@ export default {
         <router-link to="/book" @click.native="$emit('clicked')" class="nav-link">
         <img src="img/icons/book-app.png">
         Books
+         </router-link>
+         <router-link to="/" @click.native="$emit('clicked')" exact class="nav-link">
+         <i class="home-icon fas fa-home"></i>
+         Home
          </router-link>
         <router-link to="/about" @click.native="$emit('clicked')" class="nav-link">
         <img src="img/icons/about-us.png">

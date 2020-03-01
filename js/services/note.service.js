@@ -29,9 +29,11 @@ function createNote(noteInfo) {
             img: noteInfo.info.img,
             video: noteInfo.info.video,
             todos: noteInfo.info.todos,
+        },
+        style: {
+            backgroundColor: '#fdfdfd'
         }
     }
-    // if (email.boxes.draft) email.isRead = true
     notesDB.unshift(note)
     storageService.store(NOTE_KEY, notesDB)
     return Promise.resolve()
@@ -88,6 +90,9 @@ function _createSamplesNotes() {
             isPinned: false,
             info: {
                 txt: 'testing..'
+            },
+            style: {
+                backgroundColor: '#fdfdfd'
             }
         },
         {
@@ -99,9 +104,9 @@ function _createSamplesNotes() {
                 img: 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Avatar_flower.png',
                 title: 'cool artwork'
             },
-            // style: {
-            //     backgroundColor: '#00d'
-            // }
+            style: {
+                backgroundColor: '#fdfdfd'
+            }
         },
         {
             id: utilService.makeId(),
@@ -115,6 +120,9 @@ function _createSamplesNotes() {
                     { txt: 'toothpaste', isComplete: false, doneAt: 187111111 },
                     { txt: 'bamba', isComplete: false, doneAt: 187111 }
                 ]
+            },
+            style: {
+                backgroundColor: '#fdfdfd'
             }
         },
         {
@@ -125,6 +133,9 @@ function _createSamplesNotes() {
             info: {
                 video: 'https://www.youtube.com/embed/c2ScKSMGvtc',
             },
+            style: {
+                backgroundColor: '#fdfdfd'
+            }
 
         },
         {
@@ -134,6 +145,9 @@ function _createSamplesNotes() {
             isPinned: false,
             info: {
                 txt: 'password: aligator_3'
+            },
+            style: {
+                backgroundColor: '#fdfdfd'
             }
         },
 
@@ -145,6 +159,9 @@ function _createSamplesNotes() {
             info: {
                 img: 'https://media.giphy.com/media/kz6cm1kKle2MYkHtJF/giphy.gif',
             },
+            style: {
+                backgroundColor: '#fdfdfd'
+            }
         },
         {
             id: utilService.makeId(),
@@ -155,6 +172,9 @@ function _createSamplesNotes() {
                 img: 'https://main-designyoutrust.netdna-ssl.com/wp-content/uploads/2018/09/Bugaboos.jpg',
                 title: 'spain'
             },
+            style: {
+                backgroundColor: '#fdfdfd'
+            }
         },
         {
             id: utilService.makeId(),
@@ -168,6 +188,9 @@ function _createSamplesNotes() {
                     { txt: 'Todos edit', isComplete: true, doneAt: 187111111 },
                     { txt: 'change note bg color', isComplete: false, doneAt: 187111 }
                 ]
+            },
+            style: {
+                backgroundColor: '#fdfdfd'
             }
         },
         {
@@ -178,6 +201,9 @@ function _createSamplesNotes() {
             info: {
                 img: 'https://yesno.wtf/assets/yes/2-5df1b403f2654fa77559af1bf2332d7a.gif',
             },
+            style: {
+                backgroundColor: '#fdfdfd'
+            }
         },
         {
             id: utilService.makeId(),
@@ -186,6 +212,9 @@ function _createSamplesNotes() {
             isPinned: true,
             info: {
                 txt: 'Noa wedding 08.03'
+            },
+            style: {
+                backgroundColor: '#fdfdfd'
             }
         },
         {
@@ -196,6 +225,9 @@ function _createSamplesNotes() {
             info: {
                 video: 'https://www.youtube.com/embed/pbMwTqkKSps',
             },
+            style: {
+                backgroundColor: '#fdfdfd'
+            }
 
         },
     ]

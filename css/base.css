@@ -45,20 +45,3 @@ h1, h2, h3, h4, h5, h6 {
 input, select, button {
     outline: none;
 }
-
-
-/* helpers */
-
-.container {
-    width: 97vw;
-}
-
-.side-container {
-    min-width: 235px;
-}
-
-@media (max-width: 850px) {
-    .container {
-        width: unset;
-    }
-}

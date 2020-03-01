@@ -1,0 +1,13 @@
+.container {
+    width: 97vw;
+}
+
+.side-container {
+    min-width: 235px;
+}
+
+@media (max-width: 850px) {
+    .container {
+        width: unset;
+    }
+}

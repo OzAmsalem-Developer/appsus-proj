@@ -21,7 +21,6 @@ align-items: center;
 user-select: none;
 font-size: 18px;
 padding: 0 5px;
-/* background-color: none; */
 cursor: pointer;
 }
 
@@ -30,7 +29,8 @@ cursor: pointer;
     background-color: transparent;
     border: none;
     font-size: 16px;
-    /* height: 24px; */
+    height: 1.5em;
+    
     padding-left: 5px;
     margin-top: 5px;
     margin-bottom: 10px;

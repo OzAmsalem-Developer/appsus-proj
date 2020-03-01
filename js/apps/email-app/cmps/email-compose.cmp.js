@@ -47,13 +47,18 @@ export default {
             const to = this.email.to.toLowerCase()
 
             if (to === 'me' || to === 'myself') this.email.boxes.inbox = true
-            else if (to === 'notes' || to === 'note') this.email.boxes.note = true
+            else if (to === 'notes' || to === 'note') {
+                this.email.boxes.note = true
+            }
             
-
             this.email.boxes.sentBox = true //Anyway
-
+            
+            
             emailService.createNewEmail(this.email)
-            .then(() => {this.$emit('emailCreated')})
+            .then((email) => { 
+                this.$emit('emailCreated')
+                if (email.boxes.note) emailService.sendToNotes(email.id)
+            })
         },
         removeDraft() {
             this.removed = true

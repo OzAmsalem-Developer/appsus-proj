@@ -1,5 +1,6 @@
 import { utilService } from '../services/util.service.js'
 import { storageService } from '../services/storage.service.js'
+import { noteService } from '../services/note.service.js'
 
 const EMAIL_KEY = 'emails'
 const emailsDB = storageService.load(EMAIL_KEY) || _createSamplesEmails()
@@ -34,7 +35,7 @@ function removeEmail(emailId) {
 function updateEmail(prop, val, emailId) {
     const foundEmail = emailsDB.find(email => email.id === emailId)
     const emailIdx = emailsDB.findIndex(email => email.id === emailId)
-    
+
     // Make a deep copy and splice for vue reactivation
     const emailCopy = JSON.parse(JSON.stringify(foundEmail))
     emailCopy[prop] = val
@@ -49,6 +50,20 @@ function sendToNotes(emailId) {
     for (const prop in boxes) {
         boxes[prop] = false
     }
+    const noteTxt = (foundEmail.body.length > 0)? foundEmail.body  : foundEmail.subject
+    const note = {
+            type: 'noteText',
+            noteType: 'txt',
+            isPinned: boxes.star,
+            info: {
+                txt: noteTxt,
+                img: '',
+                video: '',
+                title: '',
+                todos: null
+            }
+    }
+    noteService.createNote(note)
     boxes.note = true
     storageService.store(EMAIL_KEY, emailsDB)
     return Promise.resolve()
@@ -74,8 +89,8 @@ function createNewEmail(emailInfo) {
 // Samples data! to move to new service
 function _createSamplesEmails() {
     const fromNames = ['Rami', 'Oz', 'Guy', 'Ran', 'Daniel', 'Yaron', 'Nadav',
-     'Omer','Rami', 'Oz', 'Guy', 'Ran', 'Daniel', 'Yaron', 'Nadav', 'Omer','Rami',
-      'Oz', 'Guy', 'Ran', 'Daniel', 'Yaron', 'Nadav', 'Omer']
+        'Omer', 'Rami', 'Oz', 'Guy', 'Ran', 'Daniel', 'Yaron', 'Nadav', 'Omer', 'Rami',
+        'Oz', 'Guy', 'Ran', 'Daniel', 'Yaron', 'Nadav', 'Omer']
     const emails = fromNames.map(_createEmail)
     storageService.store(EMAIL_KEY, emails)
     return emails

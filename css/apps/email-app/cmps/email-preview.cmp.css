@@ -4,7 +4,7 @@
     grid-template-rows: 1fr;
     height: 50px;
     align-items: center;
-    padding: 0 15px; 
+    padding: 0 15px;
     border-bottom: 2px solid #e3e8ea;
     cursor: pointer;
 }
@@ -49,5 +49,25 @@
 @media (max-width: 900px) {
     .email-preview {
         grid-template-columns: 2fr 8fr 2fr;
+    }
+}
+
+@media (max-width: 750px) {
+    .email-preview-from {
+        border-radius: 50%;
+        color: white;
+        background: black;
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 450px) {
+    .email-preview-from {
+        margin-right: 30px;
     }
 }

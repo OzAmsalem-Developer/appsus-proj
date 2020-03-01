@@ -5,7 +5,8 @@ export default {
     template: `
     <section v-if="email" class="email-preview"
     :class="emailClass">
-        <span class="email-preview-from">{{email.from}}</span>
+        <span class="email-preview-from" :style="nameColor">
+        {{fromName}}</span>
         
       
         <div class="email-preview-content">
@@ -30,6 +31,14 @@ export default {
         },
         hourToShow() {
             return utilService.getFormattedHour(this.email.sentAt)
+        },
+        fromName() {
+            const letter = this.email.from.slice(0, 1).toUpperCase()
+            return (window.innerWidth <= 750)? letter : this.email.from
+        },
+        nameColor() {
+            let color = utilService.getRandomColor()
+            return (window.innerWidth <= 750)?   { background: color }   : ''
         }
     },
     components: {

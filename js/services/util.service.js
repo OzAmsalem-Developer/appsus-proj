@@ -4,7 +4,8 @@ export const utilService = {
     makeId,
     createWord,
     getFormattedDate,
-    getFormattedHour
+    getFormattedHour,
+    getRandomColor
 }
 
 //The maximum is exclusive and the minimum is inclusive
@@ -39,6 +40,15 @@ function makeLorem(length) {
 
     return randStr;
 }
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
 
 function getFormattedHour(timestamp) {
     const time = new Date(timestamp)

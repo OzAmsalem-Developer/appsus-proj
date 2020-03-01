@@ -6,7 +6,7 @@ export default {
         Email
         </router-link>
         <router-link to="/note" @click.native="$emit('clicked')" class="nav-link">
-        <img src="img/icons/note-app.png">
+        <span class="note-icon-container"><i class="note-icon fas fa-lightbulb"></i></span>
         Keep
         </router-link>
         <router-link to="/book" @click.native="$emit('clicked')" class="nav-link">

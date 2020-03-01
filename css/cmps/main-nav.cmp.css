@@ -33,6 +33,21 @@
     margin-bottom: 3px;
 }
 
+.note-icon-container {
+    height: 50px;
+    width: 50px;
+    background-color: #ffa500;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-nav .note-icon {
+    font-size: 28px;
+    color: #edf0f1;
+}
+
 .nav-link img {
   height: 50px;
   width: 50px;

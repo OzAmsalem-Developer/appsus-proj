@@ -83,6 +83,7 @@ function createNewEmail(emailInfo) {
     }
     emailsDB.unshift(email)
     storageService.store(EMAIL_KEY, emailsDB)
+    
     return Promise.resolve(email)
 }
 

@@ -55,7 +55,10 @@ function togglePinnedNote(noteId) {
 
 function changeColorNote(noteId, newColor) {
     const note = _getNoteById(noteId)
-    note.style.backgroundColor = newColor
+    const idx = _getNoteByIndex(noteId)
+    const noteCopy = JSON.parse(JSON.stringify(note))
+    noteCopy.style.backgroundColor = newColor
+    notesDB.splice(idx, 1, noteCopy)
     storageService.store(NOTE_KEY, notesDB)
     // console.log('Note new Color', note.style.backgroundColor)
     // console.log('notesDB:', notesDB)

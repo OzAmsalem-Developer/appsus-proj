@@ -17,8 +17,8 @@ export default {
     `,
     data() {
         return {
-            editVal: this.note.info[this.note.noteType]
-
+            editVal:(this.note.noteType === 'todos') ?
+            this.note.info.title: this.note.info[this.note.noteType]
         }
     },
     methods: {

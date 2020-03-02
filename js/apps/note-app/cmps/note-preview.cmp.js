@@ -20,8 +20,7 @@ export default {
     `,
     data() {
         return {
-            isEdit: false,
-            color: this.note.style.backgroundColor,
+            isEdit: false
         }
     },
     methods: {
@@ -39,8 +38,7 @@ export default {
     },
     computed: {
         noteBgColor() {
-            // let newColor = this.note.style.backgroundColor
-            return this.color
+            return this.note.style.backgroundColor
         }
     },
     components: {

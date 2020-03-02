@@ -1,0 +1,55 @@
+.color-select {
+    position: absolute;
+    display: none;
+    left: -200%;
+    padding: 5px 10px 10px;
+}
+
+.note-colors-palette {
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: scale(1);
+    transition: all .3s;
+    margin: .1em;
+    cursor: pointer;
+    border: solid 1px rgb(83, 83, 83);
+}
+
+.palette-white {
+    background-color: #fdfdfd;
+}
+
+.palette-red {
+    background-color: #ff8888;
+}
+
+.palette-orange {
+    background-color: #ffcc88;
+}
+
+.palette-yellow {
+    background-color: #ffff88;
+}
+
+.palette-green {
+    background-color: #ccff99;
+}
+
+.palette-blue {
+    background-color: #aaffee;
+}
+
+.palette-purple {
+    background-color: #ddbbff;
+}
+
+@media (max-width: 500px) {
+    .note-colors-palette {
+        width: 2em;
+        height: 2em;
+    }
+    .color-select {
+        left: -300%;
+    }
+}

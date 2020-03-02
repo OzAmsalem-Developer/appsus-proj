@@ -25,6 +25,7 @@
 @import 'apps/note-app/cmps/note-create.cmp.css';
 @import 'apps/note-app/cmps/note-list.cmp.css';
 @import 'apps/note-app/cmps/note-preview.cmp.css';
+@import 'apps/note-app/cmps/note-color-select.cmp.css';
 @import 'apps/note-app/cmps/note-menu.cmp.css';
 @import 'apps/note-app/cmps/note-edit.cmp.css';
 @import 'apps/note-app/cmps/note.template.cmp.css';

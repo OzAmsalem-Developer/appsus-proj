@@ -1,4 +1,6 @@
 import {eventBus} from '../../../services/eventBus.service.js'
+import colorSelect from '../cmps/note-color-select.cmp.js'
+
 
 export default {
     template: `
@@ -6,15 +8,7 @@ export default {
     <button class="note-menu-btn" @click="togglePinned"><i class="fas fa-thumbtack"></i></button>
     <div class="note-color-btn-container">
         <button class="note-color-btn note-menu-btn" ><i class="fas fa-palette"></i></i></button>
-        <div class="note-colors-palette-container">
-            <div class="note-colors-palette palette-white" @click="changeNoteColor('fdfdfd')"></div>
-            <div class="note-colors-palette palette-red" @click="changeNoteColor('ff8888')"></div>
-            <div class="note-colors-palette palette-orange" @click="changeNoteColor('ffcc88')"></div>
-            <div class="note-colors-palette palette-yellow" @click="changeNoteColor('ffff88')"></div>
-            <div class="note-colors-palette palette-green" @click="changeNoteColor('ccff99')"></div>
-            <div class="note-colors-palette palette-blue" @click="changeNoteColor('aaffee')"></div>
-            <div class="note-colors-palette palette-purple" @click="changeNoteColor('ddbbff')"></div>
-        </div>
+        <color-select class="color-select" @colorChanged="changeNoteColor"></color-select>
     </div>
     <button class="note-menu-btn" @click="editNote"><i class="fas fa-edit"></i></button>
     <button class="note-menu-btn" @click="removeNote"><i class="fas fa-trash-alt"></i></button>
@@ -37,5 +31,7 @@ export default {
         }
     },
     props: ['noteId'],
-
+    components: {
+        colorSelect
+    }
 }

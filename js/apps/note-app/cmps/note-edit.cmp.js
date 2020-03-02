@@ -1,4 +1,4 @@
-import { eventBus } from '../../../services/eventBus.service.js'
+import { eventBus, EVENT_UPDATE_NOTE } from '../../../services/eventBus.service.js'
 export default {
     template: `
     <section class="note-edit">
@@ -28,7 +28,7 @@ export default {
         updateNote() {
             this.note.info[this.note.noteType] = this.editVal
             const newNote = JSON.parse(JSON.stringify(this.note))
-            eventBus.$emit('updateNote', newNote)
+            eventBus.$emit(EVENT_UPDATE_NOTE, newNote)
             this.cloeEdit()
         }
     },

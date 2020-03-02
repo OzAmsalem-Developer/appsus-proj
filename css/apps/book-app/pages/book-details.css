@@ -1,0 +1,159 @@
+.book-details {
+    max-width: 850px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.details {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    min-height: 550px;
+}
+
+.details img.book-img, .book-info {
+    padding: 15px;
+    align-self: flex-start;
+    min-width: 300px;
+    min-height: 300px;
+}
+
+.main-info {
+    display: flex;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
+    background-color: white;
+}
+
+.payment-container {
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
+    margin-left: 15px;
+    background-color: white;
+    height: fit-content;
+}
+
+.price-container {
+    border-bottom: 0.1rem solid #f0f0f0;
+}
+
+.secure, .shipping {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 5px;
+}
+
+.payment-container img {
+    height: 50px;
+    margin: 0;
+    left: 0;
+}
+
+.payment-container h3 {
+    margin: 0;
+    margin-left: 15px;
+    font-family: Roboto-regular, sans-serif;
+    font-size: 14px;
+}
+
+.price-container {
+    padding: 15px;
+}
+
+.book-info p .title {
+    font-weight: 600;
+}
+
+.book-details .btn {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+
+.book-info .book-title {
+    font-size: 1.5rem;
+    font-family: Roboto-regular, sans-serif;
+    text-transform: capitalize;
+    border-bottom: 0.1rem solid #f0f0f0;
+    color: rgb(51, 51, 51);
+    margin: 0;
+}
+
+.book-info p, .desc {
+    font-size: 0.875rem;
+    font-family: Roboto-regular, sans-serif;
+    color: rgb(51, 51, 51);
+}
+
+.categories {
+    color: #666;
+    margin: .5rem 0;
+    list-style: none;
+    padding: 10px;
+    border: 0.1rem solid #cacaca;
+    display: block;
+    font-size: 0.875rem;
+    font-family: Roboto-regular, sans-serif;
+}
+
+/* Long Text */
+
+.long-text a {
+    color: #10bbd5;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+    border: 0;
+    margin-left: 0.5rem;
+}
+
+.long-text a:hover {
+    color: black;
+}
+
+/* Helpers */
+
+.low-price {
+    background-color: green !important;
+    color: white;
+    padding: 3px;
+}
+.hight-price {
+    background-color: red !important;
+    color: white;
+    padding: 3px;
+}
+
+@media (max-width: 950px) {
+    .details {
+        grid-template-columns: 1fr;
+    }
+    .main-info {
+        margin-bottom: 20px;
+    }
+    .ensure-signs {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-end;
+    }
+    .secure, .shipping {
+        display: flex;
+        align-items: stretch;
+        margin-bottom: 0;
+        padding: 5px;
+        justify-content: center;
+    }
+    .payment-container {
+        margin: 0;
+    }
+
+}
+
+@media (max-width: 850px) {
+    .book-details .btn {
+        margin: 10px;
+    }
+}
+
+@media (max-width: 800px) {
+    .main-info {
+        flex-direction: column;
+    }
+}

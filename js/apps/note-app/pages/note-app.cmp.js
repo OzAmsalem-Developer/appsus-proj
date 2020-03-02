@@ -1,5 +1,7 @@
 import { noteService } from '../../../services/note.service.js'
-import { eventBus } from '../../../services/eventBus.service.js'
+import { eventBus, EVENT_REMOVE_NOTE, EVENT_NOTE_PINNED, EVENT_ADD_TODO ,
+     EVENT_TOGGLE_TODO,  EVENT_UPDATE_NOTE, EVENT_REMOVE_TODO }
+from '../../../services/eventBus.service.js'
 import noteCreate from '../cmps/note-create.cmp.js'
 import noteList from '../cmps/note-list.cmp.js'
 
@@ -44,15 +46,15 @@ export default {
                 this.notes = notes
             })
 
-        eventBus.$on('removeNote', this.removeNote)
-        eventBus.$on('togglePinnedNote', this.togglePinnedNote)
-        eventBus.$on('addTodo', this.updateNote)
-        eventBus.$on('isTodoComplete', this.updateNote)
-        eventBus.$on('updateNote', this.updateNote)
-        eventBus.$on('changeColorNote', this.changeTodoColor)
-        eventBus.$on('removeTodo', this.removeTodo)
+        eventBus.$on(EVENT_REMOVE_NOTE, this.removeNote)
+        eventBus.$on(EVENT_NOTE_PINNED , this.togglePinnedNote)
+        eventBus.$on(EVENT_ADD_TODO, this.updateNote)
+        eventBus.$on(EVENT_TOGGLE_TODO, this.updateNote)
+        eventBus.$on( EVENT_UPDATE_NOTE, this.updateNote)
+        eventBus.$on(EVENT_NOTE_COLOR, this.changeTodoColor)
+        eventBus.$on(EVENT_REMOVE_TODO, this.removeTodo)
     },
     destroyed() {
-        eventBus.$off('togglePinnedNote', this.togglePinnedNote)
+        eventBus.$off(EVENT_NOTE_PINNED, this.togglePinnedNote)
     }
 }

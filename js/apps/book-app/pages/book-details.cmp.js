@@ -1,7 +1,7 @@
-import { bookService } from '../services/book.service.js'
+import { bookService } from '../../../services/book.service.js'
 import reviewAdd from '../cmps/review-add.cmp.js'
-import bookReviews from '../cmps/book-cmps/book-reviews.cmp.js'
-import longText from '../cmps/long-text.cmp.js'
+import bookReviews from '../cmps/book-reviews.cmp.js'
+import longText from '../../../cmps/long-text.cmp.js'
 
 export default {
     template: `
@@ -17,7 +17,7 @@ export default {
                     <span class="title">Language</span> | {{language}} <br/> 
                     <span class="title">Reading length</span> | {{pageCount}} <br/>
                     <span class="title">Published at</span> | {{publishedDate}} </p>
-                    <long-text class="desc" :txt="book.description"></long-text>
+                    <long-text class="desc" :length="200" :txt="book.description"></long-text>
                 </div>
             </section>
            

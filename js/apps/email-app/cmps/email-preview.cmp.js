@@ -1,6 +1,6 @@
 import {utilService} from '../../../services/util.service.js'
 import longText from '../../../cmps/long-text.cmp.js'
-import {eventBus} from '../../../services/eventBus.service.js'
+import {eventBus, EVENT_EMAIL_STARRED} from '../../../services/eventBus.service.js'
 
 export default {
     template: `
@@ -30,7 +30,7 @@ export default {
     `,
     methods: {
         emitToggle() {
-            eventBus.$emit('starToggled', this.email.id)
+            eventBus.$emit(EVENT_EMAIL_STARRED, this.email.id)
         }
     },
     computed: {

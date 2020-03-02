@@ -1,0 +1,22 @@
+.book-list {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    grid-gap: 10px;
+    justify-items: center;
+    row-gap: 20px;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,.4);
+    padding: 10px;
+    background-color: white;
+}
+
+.book-list h2 {
+    margin: 0;
+    font-family: Roboto-bold;
+    font-size: 1.125rem;
+    padding: 5px;
+}

@@ -1,6 +1,6 @@
-import { eventBus, EVENT_SHOW_MSG } from '../services/event-bus.service.js'
-import { bookService } from '../services/book.service.js'
-import { utilService } from '../services/util.service.js'
+import { eventBus, EVENT_MESSAGE } from '../../../services/eventBus.service.js'
+import { bookService } from '../../../services/book.service.js'
+import { utilService } from '../../../services/util.service.js'
 
 export default {
     template: `
@@ -45,15 +45,13 @@ export default {
         addReview() {
             bookService.addReview(this.bookId, this.review)
                 .then(() => {
-                    eventBus.$emit(EVENT_SHOW_MSG, {
-                        txt: 'Book review added successfully !',
-                        type: 'success'
+                    eventBus.$emit(EVENT_MESSAGE, {
+                        txt: 'Book review added successfully !'
                     })
                 })
                 .catch(() => {
-                    eventBus.$emit(EVENT_SHOW_MSG, {
-                        txt: 'Failed. Review didnt added',
-                        type: 'error'
+                    eventBus.$emit(EVENT_MESSAGE, {
+                        txt: 'Failed. Review didnt added'
                     })
                 })
             this.$emit('submitted')

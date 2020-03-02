@@ -1,0 +1,27 @@
+.search-suggest {
+    position: absolute;
+    min-width: 420px;
+    background-color: white;
+    z-index: 1;
+    border: 0.1px solid #f0f0f0;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .2);
+    font-size: 14px;
+}
+
+.suggest-field {
+    padding: 10px 5px;
+    border-bottom: 0.05px solid #f0f0f0;
+    max-width: 390px;
+}
+
+.add-book {
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    color: green;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    font-size: 1.1rem;
+    margin-right: 10px;
+}

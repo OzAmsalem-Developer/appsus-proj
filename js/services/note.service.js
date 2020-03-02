@@ -1,5 +1,6 @@
-import { utilService } from '../services/util.service.js'
-import { storageService } from '../services/storage.service.js'
+import { utilService } from './util.service.js'
+import { storageService } from './storage.service.js'
+import {emailService} from './email.service.js'
 
 const NOTE_KEY = 'notes'
 const notesDB = storageService.load(NOTE_KEY) || _createSamplesNotes()
@@ -12,6 +13,7 @@ export const noteService = {
     changeColorNote,
     updateNote,
     removeTodo,
+    sendToMail
 }
 
 function getNotes() {
@@ -79,6 +81,32 @@ function removeTodo(note, todoIdx) {
 
     storageService.store(NOTE_KEY, notesDB)
     return Promise.resolve()
+}
+
+function sendToMail(note) {
+    let emailBody = note.info[note.noteType] 
+    if (note.noteType === 'todos') {
+        emailBody = note.info.title + '  '
+        let todosText = note.info.todos.map((todo, idx) => {
+            return idx+1 + '. ' + todo.txt + '. '
+        }).join('')
+        emailBody += todosText
+    }
+    const email = {
+        from: 'My Notes',
+        subject: 'From my notes keeper',
+        body: emailBody,
+        isRead: false,
+        sentAt: Date.now(),
+        boxes: {
+            inbox: true,
+            sentBox: false,
+            draft: false,
+            star: note.isPinned,
+            note: true
+        }
+    }
+    return emailService.createNewEmail(email)
 }
 
 //Private

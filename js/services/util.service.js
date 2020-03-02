@@ -5,7 +5,8 @@ export const utilService = {
     createWord,
     getFormattedDate,
     getFormattedHour,
-    getRandomColor
+    getRandomColor,
+    getFormattedNowDate
 }
 
 
@@ -62,7 +63,7 @@ function getFormattedHour(timestamp) {
 
 function getFormattedDate(timestamp) {
     const time = new Date(timestamp)
-    // Replace '.' with '/'
+    // Replacing '.' with '/'
     return time.toLocaleString().split(',')[0].replace(/\./g, '/');
 }
 
@@ -73,6 +74,16 @@ function createWord(length) {
         word += randChar;
     }
     return word;
+}
+
+function getFormattedNowDate() {
+    const date = new Date();
+    const year = date.getFullYear().toString()
+    let month = (date.getMonth() + 1).toString()
+    let day = date.getDate().toString()
+    if (month < 10) month = '0' + month
+    if (day < 10) day = '0' + day
+    return year + '-' + month + '-' + day
 }
 
 //Private

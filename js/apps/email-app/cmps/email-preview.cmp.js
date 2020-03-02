@@ -10,7 +10,6 @@ export default {
         <i :class="starClass"></i></button>
         <span class="email-preview-from" :style="nameColor">
         {{fromName}}</span>
-        
       
         <div class="email-preview-content">
         <span class="email-preview-subject">
@@ -42,7 +41,7 @@ export default {
             const today = new Date()
             if(today.setHours(0,0,0,0) == emailDate.setHours(0,0,0,0)) 
             return moment(this.email.sentAt).format('LT')
-            else return moment.unix(this.email.sentAt).format("MM/DD/YYYY");
+            else return utilService.getFormattedDate(this.email.sentAt)
         },
         fromName() {
             const letter = this.email.from.slice(0, 1).toUpperCase()

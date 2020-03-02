@@ -95,7 +95,8 @@ export default {
         },
         sendToNotes(emailId) {
             emailService.sendToNotes(emailId)
-            .then(() => {eventBus.$emit( EVENT_MESSAGE, {txt: 'Email sent to notes'})})
+            .then(() => {eventBus.$emit( EVENT_MESSAGE, {txt: 'Email sent to notes',
+                                                        link: '/note', linkTxt: 'Go check'})})
         },
         replyToEmail(emailId) {
             this.$router.push('/email/reply/' + emailId)
@@ -126,6 +127,8 @@ export default {
             const filteredEmails = this.emails.filter(email => {
                 const txt = this.filterBy.txt.toLowerCase()
                 const subject = email.subject.toLowerCase()
+                console.log(email.body);
+                
                 const body = email.body.toLowerCase()
                 const fromName = email.from.toLowerCase()
 

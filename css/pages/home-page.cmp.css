@@ -1,7 +1,3 @@
-/* .home-page {} */
-
-/* .hero {} */
-
 .hero-title {
     font-family: Nunito-regular, Verdana, Geneva, Tahoma, sans-serif;
     font-size: 3em;
@@ -24,6 +20,7 @@
     box-shadow: -10px 9px 10px 0px rgba(0, 0, 0, 0.15);
     transform: scale(1);
     transition: all .8s;
+    text-decoration: none;
 }
 
 .hero-cta-btn:hover {
@@ -59,19 +56,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(208, 224, 226);
-    padding-bottom: 200px;
-}
-
-.gallery-apps>* {
-    margin-left: 1.5em;
-}
-
-.gallery-apps>*:last-child {
-    margin-right: 1.5em;
+    background-image: linear-gradient(-45deg, rgb(205, 238, 255), rgb(228, 246, 255));
+    /* padding: 1em .8em 200px; */
 }
 
 .gallery-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 50px;
     width: 300px;
     height: 300px;
@@ -79,7 +71,6 @@
 }
 
 .gallery-card-email {
-    background-color: orangered;
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../img/homepage/email_cover.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -88,8 +79,6 @@
 }
 
 .gallery-card-note {
-    background-color: orchid;
-    background-color: orangered;
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../img/homepage/note_cover.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -97,10 +86,45 @@
 }
 
 .gallery-card-book {
-    background-color: mediumspringgreen;
-    background-color: orangered;
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../img/homepage/book_cover.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.app-gallery-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-decoration: none;
+    padding: 2em;
+}
+
+.app-cta-btn {
+    margin-top: 20px;
+    font-family: Roboto-regular;
+    padding: .2em .6em;
+    font-size: 2em;
+    color: black;
+    border: 1px solid black;
+    background-color: rgba(255, 165, 0);
+    border-radius: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: -10px 9px 10px 0px rgba(0, 0, 0, 0.05);
+    transform: scale(1);
+    transition: all .8s;
+}
+
+.app-cta-btn:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 850px) {
+    .gallery-apps {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
 }

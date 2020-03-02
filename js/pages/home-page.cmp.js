@@ -4,20 +4,28 @@ export default {
         <section class="hero">
             <div class="hero-img">
                 <h1 class="hero-title">APPSUS</h1>
-                <button class="hero-cta-btn">Get started</button>
+                <a href="#appsus-features" class="hero-cta-btn">Get started</a>
+
             </div>
         </section>
-        <div class="gallery-header">Appsus features</div>
+        <div id="appsus-features" class="gallery-header">Appsus features</div>
         <section class="gallery-apps">
-                <div class="gallery-card gallery-card-email">
-                </div>
-            <div class="gallery-card gallery-card-note"></div>
-            <div class="gallery-card gallery-card-book"></div>
+            <router-link to="/email" class="app-gallery-link">
+                <div class="gallery-card gallery-card-email"></div>
+                <button class="app-cta-btn">Email</button>
+            </router-link>
+            <router-link to="/note" class="app-gallery-link">
+                <div class="gallery-card gallery-card-note"></div>
+                <button class="app-cta-btn">Keep</button>
+            </router-link>
+            <router-link to="/book" class="app-gallery-link">
+                <div class="gallery-card gallery-card-book"></div>
+                <button class="app-cta-btn">Books</button>
+            </router-link>
         </section>
     </section>
     `
 }
 
 
-/* <router-link to="/email" class="back-btn">
-</router-link> */
+

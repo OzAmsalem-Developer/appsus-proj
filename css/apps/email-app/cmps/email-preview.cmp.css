@@ -95,6 +95,11 @@
     .email-preview {
         grid-template-columns:  2fr 8fr 2fr;
     }
+    .email-preview-content {
+        overflow: unset;
+        text-overflow: unset;
+        white-space: unset;
+    }
 }
 
 @media (max-width: 450px) {

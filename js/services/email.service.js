@@ -11,7 +11,8 @@ export const emailService = {
     createNewEmail,
     getEmailById,
     sendToNotes,
-    removeEmail
+    removeEmail,
+    toggleStar
 }
 
 function getEmails() {
@@ -42,6 +43,20 @@ function updateEmail(prop, val, emailId) {
     emailsDB.splice(emailIdx, 1, emailCopy)
     storageService.store(EMAIL_KEY, emailsDB)
     return Promise.resolve(emailsDB)
+}
+
+function toggleStar(emailId) {
+    let emailIdx
+    const email = emailsDB.find((email,idx) => {
+        if(email.id === emailId) {
+            emailIdx = idx
+            return email
+        }
+    })
+    let emailCopy = JSON.parse(JSON.stringify(email))
+    emailCopy.boxes.star = !email.boxes.star
+    emailsDB.splice(emailIdx, 1, emailCopy)
+    storageService.store(EMAIL_KEY, emailsDB)
 }
 
 function sendToNotes(emailId) {
@@ -105,7 +120,7 @@ function _createEmail(from = utilService.createWord(6)) {
     return {
         id: utilService.makeId(),
         from: from,
-        subject: utilService.makeLorem(25),
+        subject: utilService.makeLorem(utilService.getRandom(7, 20)),
         body: utilService.makeLorem(utilService.getRandom(100, 650)),
         isRead: false,
         sentAt: Date.now(),

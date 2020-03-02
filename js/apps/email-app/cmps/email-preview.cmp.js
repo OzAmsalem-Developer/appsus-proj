@@ -1,10 +1,13 @@
 import {utilService} from '../../../services/util.service.js'
 import longText from '../../../cmps/long-text.cmp.js'
+import {eventBus} from '../../../services/eventBus.service.js'
 
 export default {
     template: `
     <section v-if="email" class="email-preview"
     :class="emailClass">
+        <button @click.stop="emitToggle" class="star-btn">
+        <i :class="starClass"></i></button>
         <span class="email-preview-from" :style="nameColor">
         {{fromName}}</span>
         
@@ -25,6 +28,11 @@ export default {
        
     </section>
     `,
+    methods: {
+        emitToggle() {
+            eventBus.$emit('starToggled', this.email.id)
+        }
+    },
     computed: {
         emailClass() {
             return (this.email.isRead) ? 'email-read' : 'email-unread'
@@ -39,7 +47,11 @@ export default {
         nameColor() {
             let color = utilService.getRandomColor()
             return (window.innerWidth <= 750)?   { background: color }   : ''
+        },
+        starClass() {
+            return (this.email.boxes.star)? 'fas fa-star starred' : 'far fa-star'
         }
+
     },
     components: {
         longText

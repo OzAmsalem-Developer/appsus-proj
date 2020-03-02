@@ -113,6 +113,9 @@ export default {
                 }
                 return acc
             },{})
+        },
+        toggleStar(emailId) {
+            emailService.toggleStar(emailId)
         }
     },
     computed: {
@@ -173,5 +176,6 @@ export default {
         eventBus.$on('updated', this.updateEmail)
         eventBus.$on('sentToNotes', this.sendToNotes)
         eventBus.$on('reply', this.replyToEmail)
+        eventBus.$on('starToggled', this.toggleStar)
     }
 }

@@ -32,6 +32,10 @@ export default {
         },
         removeTodo(note, idx) {
             noteService.removeTodo(note, idx)
+        },
+        changeTodoColor(noteId, newColor) {
+            noteService.changeColorNote(noteId, newColor)
+            // console.log('Note ID:', noteId, 'Note New Color:', newColor)
         }
     },
     created() {
@@ -45,6 +49,7 @@ export default {
         eventBus.$on('addTodo', this.updateNote)
         eventBus.$on('isTodoComplete', this.updateNote)
         eventBus.$on('updateNote', this.updateNote)
+        eventBus.$on('changeColorNote', this.changeTodoColor)
         eventBus.$on('removeTodo', this.removeTodo)
     },
     destroyed() {

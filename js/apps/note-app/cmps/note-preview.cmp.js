@@ -6,7 +6,7 @@ import noteEdit from '../cmps/note-edit.cmp.js'
 export default {
     template: `
     <section class="note-preview">
-        <div class="note-type-container">
+        <div class="note-type-container" :style="{ backgroundColor: noteBgColor }">
             <component :is="note.type"
             :class="note.type"
             :note="note">
@@ -21,6 +21,7 @@ export default {
     data() {
         return {
             isEdit: false,
+            color: this.note.style.backgroundColor,
         }
     },
     methods: {
@@ -34,6 +35,12 @@ export default {
         },
         toggleEdit() {
             this.isEdit = !this.isEdit
+        }
+    },
+    computed: {
+        noteBgColor() {
+            // let newColor = this.note.style.backgroundColor
+            return this.color
         }
     },
     components: {

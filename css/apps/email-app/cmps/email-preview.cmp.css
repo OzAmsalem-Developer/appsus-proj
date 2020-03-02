@@ -42,6 +42,9 @@
     font-size: 18px;
     color: rgba(0, 0, 0, 0.3);
     transition: .3s ease-in-out;
+    height: 50px;
+    width: 50px;
+    z-index: 1;
 }
 
 .email-preview .starred {
@@ -89,11 +92,16 @@
     }
     .email-preview .star-btn {
         position: absolute;
-        right: 40px;
-        bottom: 12px;
+        right: 23px;
+        bottom: 3px;
     }
     .email-preview {
         grid-template-columns:  2fr 8fr 2fr;
+    }
+    .email-preview-content {
+        overflow: unset;
+        text-overflow: unset;
+        white-space: unset;
     }
 }
 

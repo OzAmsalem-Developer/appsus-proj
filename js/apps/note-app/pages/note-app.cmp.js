@@ -1,6 +1,6 @@
 import { noteService } from '../../../services/note.service.js'
 import { eventBus, EVENT_REMOVE_NOTE, EVENT_NOTE_PINNED, EVENT_ADD_TODO ,
-     EVENT_TOGGLE_TODO,  EVENT_UPDATE_NOTE, EVENT_REMOVE_TODO }
+     EVENT_TOGGLE_TODO,  EVENT_UPDATE_NOTE, EVENT_REMOVE_TODO, EVENT_NOTE_COLOR }
 from '../../../services/eventBus.service.js'
 import noteCreate from '../cmps/note-create.cmp.js'
 import noteList from '../cmps/note-list.cmp.js'

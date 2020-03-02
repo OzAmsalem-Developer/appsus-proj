@@ -21,4 +21,5 @@ export const EVENT_UPDATE_NOTE = 'updateNote'
 export const EVENT_REMOVE_NOTE = 'removeNote'
 export const EVENT_NOTE_PINNED = 'toggleNotePinned'
 export const EVENT_NOTE_COLOR = 'changeNoteBGcolor'
+export const EVENT_NOTE_TO_MAIL = 'sendNoteToMail'
 

@@ -23,6 +23,10 @@
     line-height: 14px;
 }
 
+.book-title {
+ /* max-width: 25%; */
+}
+
 .price {
     color: #ff0072;
     font-size: 1.4rem;

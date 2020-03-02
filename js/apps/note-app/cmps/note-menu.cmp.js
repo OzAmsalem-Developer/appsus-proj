@@ -1,4 +1,4 @@
-import { eventBus, EVENT_REMOVE_NOTE, EVENT_NOTE_PINNED, EVENT_NOTE_COLOR }
+import { eventBus, EVENT_REMOVE_NOTE, EVENT_NOTE_PINNED, EVENT_NOTE_COLOR, EVENT_NOTE_TO_MAIL }
     from '../../../services/eventBus.service.js'
 import colorSelect from '../cmps/note-color-select.cmp.js'
 
@@ -12,6 +12,7 @@ export default {
         </div>
         <button class="note-menu-btn" @click="editNote"><i class="fas fa-edit"></i></button>
         <button class="note-menu-btn" @click="removeNote"><i class="fas fa-trash-alt"></i></button>
+        <button class="note-menu-btn" @click="sendNoteToMail">SendToMail</button>
     </section>
     `,
     methods: {
@@ -27,6 +28,9 @@ export default {
         changeNoteColor(color) {
             let newColor = '#' + color
             eventBus.$emit(EVENT_NOTE_COLOR, this.note.id, newColor)
+        },
+        sendNoteToMail() {
+            eventBus.$emit(EVENT_NOTE_TO_MAIL, this.note)
         }
     },
     computed: {

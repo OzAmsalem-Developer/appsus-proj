@@ -38,7 +38,12 @@ export default {
             return (this.email.isRead) ? 'email-read' : 'email-unread'
         },
         hourToShow() {
-            return utilService.getFormattedHour(this.email.sentAt)
+            const emailDate = new Date(this.email.sentAt)
+            const today = new Date()
+            if(today.setHours(0,0,0,0) == emailDate.setHours(0,0,0,0)) {
+                return moment().startOf('day').fromNow()
+            }
+            else return moment(this.email.sentAt).subtract(10, 'days').calendar()
         },
         fromName() {
             const letter = this.email.from.slice(0, 1).toUpperCase()

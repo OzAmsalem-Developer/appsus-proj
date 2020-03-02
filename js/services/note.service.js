@@ -48,9 +48,10 @@ function removeNote(noteId) {
 
 function togglePinnedNote(noteId) {
     const note = _getNoteById(noteId)
-    note.isPinned = !note.isPinned
-    storageService.store(NOTE_KEY, notesDB)
-    // console.log('notesDB:', notesDB)
+    setTimeout(() => {
+        note.isPinned = !note.isPinned
+        storageService.store(NOTE_KEY, notesDB)
+    }, 500)
 }
 
 function changeColorNote(noteId, newColor) {
@@ -60,8 +61,6 @@ function changeColorNote(noteId, newColor) {
     noteCopy.style.backgroundColor = newColor
     notesDB.splice(idx, 1, noteCopy)
     storageService.store(NOTE_KEY, notesDB)
-    // console.log('Note new Color', note.style.backgroundColor)
-    // console.log('notesDB:', notesDB)
 }
 
 // Updated the note with a deep copy 
@@ -102,10 +101,10 @@ function _createSamplesNotes() {
             noteType: 'txt',
             isPinned: false,
             info: {
-                txt: 'testing..'
+                txt: 'call Esteban Jimenez'
             },
             style: {
-                backgroundColor: '#fdfdfd'
+                backgroundColor: '#ffff88'
             }
         },
         {
@@ -135,7 +134,7 @@ function _createSamplesNotes() {
                 ]
             },
             style: {
-                backgroundColor: '#fdfdfd'
+                backgroundColor: '#aaffee'
             }
         },
         {
@@ -160,7 +159,7 @@ function _createSamplesNotes() {
                 txt: 'password: aligator_3'
             },
             style: {
-                backgroundColor: '#fdfdfd'
+                backgroundColor: '#ccff99'
             }
         },
 
@@ -173,7 +172,7 @@ function _createSamplesNotes() {
                 img: 'https://media.giphy.com/media/kz6cm1kKle2MYkHtJF/giphy.gif',
             },
             style: {
-                backgroundColor: '#fdfdfd'
+                backgroundColor: '#ffcc88'
             }
         },
         {
@@ -186,7 +185,7 @@ function _createSamplesNotes() {
                 title: 'spain'
             },
             style: {
-                backgroundColor: '#fdfdfd'
+                backgroundColor: '#ddbbff'
             }
         },
         {
@@ -197,13 +196,13 @@ function _createSamplesNotes() {
             info: {
                 title: 'Sprint:',
                 todos: [
-                    { txt: 'edit notes', isComplete: false, doneAt: null },
-                    { txt: 'Todos edit', isComplete: true, doneAt: 187111111 },
-                    { txt: 'change note bg color', isComplete: false, doneAt: 187111 }
+                    { txt: 'Todos CRUD', isComplete: true, doneAt: null },
+                    { txt: 'Change Note color', isComplete: true, doneAt: 187111111 },
+                    { txt: 'Add Sound template', isComplete: false, doneAt: 187111 }
                 ]
             },
             style: {
-                backgroundColor: '#fdfdfd'
+                backgroundColor: '#ffcc88'
             }
         },
         {
@@ -212,10 +211,10 @@ function _createSamplesNotes() {
             noteType: 'img',
             isPinned: false,
             info: {
-                img: 'https://yesno.wtf/assets/yes/2-5df1b403f2654fa77559af1bf2332d7a.gif',
+                img: 'https://media.giphy.com/media/1wqZ9MmXDPWLPuwwYI/giphy.gif',
             },
             style: {
-                backgroundColor: '#fdfdfd'
+                backgroundColor: '#ff8888'
             }
         },
         {
@@ -227,7 +226,7 @@ function _createSamplesNotes() {
                 txt: 'Noa wedding 08.03'
             },
             style: {
-                backgroundColor: '#fdfdfd'
+                backgroundColor: '#ddbbff'
             }
         },
         {
@@ -239,9 +238,8 @@ function _createSamplesNotes() {
                 video: 'https://www.youtube.com/embed/pbMwTqkKSps',
             },
             style: {
-                backgroundColor: '#fdfdfd'
+                backgroundColor: '#ffff88'
             }
-
         },
     ]
 

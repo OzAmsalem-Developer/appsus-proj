@@ -11,7 +11,7 @@ export default {
             :class="note.type"
             :note="note">
             </component>
-            <note-menu :noteId="note.id" @openEdit="toggleEdit">
+            <note-menu :note="note" @openEdit="toggleEdit">
             </note-menu>
             <note-edit :note="note" v-if="isEdit" @closeEdit="closeEdit">
             </note-edit>

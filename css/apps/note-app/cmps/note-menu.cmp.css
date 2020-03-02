@@ -7,7 +7,6 @@
 .note-menu-btn {
     margin-top: .5em;
     padding: 10px 10px;
-    /* font-size: 18px; */
     font-size: 1.25em;
     width: 2em;
     height: 2em;
@@ -16,13 +15,14 @@
     border: none;
     border-radius: 2px;
     cursor: pointer;
-    transition: background-color .3s;
+    transition: all .3s;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .note-menu-btn:hover {
+    color: black;
     background-color: orange;
 }
 
@@ -37,4 +37,8 @@
 
 .note-color-btn-container:hover>*:last-child {
     display: flex;
+}
+
+.pinned-note {
+    color: orange;
 }

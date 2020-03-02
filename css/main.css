@@ -28,3 +28,13 @@
 @import 'apps/note-app/cmps/note-menu.cmp.css';
 @import 'apps/note-app/cmps/note-edit.cmp.css';
 @import 'apps/note-app/cmps/note.template.cmp.css';
+
+/* Book App */
+@import 'apps/book-app/pages/book-details.css';
+@import 'apps/book-app/cmps/book-list.css';
+@import 'apps/book-app/cmps/book-preview.css';
+@import 'apps/book-app/cmps/book-filter.css';
+@import 'apps/book-app/cmps/review-add.css';
+@import 'apps/book-app/cmps/book-reviews.css';
+@import 'apps/book-app/cmps/search-suggest.css';
+@import 'apps/book-app/book-btns.css';

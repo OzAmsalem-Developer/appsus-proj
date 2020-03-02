@@ -1,4 +1,4 @@
-import { eventBus } from '../../services/eventBus.service.js'
+import { eventBus, EVENT_ADD_TODO, EVENT_REMOVE_TODO, EVENT_TOGGLE_TODO } from '../../services/eventBus.service.js'
 
 export const noteText = {
     template: `
@@ -55,17 +55,17 @@ export const noteTodos = {
             if (!this.note.info.todos) this.note.info.todos = []
             this.note.info.todos.push(todo)
             const newNote = this.createNoteCopy()
-            eventBus.$emit('addTodo', newNote)
+            eventBus.$emit(EVENT_ADD_TODO, newNote)
             this.nextTodo = ''
         },
         removeTodo(idx) {
             const newNote = this.createNoteCopy()
-            eventBus.$emit('removeTodo', newNote, idx)
+            eventBus.$emit(EVENT_REMOVE_TODO, newNote, idx)
         },
         toggleTodoComplete(TodoIdx) {
             this.note.info.todos[TodoIdx].isComplete = !this.note.info.todos[TodoIdx].isComplete
             const newNote = this.createNoteCopy()
-            eventBus.$emit('isTodoComplete', newNote)
+            eventBus.$emit(EVENT_TOGGLE_TODO, newNote)
 
         },
         createNoteCopy() {

@@ -1,0 +1,48 @@
+.book-preview:hover {
+    cursor: pointer;
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 226px;
+}
+
+.book-preview img {
+    height: 160px;
+    width: 110px;
+    margin: 0;
+}
+
+.book-preview h4 {
+    font-family: Roboto-bold;
+    color: rgb(51, 51, 51);
+    margin: 0;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.price {
+    color: #ff0072;
+    font-size: 1.4rem;
+    font-family: Roboto-regular, sans-serif;
+    position: relative;
+}
+
+.on-sale:after {
+    content: " ";
+    background-image: url('/img/icons/sale-tag.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    display: block;
+    height: 30px;
+    width: 30px;
+    top: 0;
+    right: -35px;
+}
+
+.a-router {
+    text-decoration: none;
+}

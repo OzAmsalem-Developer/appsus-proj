@@ -1,4 +1,4 @@
-import { eventBus } from '../services/eventBus.service.js'
+import { eventBus, EVENT_CLOSE_MESSAGE } from '../services/eventBus.service.js'
 
 export default {
     template: `
@@ -13,7 +13,7 @@ export default {
     `,
     methods: {
         closeMsg() {
-            eventBus.$emit('msg-closed')
+            eventBus.$emit(EVENT_CLOSE_MESSAGE)
         }
     },
     props: ['msg']

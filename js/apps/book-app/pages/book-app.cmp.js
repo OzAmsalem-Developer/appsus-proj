@@ -1,4 +1,4 @@
-import { eventBus } from '../../../services/eventBus.service.js'
+import { eventBus, EVENT_MESSAGE, EVENT_ADD_BOOK } from '../../../services/eventBus.service.js'
 import bookList from '../cmps/book-list.cmp.js'
 import bookFilter from '../cmps/book-filter.cmp.js'
 import {bookService} from '../../../services/book.service.js'
@@ -24,16 +24,10 @@ export default {
         addBook(googleBookId, query) {
             bookService.addGoogleBook(googleBookId, query)
             .then(() => {
-                eventBus.$emit(EVENT_SHOW_MSG, {
+                eventBus.$emit(EVENT_MESSAGE, {
                     txt: 'New book added !',
-                    type: 'success',
-                    idPath: googleBookId
-                })
-            })
-            .catch(() => {
-                eventBus.$emit(EVENT_SHOW_MSG, {
-                    txt: 'Book already exist !',
-                    type: 'error'
+                    link: '/book/' + googleBookId,
+                    linkTxt: 'Check it out'
                 })
             })
         }

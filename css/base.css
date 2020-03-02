@@ -27,6 +27,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Lac';
+    src: url("../fonts/lacquer/lacquer-regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 html {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     overflow-y: scroll;

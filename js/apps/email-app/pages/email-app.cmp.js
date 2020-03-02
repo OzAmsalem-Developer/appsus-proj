@@ -1,5 +1,7 @@
+import { eventBus, EVENT_MESSAGE, EVENT_EMAIL_REMOVED, EVENT_EMAIL_STARRED,
+     EVENT_EMAIL_UPDATED, EVENT_EMAIL_TO_NOTES, EVENT_EMAIL_REPLY }
+from '../../../services/eventBus.service.js'
 import { emailService } from '../../../services/email.service.js'
-import { eventBus } from '../../../services/eventBus.service.js'
 import emailList from '../cmps/email-list.cmp.js'
 import emailCompose from '../cmps/email-compose.cmp.js'
 import searchBar from '../../../cmps/search-bar.cmp.js'
@@ -85,7 +87,7 @@ export default {
                 const msg = {
                     txt: 'Email from ' + fromName + ' has been removed'
                 }
-                eventBus.$emit('message', msg)
+                eventBus.$emit(EVENT_MESSAGE, msg)
             })
         },
         updateEmail(prop, val, emailId) {
@@ -93,7 +95,7 @@ export default {
         },
         sendToNotes(emailId) {
             emailService.sendToNotes(emailId)
-            .then(() => {this.$emit('message', {txt: 'Email sent to notes'})})
+            .then(() => {eventBus.$emit( EVENT_MESSAGE, {txt: 'Email sent to notes'})})
         },
         replyToEmail(emailId) {
             this.$router.push('/email/reply/' + emailId)
@@ -172,10 +174,10 @@ export default {
             })
 
         //Listen to the eventBus
-        eventBus.$on('removed', this.removeEmail)
-        eventBus.$on('updated', this.updateEmail)
-        eventBus.$on('sentToNotes', this.sendToNotes)
-        eventBus.$on('reply', this.replyToEmail)
-        eventBus.$on('starToggled', this.toggleStar)
+        eventBus.$on(EVENT_EMAIL_REMOVED, this.removeEmail)
+        eventBus.$on(EVENT_EMAIL_UPDATED, this.updateEmail)
+        eventBus.$on(EVENT_EMAIL_TO_NOTES, this.sendToNotes)
+        eventBus.$on(EVENT_EMAIL_REPLY, this.replyToEmail)
+        eventBus.$on(EVENT_EMAIL_STARRED, this.toggleStar)
     }
 }

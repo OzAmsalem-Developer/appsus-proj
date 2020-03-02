@@ -1,7 +1,7 @@
 import routes from './routes.js'
 import mainHeader from './cmps/main-header.cmp.js'
 import userMsg from './cmps/user-msg.cmp.js'
-import {eventBus} from './services/eventBus.service.js'
+import {eventBus, EVENT_CLOSE_MESSAGE, EVENT_MESSAGE} from './services/eventBus.service.js'
 
 const router = new VueRouter({ routes })
 
@@ -11,7 +11,7 @@ new Vue({
     template: `
     <section class="main-app">
         <main-header></main-header>
-        <router-view @message="showMsg"></router-view>
+        <router-view></router-view>
 
         <transition name="fade">
         <user-msg :msg="msg" v-if="isMsgShow"></user-msg>
@@ -36,7 +36,7 @@ new Vue({
         userMsg
     },
     created() {
-        eventBus.$on('msg-closed', () => {this.isMsgShow = false})
-        eventBus.$on('message', this.showMsg)
+        eventBus.$on(EVENT_CLOSE_MESSAGE, () => {this.isMsgShow = false})
+        eventBus.$on(EVENT_MESSAGE, this.showMsg)
     }
 })

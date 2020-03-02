@@ -1,5 +1,5 @@
-import { eventBus, EVENT_SHOW_MSG } from '../../services/event-bus.service.js'
-import {bookService} from '../../services/book.service.js'
+import { eventBus, EVENT_MESSAGE } from '../../../services/eventBus.service.js'
+import {bookService} from '../../../services/book.service.js'
 
 export default {
     template: `
@@ -28,9 +28,8 @@ export default {
         removeReview(reviewIdx, bookId) {
             bookService.removeReview(reviewIdx, bookId)
             .then(() => {
-                eventBus.$emit(EVENT_SHOW_MSG, {
-                    txt: 'Book review removed successfully !',
-                    type: 'success'
+                eventBus.$emit(EVENT_MESSAGE, {
+                    txt: 'Book review removed successfully !'
                 })
             })
         }

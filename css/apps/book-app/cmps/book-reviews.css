@@ -1,0 +1,29 @@
+.book-reviews {
+    padding: 20px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.review {
+    margin-bottom: 40px;
+}
+
+.name {
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: 700;
+}
+
+.exit-btn {
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    color: red;
+    cursor: pointer;
+    float: right;
+    font-size: 1.1rem;
+}
+
+.book-reviews .exit-btn:hover {
+    color: black;
+}

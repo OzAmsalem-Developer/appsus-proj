@@ -1,0 +1,19 @@
+.btn {
+	background :white;
+	border:1px solid #666666;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-size:15px;
+	padding:9px 10px;
+	text-decoration:none;
+	font-family: Roboto-regular;
+}
+.btn:hover {
+	border:1px solid orange;
+	color:orange;
+}
+.btn:active {
+	position:relative;
+	top:1px;
+}

@@ -1,4 +1,5 @@
-import {eventBus} from '../../../services/eventBus.service.js'
+import {eventBus, EVENT_REMOVE_NOTE, EVENT_NOTE_PINNED, EVENT_NOTE_COLOR} 
+from '../../../services/eventBus.service.js'
 
 export default {
     template: `
@@ -22,10 +23,10 @@ export default {
     `,
     methods: {
         removeNote() {
-            eventBus.$emit('removeNote', this.noteId)
+            eventBus.$emit(EVENT_REMOVE_NOTE, this.noteId)
         },
         togglePinned() {
-            eventBus.$emit('togglePinnedNote', this.noteId)
+            eventBus.$emit(EVENT_NOTE_PINNED, this.noteId)
         },
         editNote() {
             this.$emit('openEdit')
@@ -33,7 +34,7 @@ export default {
         changeNoteColor(color) {
             let newColor = '#' + color
             console.log('I will change the color:', newColor)
-            eventBus.$emit('changeColorNote', this.noteId, newColor)
+            eventBus.$emit(EVENT_NOTE_COLOR, this.noteId, newColor)
         }
     },
     props: ['noteId'],

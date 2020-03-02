@@ -10,9 +10,9 @@ export default {
             <button class="note-color-btn note-menu-btn" ><i class="fas fa-palette"></i></i></button>
             <color-select class="color-select" @colorChanged="changeNoteColor"></color-select>
         </div>
+        <button class="note-menu-btn" @click="sendNoteToMail"><i class="fas fa-envelope"></i></button>
         <button class="note-menu-btn" @click="editNote"><i class="fas fa-edit"></i></button>
         <button class="note-menu-btn" @click="removeNote"><i class="fas fa-trash-alt"></i></button>
-        <button class="note-menu-btn" @click="sendNoteToMail">SendToMail</button>
     </section>
     `,
     methods: {

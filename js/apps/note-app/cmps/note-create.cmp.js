@@ -11,16 +11,16 @@ export default {
         
             <div class="note-type-btns">
                 <button class="note-create-btn note-text-btn" @click="changeType('noteText')">
-                    <i class="far fa-comment"></i>
+                    <i ref="txtBtn" class="note-create-btn-icon far fa-comment"></i>
                 </button>
                 <button class="note-create-btn note-img-btn" @click="changeType('noteImg')">
-                    <i class="far fa-image"></i>
+                    <i ref="imgBtn" class="note-create-btn-icon far fa-image"></i>
                 </button>
                 <button class="note-create-btn note-video-btn" @click="changeType('noteVideo')">
-                    <i class="fab fa-youtube"></i>
+                    <i ref="videoBtn" class="note-create-btn-icon fab fa-youtube"></i>
                 </button>
                 <button class="note-create-btn note-todo-btn" @click="changeType('noteTodos')">
-                    <i class="fas fa-list-ul"></i>
+                    <i ref="todosBtn" class="note-create-btn-icon fas fa-list-ul"></i>
                 </button>
             </div>
         </div>
@@ -58,6 +58,14 @@ export default {
         changeType(newType) {
             this.note.type = newType
             this.note.noteType = this.infoType
+            console.log(event.target);
+            const refs = this.$refs
+            console.log(refs)
+            for (const prop in refs) {
+               refs[prop].style['color'] = 'grey'
+                
+            }
+            event.target.style['color'] = 'black'
         }
     },
     computed: {
@@ -85,7 +93,7 @@ export default {
             } else if (this.note.type === 'noteTodos') {
                 return 'Enter list title...'
             }
-        }
+        },
     }
 }
 

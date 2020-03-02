@@ -14,11 +14,6 @@
     border-radius: 3px;
 }
 
-.note-type-btns {
-    display: flex;
-    justify-content: center;
-}
-
 .txt-input {
     font-size: 1.25em;
     height: 3.125em;
@@ -28,19 +23,31 @@
     border-radius: 3px;
 }
 
+.note-type-btns {
+    display: flex;
+    justify-content: center;
+}
+
 .note-create-btn {
     border: none;
     font-size: 1.875em;
-    height: 2.5em;
-    width: 3em;
     cursor: pointer;
     background-color: white;
     transition: background-color .3s;
-    color: black;    
+    color: grey;    
+}
+
+.note-type-btns>*:first-child {
+    color: black;
 }
 
 .note-create-btn:hover {
     background-color: orange;
+}
+
+.note-create-btn-icon {
+    user-select: none;
+    padding: .5em .8em;
 }
 
 .note-todo-btn {

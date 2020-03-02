@@ -17,8 +17,8 @@ export default {
     `,
     data() {
         return {
-            editVal:(this.note.noteType === 'todos') ?
-            this.note.info.title: this.note.info[this.note.noteType]
+            editVal: (this.note.noteType === 'todos') ?
+                this.note.info.title : this.note.info[this.note.noteType]
         }
     },
     methods: {
@@ -26,7 +26,11 @@ export default {
             this.$emit('closeEdit')
         },
         updateNote() {
-            this.note.info[this.note.noteType] = this.editVal
+            if (this.note.noteType === 'todos') {
+                this.note.info.title = this.editVal
+            } else {
+                this.note.info[this.note.noteType] = this.editVal
+            }
             const newNote = JSON.parse(JSON.stringify(this.note))
             eventBus.$emit(EVENT_UPDATE_NOTE, newNote)
             this.cloeEdit()

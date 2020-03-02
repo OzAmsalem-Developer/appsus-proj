@@ -97,9 +97,8 @@
     }
     .email-preview .star-btn {
         position: absolute;
-        right: 24px;
-        bottom: -7px;
-    
+        right: 34px;
+        bottom: -2px;
     }
     .email-preview {
         grid-template-columns:  2fr 8fr 2fr;

@@ -13,8 +13,8 @@ export default {
             </div>
 
             <input class="form-txt" required type="text" v-model.trim="email.to" placeholder="To:" />
-            <input class="form-txt" type="text" placeholder="Cc:" />
-            <input class="form-txt" type="text" placeholder="Bcc:" />
+            <input class="form-txt advance" type="text" placeholder="Cc:" />
+            <input class="form-txt advance" type="text" placeholder="Bcc:" />
             <input class="form-txt" required type="text" v-model.trim="email.subject" placeholder="Subject:" />          
             <textarea ref="emailBody" class="form-txt" v-model="email.body" rows="10"></textarea>
 

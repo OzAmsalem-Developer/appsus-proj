@@ -7,6 +7,7 @@
 @import './cmps/user-msg.cmp.css';
 
 /* Pages: */
+@import './pages/home-page.cmp.css';
 @import './pages/about-page.cmp.css';
 @import './pages/about-team.cmp.css';
 

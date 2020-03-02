@@ -62,7 +62,7 @@ function getFormattedHour(timestamp) {
 
 function getFormattedDate(timestamp) {
     const time = new Date(timestamp)
-    // Replace '.' with '/'
+    // Replacing '.' with '/'
     return time.toLocaleString().split(',')[0].replace(/\./g, '/');
 }
 

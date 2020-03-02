@@ -26,7 +26,7 @@ function getEmailById(emailId) {
 
 function removeEmail(emailId) {
     const idx = emailsDB.findIndex(email => email.id === emailId)
-    const fromName = emailsDB[idx].from
+    const fromName = emailsDB[idx].from || ''
     emailsDB.splice(idx, 1)
     storageService.store(EMAIL_KEY, emailsDB)
     return Promise.resolve(fromName)
@@ -65,8 +65,6 @@ function sendToNotes(emailId) {
     for (const prop in boxes) {
         boxes[prop] = false
     }
-    console.log(foundEmail);
-    
     let noteTxt = 'Email from: ' + foundEmail.from + '  -  '
     noteTxt += (foundEmail.body.length > 0)? foundEmail.body  : foundEmail.subject
     

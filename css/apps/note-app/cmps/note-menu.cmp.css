@@ -19,3 +19,60 @@
 .note-menu-btn:hover {
     background-color: orange;
 }
+
+.note-colors-palette-container {
+    display: none;
+    position: absolute;
+}
+
+.note-colors-palette {
+    border-radius: 50%;
+    width: 1.2em;
+    height: 1.2em;
+    transform: scale(1);
+    transition: all .3s;
+    margin: .1em;
+    cursor: pointer;
+    border: solid 1px rgb(201, 201, 201);
+}
+
+.note-colors-palette:hover {
+    border: solid 1px rgb(29, 29, 29);
+    transform: scale(1.1);
+}
+
+.palette-white {
+    background-color: #fdfdfd;
+}
+
+.palette-red {
+    background-color: #ff8888;
+}
+
+.palette-orange {
+    background-color: #ffcc88;
+}
+
+.palette-yellow {
+    background-color: #ffff88;
+}
+
+.palette-green {
+    background-color: #ccff99;
+}
+
+.palette-blue {
+    background-color: #aaffee;
+}
+
+.palette-purple {
+    background-color: #ddbbff;
+}
+
+.note-color-btn-container:hover>*:last-child {
+    display: flex;
+}
+
+.note-colors-palette-container:hover {
+    display: flex;
+}

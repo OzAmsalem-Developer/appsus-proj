@@ -9,6 +9,7 @@ export const noteService = {
     createNote,
     removeNote,
     togglePinnedNote,
+    changeColorNote,
     updateNote,
     removeTodo,
 }
@@ -49,6 +50,15 @@ function togglePinnedNote(noteId) {
     const note = _getNoteById(noteId)
     note.isPinned = !note.isPinned
     storageService.store(NOTE_KEY, notesDB)
+    // console.log('notesDB:', notesDB)
+}
+
+function changeColorNote(noteId, newColor) {
+    const note = _getNoteById(noteId)
+    note.style.backgroundColor = newColor
+    storageService.store(NOTE_KEY, notesDB)
+    // console.log('Note new Color', note.style.backgroundColor)
+    // console.log('notesDB:', notesDB)
 }
 
 // Updated the note with a deep copy 

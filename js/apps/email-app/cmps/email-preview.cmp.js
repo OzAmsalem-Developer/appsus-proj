@@ -42,7 +42,7 @@ export default {
             const today = new Date()
             if(today.setHours(0,0,0,0) == emailDate.setHours(0,0,0,0)) 
             return moment(this.email.sentAt).format('LT')
-            else return moment.unix(this.email.sentAt).format("MM/DD/YYYY");
+            else return moment.unix(emailDate).format("MM/DD/YYYY");
         },
         fromName() {
             const letter = this.email.from.slice(0, 1).toUpperCase()

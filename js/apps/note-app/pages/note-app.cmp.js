@@ -37,7 +37,6 @@ export default {
         },
         changeTodoColor(noteId, newColor) {
             noteService.changeColorNote(noteId, newColor)
-            // console.log('Note ID:', noteId, 'Note New Color:', newColor)
         },
         sendNoteToMail(note) {
             noteService.sendToMail(note)

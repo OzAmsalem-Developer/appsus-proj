@@ -74,7 +74,6 @@ function addGoogleBook(googleBookId, query) {
     return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}&key=AIzaSyByFbY78w65N-SMRNo-zWdemAm5Obhpp4o`)
         .then((res) => {
             const googleBook = (res.data.items).find((book) => book.id === googleBookId)
-            console.log(googleBook);
 
            const formattedBook = formatBook(googleBook);
            const foundBook = booksDB.find(book => book.id === googleBookId)

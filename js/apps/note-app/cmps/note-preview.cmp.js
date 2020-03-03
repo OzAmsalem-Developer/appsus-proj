@@ -25,11 +25,9 @@ export default {
     },
     methods: {
         openEdit() {
-            console.log('Open EDIT')
             this.isEdit = true
         },
         closeEdit() {
-            console.log('Close EDIT')
             this.isEdit = false
         },
         toggleEdit() {

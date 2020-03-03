@@ -8,7 +8,7 @@ export default {
             v-model="connectedVal"
             :placeholder="placeholderTxt"
             @keyup.enter="createNote">
-        
+
             <div class="note-type-btns">
                 <button class="note-create-btn note-text-btn" @click="changeType('noteText')">
                     <i ref="txtBtn" class="note-create-btn-icon far fa-comment"></i>
@@ -48,6 +48,9 @@ export default {
                 todos: null
             }
             if (this.note.noteType === 'todos') info.title = this.connectedVal
+            else if (this.note.noteType === 'video') {
+                info.video = this.getId(this.connectedVal)
+            }
             else info[this.note.noteType] = this.connectedVal
             newNote.info = info
             noteService.createNote(newNote)
@@ -58,15 +61,21 @@ export default {
         changeType(newType) {
             this.note.type = newType
             this.note.noteType = this.infoType
-            console.log(event.target);
             const refs = this.$refs
-            console.log(refs)
             for (const prop in refs) {
                refs[prop].style['color'] = 'grey'
                 
             }
             event.target.style['color'] = 'black'
-        }
+        },
+        getId(url) {
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+            const match = url.match(regExp);
+        
+            return (match && match[2].length === 11)
+              ? match[2]
+              : null;
+        }    
     },
     computed: {
         infoType() {

@@ -17,8 +17,7 @@ export default {
         </div>
         <div class="about-page-content container">
             <p class="about-page-par">
-                Coding Academy Sprint 3 project Apsus
-                Februar 2020
+                Coding Academy Sprint 3 project Apsus 2020
             </p>
             <router-link to="/about/team">
             <button class="meet-team-btn" >Meet the team</button>

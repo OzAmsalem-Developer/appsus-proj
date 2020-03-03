@@ -1,5 +1,6 @@
 import { emailService } from '../../../services/email.service.js'
 import { utilService } from '../../../services/util.service.js'
+import {eventBus , EVENT_MESSAGE} from '../../../services/eventBus.service.js'
 
 
 export default {
@@ -60,6 +61,8 @@ export default {
             .then((email) => { 
                 this.$emit('emailCreated')
                 if (email.boxes.note) emailService.sendToNotes(email.id)
+                if (!email.boxes.inbox && !email.boxes.note && !email.boxes.draft ) 
+                eventBus.$emit(EVENT_MESSAGE, {txt: 'New message sent'})
             })
         },
         removeDraft() {

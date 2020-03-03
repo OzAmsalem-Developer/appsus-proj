@@ -36,6 +36,5 @@ export default {
             this.cloeEdit()
         }
     },
-    // DESTROYED: editVal
     props: ['note']
 }

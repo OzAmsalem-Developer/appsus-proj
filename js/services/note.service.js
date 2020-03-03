@@ -171,7 +171,7 @@ function _createSamplesNotes() {
             noteType: 'video',
             isPinned: false,
             info: {
-                video: 'https://www.youtube.com/embed/c2ScKSMGvtc',
+                video: 'c2ScKSMGvtc',
             },
             style: {
                 backgroundColor: '#fdfdfd'
@@ -263,7 +263,7 @@ function _createSamplesNotes() {
             noteType: 'video',
             isPinned: false,
             info: {
-                video: 'https://www.youtube.com/embed/pbMwTqkKSps',
+                video: 'pbMwTqkKSps',
             },
             style: {
                 backgroundColor: '#ffff88'

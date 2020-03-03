@@ -12,7 +12,6 @@ new Vue({
     <section class="main-app">
         <main-header></main-header>
         <router-view></router-view>
-
         <transition name="fade">
         <user-msg :msg="msg" v-if="isMsgShow"></user-msg>
         </transition>
@@ -29,6 +28,9 @@ new Vue({
             setTimeout(() => {
                 this.isMsgShow = false
             }, 3100);
+        },
+        screenMode() {
+            return this.isScreenOpen
         }
     },
     components: {

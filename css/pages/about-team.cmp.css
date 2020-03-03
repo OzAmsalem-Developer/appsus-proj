@@ -1,11 +1,109 @@
 .about-team-page {
+    margin-top: 2em;
+}
+
+.team-container-main {
+    display: flex;
+    justify-content: center;
+}
+
+.team-member-card {
+    font-family: Roboto-regular;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    max-width: 400px;
+}
+
+.card-txt-links {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.member-card-first {
+    display: flex;
+    background-color: rgb(201, 213, 235);
+    border-radius: 1px;
+}
+
+.team-memeber-img {
+    width: 100px;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.team-member-name {
+    font-size: 1.5em;
+}
+
+.team-member-links {
+    font-size: 2em;
+}
+
+.team-member-links>* {
+cursor: pointer;
+user-select: none;
+text-decoration: none;
+}
+
+.team-member-par {
+    font-size: 1.1em;
+    overflow-wrap: break-word;
+    background-color: rgb(223, 229, 240);
+    border-radius: 1px;
+    margin-bottom: 20px;
+    padding: .5em;
+}
+
+@media (max-width: 850px) {
+    .team-container-main {
+        flex-direction: column;
+    }
+}
+
+/* .about-team-page {
+    margin-top: 50px;
+}
+
+.team-member-card {
+    display: grid;
+    grid-template-rows: 200px 400px;
+    grid-template-rows: 100px 100px 1fr;
+    gap: 10px;
+}
+
+.team-memeber-img {
+    height: 200px;
+    border-radius: 50%;
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+}
+
+.team-member-name {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    text-align: center;
+    font-size: 2em;
+}
+
+.team-member-links {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+
+
+/* 
+.about-team-page {
     padding-top: 80px;
 }
 
 .team-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .team-member-card {
@@ -17,7 +115,7 @@
 }
 
 .team-memeber-img {
-    height: 300px;
+    height: 200px;
     border-radius: 50%;
     margin-bottom: 10px;
 }
@@ -53,4 +151,4 @@
 .member-gh-link {
     text-decoration: none;
     color: black;
-}
+} */

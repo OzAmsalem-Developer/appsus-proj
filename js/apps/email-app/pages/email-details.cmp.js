@@ -45,7 +45,6 @@ export default {
                 this.email = email
             })
             .catch(() => {
-                console.log('Id didnt exist');
                 this.$router.push('/email')
             })
         }

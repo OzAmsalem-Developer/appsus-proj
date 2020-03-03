@@ -1,56 +1,64 @@
 .about-team-page {
-    padding-top: 80px;
+    margin-top: 2em;
 }
 
-.team-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 30px;
+.team-container-main {
+    display: flex;
+    justify-content: center;
 }
 
 .team-member-card {
+    font-family: Roboto-regular;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 10px;
+    padding: 10px;
+    max-width: 400px;
+}
+
+.card-txt-links {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.member-card-first {
+    display: flex;
+    background-color: rgb(201, 213, 235);
+    border-radius: 1px;
 }
 
 .team-memeber-img {
-    height: 300px;
+    width: 100px;
     border-radius: 50%;
-    margin-bottom: 10px;
+    padding: 10px;
 }
 
 .team-member-name {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.team-member-par {
-    text-align: center;
-    margin-bottom: 20px;
+    font-size: 1.5em;
 }
 
 .team-member-links {
-    font-size: 30px;
-    margin-top: 20px;
-    text-decoration: none;
-    color: black;
+    font-size: 2em;
 }
 
-.member-fb-link {
-    text-decoration: none;
-    color: black;
+.team-member-links>* {
+cursor: pointer;
+user-select: none;
+text-decoration: none;
 }
 
-.member-ld-link {
-    text-decoration: none;
-    color: black;
+.team-member-par {
+    font-size: 1.1em;
+    overflow-wrap: break-word;
+    background-color: rgb(223, 229, 240);
+    border-radius: 1px;
+    margin-bottom: 20px;
+    padding: .5em;
 }
 
-.member-gh-link {
-    text-decoration: none;
-    color: black;
+@media (max-width: 850px) {
+    .team-container-main {
+        flex-direction: column;
+    }
 }

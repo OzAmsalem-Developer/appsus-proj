@@ -1,4 +1,3 @@
-// import { templateService } from '../template.service.js'
 import { noteText, noteImg, noteTodos, noteVideo } from '../template.service.js'
 import noteMenu from '../cmps/note-menu.cmp.js'
 import noteEdit from '../cmps/note-edit.cmp.js'
@@ -25,11 +24,9 @@ export default {
     },
     methods: {
         openEdit() {
-            console.log('Open EDIT')
             this.isEdit = true
         },
         closeEdit() {
-            console.log('Close EDIT')
             this.isEdit = false
         },
         toggleEdit() {

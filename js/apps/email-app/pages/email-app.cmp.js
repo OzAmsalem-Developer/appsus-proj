@@ -28,6 +28,7 @@ export default {
                 <email-side-filter @filtered="setSideFilter" 
                 :menuClass="menuClass"
                 @menuClosed="isMenuOpen = false"
+                :emailsCount="emails.length"
                 :unreadCount="unreadCount">
                 </email-side-filter>
             </aside>
@@ -127,8 +128,6 @@ export default {
             const filteredEmails = this.emails.filter(email => {
                 const txt = this.filterBy.txt.toLowerCase()
                 const subject = email.subject.toLowerCase()
-                console.log(email.body);
-                
                 const body = email.body.toLowerCase()
                 const fromName = email.from.toLowerCase()
 

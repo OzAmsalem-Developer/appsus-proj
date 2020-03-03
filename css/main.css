@@ -5,6 +5,7 @@
 @import './cmps/main-nav.cmp.css';
 @import './cmps/search-bar.cmp.css';
 @import './cmps/user-msg.cmp.css';
+@import './cmps/progress-bar.cmp.css';
 
 /* Pages: */
 @import './pages/home-page.cmp.css';
